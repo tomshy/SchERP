@@ -302,7 +302,7 @@ if($action == 'viewfees' )
                                                           </tr>
                                                           <tr>
                                                           	<td style="font-weight:bold; text-align:left; padding: 3px 3px 3px 0px;">Total</td>
-                                                            <td style="font-weight:bold; text-align:center;">Rs. <?php echo $total; $total=0; ?></td>
+                                                            <td style="font-weight:bold; text-align:center;">Ksh. <?php echo $total; $total=0; ?></td>
                                                             <td></td>
                                                           </tr>
                                                 <tr>
@@ -369,7 +369,7 @@ if ($action == 'print_fees') {
 		foreach($all_classlist as $eachclass){			
 			$es_classID = $eachclass['es_classesid'] ;
 ?>
-				<fieldset> <legend class="adminfont">Fee Details For Class :<?php echo $eachclass['es_classname']; ?></legend>
+				<fieldset> <legend class="adminfont">Fee etails For Class :<?php echo $eachclass['es_classname']; ?></legend>
 				<table width="95%" border="0" cellspacing="0" cellpadding="0">
 				  <tr>
 					<td width="0" class="bgcolor_02"></td>
@@ -406,7 +406,7 @@ if ($action == 'print_fees') {
                   </tr>
                    <tr>
                         <td style="font-weight:bold; text-align:right; padding: 3px 3px 3px 0px;">Total:</td>
-                        <td style="font-weight:bold; text-align:center;">Rs. <?php echo $total; $total=0; ?></td>
+                        <td style="font-weight:bold; text-align:center;">Ksh. <?php echo $total; $total=0; ?></td>
                    </tr>
                    
 				  <?php } else { ?>	
@@ -482,7 +482,7 @@ if ($action == 'print_fees_class') {
         </tr>
         <tr>
         	<td style="font-weight:bold; text-align:right; padding: 3px 3px 3px 0px;">Total:</td>
-            <td style="font-weight:bold; text-align:center;">Rs. <?php echo $total; $total=0; ?></td>
+            <td style="font-weight:bold; text-align:center;">Ksh. <?php echo $total; $total=0; ?></td>
         </tr>
 <?php }else {					
 					echo '<tr class="narmal"><td align="center" colspan="4">No Particulars Added</td></tr>';	

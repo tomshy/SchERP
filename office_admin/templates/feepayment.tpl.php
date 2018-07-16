@@ -157,34 +157,44 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 	header('location: ./?pid=1&unauth=0');
 	exit;
 }
-
-
-
-
-
-
-
-
-
 if ($action == 'payfee')
 { 
 ?>
 <style type="text/css">
-<!--
 .style2 {
 	color: #FF0000;
 	font-weight: bold;
 }
--->
 </style>
 
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+         <td height="3" colspan="3"></td>
   </tr>
-  <tr>
-    <td align="left" valign="top">&nbsp;</td>
-  </tr>
+	<tr><td height="25" colspan="3" class="bgcolor_02">&nbsp;&nbsp;<span class="admin">Pay Fee</span></td></tr>
+	<tr>
+		<td width="1" class="bgcolor_02"></td>
+		<td align="left" valign="top">
+			<form method="post" action="" name="fetchstudent">
+			<div><div >&nbsp;</div>
+				<span align="left"  >&nbsp;&nbsp;Student Registration No :</span>
+				<span  class="narmal"><?php echo $_SESSION['eschools']['student_prefix'];?>&nbsp;<input type="text" name="studentid"  value="<?php echo $studetails['es_preadmissionid']; ?>" /></span>&nbsp;<select name="pre_year">
+						<?php  foreach($school_details_res as $each_record) { ?>
+						<option value="<?php echo $each_record['es_finance_masterid']; ?>" <?php if ($each_record['es_finance_masterid']==$pre_year) { echo "selected"; }?>><?php echo displaydate($each_record['fi_startdate'])." To ".displaydate($each_record['fi_enddate']); ?>						                        </option>
+						<?php } ?>
+						</select>	&nbsp;
+				<input type="hidden" name="std_count" value="<?php echo count($school_details_res ); ?>"	 />	
+				<input type="submit" name="getstudetails" value="Go" class="bgcolor_02" style="padding-left:10px;padding-right:10px;cursor:pointer;"/></div>
+			</form>
+		</td>
+		<td width="1" class="bgcolor_02"></td>
+	</tr>
+	<tr>
+		<td width="1" class="bgcolor_02"></td>
+		<td height="10" >&nbsp;</td>
+		<td width="1" class="bgcolor_02"></td>
+	</tr>
+	<tr><td height="1" colspan="3" class="bgcolor_02"></td></tr>
 </table>
 <?php
 //echo 'sfsf'.$studentid;
@@ -4964,7 +4974,7 @@ if($action == "ad_classwise_fee_card" || $action == "ad_classwise_fee_card_print
     			<td>
                 <form method="post" action="" name="fetchstudent">
 				
-                <!------------------------------ Start: 'class' select tag ------------------------------>
+                <!-- Start: 'class' select tag -->
 				<span align="left"><br>&nbsp;&nbsp;Class :</span>
                 <select name="cfc_pre_class">
                     <option value="">-- Select Class --</option>
