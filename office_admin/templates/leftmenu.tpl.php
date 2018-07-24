@@ -134,14 +134,14 @@ if (in_array('2_p', $admin_permissions)){?>
 </table></div>
 <ul class="categoryitems">
 <li><a href="?pid=22&action=school_details">Institute Details</a></li>
-<li><a href="?pid=20&action=manageclasses">Groups / Classes / Subjects</a></li>
-<li><a href="?pid=97&action=list">Class Sections</a></li>
-<li><a href="?pid=20&action=htmlcode">API for Login</a></li>
+<li><a href="?pid=20&action=manageclasses">Add Classes/Subject Groups/Subjects</a></li>
+<!--<li><a href="?pid=97&action=list">Add Classes</a></li>-->
+<!--<li><a href="?pid=20&action=htmlcode">API for Login</a></li>-->
 <!--<li><a href="?pid=121&page=castecategory">Caste </a></li>-->
-<li><a href="?pid=94&page=caste">Caste Categories</a></li>
+<!--<li><a href="?pid=94&page=caste">Caste Categories</a></li>-->
 <!--<li><a href="?pid=121&page=cat">Categories & Caste </a></li>-->
 <!--<li><a href="?pid=94&page=int">Other Institutes</a></li>-->
-<li><a href="?pid=94&page=transport">Student Pick-up Point </a></li>
+<!--<li><a href="?pid=94&page=transport">Student Pick-up Point </a></li>-->
 <!--<li><a href="?pid=94&page=subject&action=list">Subjects Categorization</a></li>-->
 </ul>
 <?php }?>
@@ -171,26 +171,6 @@ if (in_array('2_p', $admin_permissions)){?>
 
 <?php
 
-if (in_array('3_p', $top_level_permissions) ){
-if (in_array('3_p', $admin_permissions)){ ?>
-<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="37px"><img src="images/frontoffice_32.png" /></td>
-    <td >Front Office</td>
-  </tr>
-</table></div>
-<ul class="categoryitems">
-<?php if (in_array('3_1', $admin_permissions)){ ?><li><a href="?pid=8">Enquiry Form</a></li><?php }?>
-<li><a href="?pid=2&action=list_enquiry">Enquiry List</a></li>
-<?php //if (in_array("3_4", $admin_permissions)) {?><!--<li><a href="?pid=3&action=list_enquiry">Admitted Students</a></li>--><?php //}?>
-<?php ?><?php if (in_array("3_7", $admin_permissions)) {?><li><a href="?pid=3&action=enquiry_students">Admitted Students [Enquiry]</a></li><?php }?><?php ?>
-
- <!--<li> <a href="report.html"class="menutitlein">Reports</a><br /> </li>-->
-<!--<li><a href="?pid=3">Entrance Test</a></li>-->
-</ul>
-<?php }
-
- }
  if (in_array('4_p', $top_level_permissions) ){if (in_array('4_p', $admin_permissions)){?>
 <div class="menuheader" style="cursor: default">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -211,7 +191,7 @@ if (in_array('3_p', $admin_permissions)){ ?>
 
 <li><a href="?pid=21&action=serchclass">Search Student Record</a></li>
 
-<li><a href="?pid=21&action=classrecards">Update Class Record</a></li>
+<li><a href="?pid=21&action=classrecards">Update Student Record</a></li>
 <li><a href="?pid=21&action=malefemalestudents">Male-Female</a></li>
 <?php if (in_array('5_5', $admin_permissions)){?>
 <li><a href="?pid=23&action=issuetcforstudent">Transferred Students</a></li>
@@ -230,7 +210,7 @@ if (in_array('3_p', $admin_permissions)){ ?>
   </tr>
 </table></div>
 <ul class="categoryitems">
-<li><a href="?pid=17&action=createfeetypes" >Add  Fees </a></li>
+<li><a href="?pid=17&action=createfeetypes" >Add Fees Category</a></li>
 <!--<li><a href="?pid=79&action=addfine"><span id="internal-source-marker_0.5963001342130408">Late Fee Fine</span></a></li>-->
 <!--<li><a href="?pid=79&action=add_lastdate">Fee Due Date</a></li>-->
 <li><a href="?pid=17&action=viewfees">Fee Details</a></li>
@@ -269,27 +249,6 @@ if (in_array('3_p', $admin_permissions)){ ?>
 <li><a href="?pid=46&action=addnewstaff">Add Staff</a></li>
 <li><a href="?pid=15&action=staffviewing">View Staff</a></li>
 <li><a href="?pid=64&action=asignincharge">Assign Incharge</a></li>
-</ul>
-
-<?php }}if (in_array('9_p', $top_level_permissions) ){if (in_array('9_p', $admin_permissions)){?>
-<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="37px"><img src="images/hrd_32.png" /></td>
-    <td >HRD</td>
-  </tr>
-</table></div>
-<ul class="categoryitems">
-<li><a href="?pid=9&action=post_vacancy">Post Vacancy</a></li>
-<li><a href="?pid=23&action=applicant_enquiries">Applicant Enquiry</a></li>
-<li><a href="?pid=23&action=search_applicants">Search Applicants</a></li>
-<li><a href="?pid=23&action=take_interview">Take Interview</a></li>
-<li><a href="?pid=15&action=applicants_list">Applicants List</a></li>
-<li><a href="?pid=23&action=offerlettergenration">Generate Offer Letter</a></li>
-<li><a href="?pid=23&action=letter_formats">Letter Formats</a></li>
-<li><a href="?pid=23&action=issuetcstaff">Resignation/Termination</a></li>
-<li><a href="?pid=23&action=letterslist">Other letter Formats</a></li>
-<li><a href="?pid=23&action=sendlettertostaff">Send Letter</a></li>
-<li><a href="?pid=23&action=otherlettergeneration">Print Letter </a></li>
 </ul>
 <?php } }if (in_array('13_p', $top_level_permissions) ){if (in_array('13_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">

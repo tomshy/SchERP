@@ -423,21 +423,7 @@ if(isset($sub_class) && $sub_class!="")
 			}
 		  
 		  }	
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		
-		  	
-		 
-		 if(isset($sm_class) && $sm_class !="")
+		  if(isset($sm_class) && $sm_class !="")
 		 {
 		  	//$condition .=" AND admdetail.es_preadmissionid = '".$sm_section."'";
 			if($sm_class=="All")
@@ -1070,7 +1056,7 @@ if((isset($_POST['searchstudentlist']) && $_POST['searchstudentlist']!="") || $_
 {
 $vlc = new FormValidation();
 
-if($sm_class=='all'){$errormessage[0]="Select Class";}
+if($sm_class==''){$errormessage[0]="Select Class";}
 
 
 if(count($errormessage)==0){

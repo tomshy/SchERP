@@ -207,8 +207,7 @@ function logs(MyWin,user_id,table_name,record_id,action)
 					  <select name="sm_class" onchange="submit();">
 					  <option value="">select</option>
 					  
-                      <?php 
-							  
+                      <?php 							  
 							  if (is_array($obj_classlistarr) && count($obj_classlistarr) > 0) 
 							  { 
 							  	foreach ($obj_classlistarr as $eachrecord1)
@@ -302,7 +301,7 @@ function logs(MyWin,user_id,table_name,record_id,action)
                              <td width="45%" class="narmal"><?php echo $_SESSION['eschools']['student_prefix'];?><?php echo $eachrecord['es_preadmissionid'];?></td>
                            </tr><?php */?>
                            <tr class="bgcolor_02">
-                             <td width="405" height="25"  align="center" >Applicant Name</td>
+                             <td width="405" height="25"  align="center" >Student Name</td>
                              <td width="56%"  align="center" >Action</td>
                            </tr>
 						   <tr>
@@ -2656,7 +2655,7 @@ border:#333333 1px solid;
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr><td colspan="3" height="6"></td></tr>
 	<tr>
-	  <td height="25" colspan="3" class="bgcolor_02">&nbsp;&nbsp;Update class record</td>
+	  <td height="25" colspan="3" class="bgcolor_02">&nbsp;&nbsp;Update Student record</td>
 	</tr>
 	<tr><td height="1" colspan="3" class="bgcolor_02"></td></tr>
 	<tr>
@@ -2994,8 +2993,7 @@ document.preadmission.pre_country.value=document.preadmission.pre_country1.value
 				<tr>
 					<td width="14%" align="left" valign="middle" class="narmal">&nbsp;&nbsp;Class:</td>
 					<td width="28%" align="left" valign="middle"  class="narmal"><select name="sm_class" style="width:110px;">
-                      <option value="">Select</option>
-					  <option value="All" <?php echo ($sm_class=="All")?"selected":""?>>All</option>
+                      <option value="">Select</option>					  
                       <?php 
 				  if (count($allClasses)>0){
 					  foreach($allClasses as $eachClass) {?>

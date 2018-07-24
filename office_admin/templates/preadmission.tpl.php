@@ -1173,7 +1173,9 @@ $ret=mysql_fetch_array($res);
 								 <td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >&nbsp;&nbsp;<span class="admin">Mother's Details </span></td>
 							  </tr>
 							  <tr>
-								<td height="133" colspan="6" align="left" valign="top" class="narmal"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<td height="133" colspan="6" align="left" valign="top" class="narmal">
+
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								  <!--DWLayoutTable-->
                                   <tr>
                                     <td width="6"></td>
@@ -1233,14 +1235,11 @@ $ret=mysql_fetch_array($res);
                                         <td width="30%"><input name="pre_dateofbirth3" type="text" id="pre_dateofbirth3" size="10" value="<?php if (isset($es_enquiryList[0]->eq_dob)) {	echo func_date_conversion("Y-m-d","d/m/Y",$es_enquiryList[0]->eq_dob);}else{echo $pre_dateofbirth; } ?>" readonly="readonly" /></td>
                                         <td width="70%"><a href="javascript:void(0)" onclick="if(self.gfPop)gfPop.fPopCalendar(document.preadmission.pre_dateofbirth3);return false;" ><img src="<?php echo JS_PATH ?>/WeekPicker/calbtn.gif" alt="Calender" name="popcal" width="34" height="22" border="0" align="absmiddle" id="popcal" /></a><font color="#FF0000"><b>&nbsp;*</b></font></td>
                                       </tr><?php */?>
-                                     </table></td>
-							        <td></td>
-                                     <td></td>
-                                     <td></td>
-                                     <td></td>
-                                   </tr>
-                                </table></td>
-							  </tr>
+                                     </table>
+                                </td>
+							        
+                                </tr>
+                                
 							  <tr>
 								 <td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >&nbsp;&nbsp;<span class="admin">Guardian's Details </span></td>
 							  </tr>
@@ -1248,8 +1247,8 @@ $ret=mysql_fetch_array($res);
 								<td height="167" colspan="6" align="left" valign="top" class="narmal"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 								  <!--DWLayoutTable-->
                                   <tr>
-                                    <td width="160"></td>
-                                    <td width="17%" height="30" align="left">Name Of Gaurdian </td>
+                                    
+                                    <td width="17%" height="30" align="left">Name Of Guardian </td>
                                     <td width="2%" align="left">:</td>
                                     <td width="30%" align="left"><input name="pre_current_class2" type="text" size="15" value="<?php echo $pre_current_class2;?>" /></td>
                                     <td width="17%" align="left">Office Phone </td>
@@ -1258,90 +1257,63 @@ $ret=mysql_fetch_array($res);
 								if (isset($es_enquiryList[0]->eq_phno) && $es_enquiryList[0]->eq_phno!=''){echo $es_enquiryList[0]->eq_phno;
 									}else{echo $pre_resno;} ?>"/>                                      &nbsp;</td>
                                   </tr>
-								  
-								  
-								  <tr>
-								    <td></td>
-                                    <td width="17%" height="30" align="left">Residential Address Of Gaurdian </td>
+                                  <tr>								    
+                                    <td width="17%" height="30" align="left">Residential Address Of Guardian </td>
                                     <td width="2%" align="left">:</td>
-                                    <td width="30%" align="left"><textarea name="pre_current_percentage2" style="width:50%"><?php echo $pre_current_percentage2; ?></textarea></td>
+                                    <td width="30%" align="left"><textarea name="pre_current_percentage2" style="width:50%"><?php echo $pre_current_percentage2; ?></textarea></td><br>
                                    <?php /*?> <td width="17%" align="left">Residence phone </td>
                                     <td width="2%" align="left">:</td>
                                     <td width="32%" align="left"><input name="pre_resno1" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_phno) && $es_enquiryList[0]->eq_phno!=''){echo $es_enquiryList[0]->eq_phno;
 									}else{echo $pre_resno1;} ?>"/>                                      &nbsp;</td><?php */?>
                                   </tr>
-								  
-                                  
+								  </table>
+                                </td>
+                              </td>
+                        	</tr>
+                        </table>
+                        <table>
                                   <tr>
-								     <td></td>
-								 <td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >
-								 &nbsp;Family <span class="admin"> Details </span></td>
+								 <td height="23" colspan="6" valign="middle" class="bgcolor_02" >
+								 &nbsp;<span class="admin">Family Details </span></td>
 							  </tr>
                                   
                                   <tr>
-                                  <td colspan="9">
+                                  <td colspan="6">
                                   <table width="100%" border="1" cellspacing="0" cellpadding="0">
-               <tr>
-                
-				 
-				 
-				 
-				 
-                 <td width="5%" height="30" align="left"><span class="narmal">Sr. No. </span></td>
-				  <td width="20%" height="30" align="left"><span class="narmal">Name of Family Members </span></td> 
-				  <td width="15%" height="30" align="center"><span class="narmal">Age </span></td>
-				   <td width="20%" height="30" align="left"><span class="narmal">Relation With Student </span></td>
-				    <td width="20%" height="30" align="left"><span class="narmal">&nbsp;&nbsp;Education </span></td>
-					<td width="20%" height="30" align="left"><span class="narmal">&nbsp;&nbsp;Occupation </span></td>
-               </tr>
-				 
+                                  	<tr>
+                 						<td width="5%" height="30" align="left"><span class="narmal">Sr. No. </span></td>
+				  						<td width="20%" height="30" align="left"><span class="narmal">Name of Family Members </span></td> 
+									  	<td width="15%" height="30" align="center"><span class="narmal">Age </span></td>
+									    <td width="20%" height="30" align="left"><span class="narmal">Relation With Student </span></td>
+									    <td width="20%" height="30" align="left"><span class="narmal">&nbsp;&nbsp;Education </span></td>
+										<td width="20%" height="30" align="left"><span class="narmal">&nbsp;&nbsp;Occupation </span></td>
+               						</tr>
+               						<tr>
+               							<td width="10%" height="30" align="left"><span class="narmal">1 </span></td>
+										<td width="20%" height="30" align="left"><input name="pre_family1" type="text" size="15" value="<?php  if($eachrecord1['pre_family1']!='') { echo $eachrecord1['pre_family1'];} else {echo $pre_family1;} ?>" /></td> 
+									  	<td width="15%" height="30" align="left"><input name="age1" type="text" size="15" value="<?php  if($eachrecord1['age1']!='') { echo $eachrecord1['age1'];} else {echo $age1;} ?>" /></td>
+									    <td width="20%" height="30" align="left"><input name="relation1" type="text" size="15" value="<?php  if($eachrecord1['relation1']!='') { echo $eachrecord1['relation1'];} else {echo $relation1;} ?>" /></td>
+									    <td width="20%" height="30" align="left"><input name="eduation1" type="text" size="15" value="<?php  if($eachrecord1['eduation1']!='') { echo $eachrecord1['eduation1'];} else {echo $eduation1;} ?>" /></td>
+										<td width="20%" height="30" align="left"><input name="occupation1" type="text" size="15" value="<?php  if($eachrecord1['occupation1']!='') { echo $eachrecord1['occupation1'];} else {echo $occupation1;} ?>" /></td>
+					                 </tr>
+					                 <tr>
+					                 	<td width="10%" height="30" align="left"><span class="narmal">2 </span></td>
+										<td width="20%" height="30" align="left"><input name="pre_family2" type="text" size="15" value="<?php  if($eachrecord1['pre_family2']!='') { echo $eachrecord1['pre_family2'];} else {echo $pre_family2;} ?>" /></td> 
+										<td width="15%" height="30" align="center"><input name="age2" type="text" size="15" value="<?php  if($eachrecord1['age2']!='') { echo $eachrecord1['age2'];} else {echo $age2;} ?>" /></td>
+										<td width="20%" height="30" align="left"><input name="relation2" type="text" size="15" value="<?php  if($eachrecord1['relation2']!='') { echo $eachrecord1['relation2'];} else {echo $relation2;} ?>" /></td>
+										<td width="20%" height="30" align="left"><input name="eduation2" type="text" size="15" value="<?php  if($eachrecord1['eduation2']!='') { echo $eachrecord1['eduation2'];} else {echo $eduation2;} ?>" /></td>
+										<td width="20%" height="30" align="left"><input name="occupation2" type="text" size="15" value="<?php  if($eachrecord1['occupation2']!='') { echo $eachrecord1['occupation2'];} else {echo $occupation2;} ?>" /></td>
+                 					</tr>				 
 				 <tr>
-                
-				 
-				 
-				 
-				 
-                 <td width="10%" height="30" align="left"><span class="narmal">1 </span></td>
-				  <td width="20%" height="30" align="left"><input name="pre_family1" type="text" size="15" value="<?php  if($eachrecord1['pre_family1']!='') { echo $eachrecord1['pre_family1'];} else {echo $pre_family1;} ?>" /></td> 
-				  <td width="15%" height="30" align="left"><input name="age1" type="text" size="15" value="<?php  if($eachrecord1['age1']!='') { echo $eachrecord1['age1'];} else {echo $age1;} ?>" /></td>
-				   <td width="20%" height="30" align="left"><input name="relation1" type="text" size="15" value="<?php  if($eachrecord1['relation1']!='') { echo $eachrecord1['relation1'];} else {echo $relation1;} ?>" /></td>
-				    <td width="20%" height="30" align="left"><input name="eduation1" type="text" size="15" value="<?php  if($eachrecord1['eduation1']!='') { echo $eachrecord1['eduation1'];} else {echo $eduation1;} ?>" /></td>
-					<td width="20%" height="30" align="left"><input name="occupation1" type="text" size="15" value="<?php  if($eachrecord1['occupation1']!='') { echo $eachrecord1['occupation1'];} else {echo $occupation1;} ?>" /></td>
-                 </tr>
-				 
-				 
-				 
-				 <tr>
-                
-				 
-				 
-				 
-				 
-                 <td width="10%" height="30" align="left"><span class="narmal">2 </span></td>
-				  <td width="20%" height="30" align="left"><input name="pre_family2" type="text" size="15" value="<?php  if($eachrecord1['pre_family2']!='') { echo $eachrecord1['pre_family2'];} else {echo $pre_family2;} ?>" /></td> 
-				  <td width="15%" height="30" align="center"><input name="age2" type="text" size="15" value="<?php  if($eachrecord1['age2']!='') { echo $eachrecord1['age2'];} else {echo $age2;} ?>" /></td>
-				   <td width="20%" height="30" align="left"><input name="relation2" type="text" size="15" value="<?php  if($eachrecord1['relation2']!='') { echo $eachrecord1['relation2'];} else {echo $relation2;} ?>" /></td>
-				    <td width="20%" height="30" align="left"><input name="eduation2" type="text" size="15" value="<?php  if($eachrecord1['eduation2']!='') { echo $eachrecord1['eduation2'];} else {echo $eduation2;} ?>" /></td>
-					<td width="20%" height="30" align="left"><input name="occupation2" type="text" size="15" value="<?php  if($eachrecord1['occupation2']!='') { echo $eachrecord1['occupation2'];} else {echo $occupation2;} ?>" /></td>
-                 </tr>
-				 
-				 <tr>
-                
-				 
-				 
-				 
-				 
-                 <td width="10%" height="30" align="left"><span class="narmal">3 </span></td>
+				 	<td width="10%" height="30" align="left"><span class="narmal">3 </span></td>
 				  <td width="20%" height="30" align="left"><input name="pre_family3" type="text" size="15" value="<?php  if($eachrecord1['pre_family3']!='') { echo $eachrecord1['pre_family3'];} else {echo $pre_family3;} ?>" /></td> 
 				  <td width="15%" height="30" align="left"><input name="age3" type="text" size="15" value="<?php  if($eachrecord1['age3']!='') { echo $eachrecord1['age3'];} else {echo $age3;} ?>" /></td>
 				   <td width="20%" height="30" align="left"><input name="relation3" type="text" size="15" value="<?php  if($eachrecord1['relation3']!='') { echo $eachrecord1['relation3'];} else {echo $relation3;} ?>" /></td>
 				    <td width="20%" height="30" align="left"><input name="eduation3" type="text" size="15" value="<?php  if($eachrecord1['eduation3']!='') { echo $eachrecord1['eduation3'];} else {echo $eduation3;} ?>" /></td>
 					<td width="20%" height="30" align="left"><input name="occupation3" type="text" size="15" value="<?php  if($eachrecord1['occupation3']!='') { echo $eachrecord1['occupation3'];} else {echo $occupation3;} ?>" /></td>
                  </tr>
-				 
-				 
-				 <tr>
+                 <tr>
                 
 				 
 				 
@@ -1383,35 +1355,20 @@ $ret=mysql_fetch_array($res);
 				    <td width="20%" height="30" align="left"><input name="eduation6" type="text" size="15" value="<?php  if($eachrecord1['eduation6']!='') { echo $eachrecord1['eduation6'];} else {echo $eduation6;} ?>" /></td>
 					<td width="20%" height="30" align="left"><input name="occupation6" type="text" size="15" value="<?php  if($eachrecord1['occupation6']!='') { echo $eachrecord1['occupation6'];} else {echo $occupation6;} ?>" /></td>
                  </tr>
-				 <tr><td>&nbsp;</td></tr>
-				 
-				 
-				 
-                
-			   			  
-               
-             </table>
+				 </table>
                                   </td>
-                                  </tr>
-                                  
-                                  
-                                  
+                 </tr>
                                   <tr>
-								     <td></td>
+								     
 								 <td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >
-								 &nbsp;Previous<span class="admin"> School Details </span></td>
+								 Previous School Details</td>
 							  </tr>
                                   
                                   <tr>
                                   	<td colspan="9">
                                     <table width="100%" border="1" cellspacing="0" cellpadding="0">
                <tr>
-                
-				 
-				 
-				 
-				 
-                 <td width="5%" height="30" align="left"><span class="narmal">Sr. No. </span></td>
+               	<td width="5%" height="30" align="left"><span class="narmal">Sr. No. </span></td>
 				  <td width="20%" height="30" align="left"><span class="narmal">Name of School & Address </span></td> 
 				  <td width="15%" height="30" align="left"><span class="narmal">Enrollment No. </span></td>
 				   <td width="20%" height="30" align="left"><span class="narmal">From Year </span></td>
@@ -1457,9 +1414,9 @@ $ret=mysql_fetch_array($res);
                                   
 								  
 								   <tr>
-								     <td></td>
+								     
 								 <td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >
-								 &nbsp;Other<span class="admin"> Information </span></td>
+								 &nbsp;Other Information</td>
 							  </tr>
 								  <tr>
 								    <td></td>
@@ -1522,7 +1479,7 @@ $ret=mysql_fetch_array($res);
 												<table width="100%" border="0" cellpadding="0" cellspacing="0">
 											  <tr>
 												<td align="left" height="23" colspan="6" valign="middle" class="bgcolor_02" >&nbsp;
-<span class="admin">Name &amp; Class Of Your Other Children In This School </span></td>
+Name &amp; Class Of Your Other Children In This School</td>
 											  </tr>
                                         <tr  >
 											<td colspan="7" align="center" valign="top">
@@ -1546,7 +1503,7 @@ $ret=mysql_fetch_array($res);
 												  </tr>					
 													<tr>
 												<td align="left" height="22" colspan="7" valign="middle" class="bgcolor_02" >&nbsp;
-<span class="admin">Withdrawal Details </span></td>
+Withdrawal Details</td>
 											  </tr>
 													<tr>
 													  <td height="28" align="left" valign="top">Date of Leaving </td>
@@ -1651,106 +1608,11 @@ $ret=mysql_fetch_array($res);
                                         <tr  >
 											<td align="center" valign="top">
 												<table width="100%" border="0" cellpadding="0" cellspacing="0">
-											  <tr>
-												<td align="left" height="31" colspan="6" valign="middle" class="bgcolor_02" ><span class="admin">&nbsp;ALUMINI LOGIN</span> </td>
-											  </tr>
+											  
                                         <tr  >
 											<td colspan="7" align="center" valign="top">
 												<table width="100%" border="0" cellpadding="3" cellspacing="0">
-												  <!--DWLayoutTable-->
-											 
-													<tr>
-													  <td width="17%" height="30" align="left"> Login Id </td>
-                                                      <td width="2%" align="left">:</td>
-                                    <td width="30%" align="left"><?php echo $reg_No; ?> <!--<input name="ann_income" type="text" size="15" value="<?php //echo $ann_income;?>" />--></td>
-                                    <td width="17%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="2%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="32%" align="left">&nbsp;</td>
-                                  </tr>
-								  <tr>
-                                    <td width="17%" height="30" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="2%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="30%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="17%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="2%" align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td width="32%" align="left">&nbsp;</td>
-												  </tr>
-												  
-												  <tr>
-												  <td align="left" colspan="7" class="bgcolor_02" height="25"><span class="admin">&nbsp;TRANSPORT</span></td></tr>
-                                                    <tr><td align="left" colspan="7">
-                                                    
-                                                    <table width="100%" cellpadding="3" cellspacing="0">
-                                                    <tr>
-                                                       <td width="30%">School Bus Transport</td>
-                                                       <td width="2%">:</td>
-                                                      <td width="68%"><input type="checkbox" name="transport" value="YES" <?php if($transport=="YES"){?> checked="checked"<?php }?> /></td>
-                                                    </tr>
-                                                    <tr>
-                                                       <td><span id="internal-source-marker_0.1335878380918223">Pick-up Point</span></td>
-                                                       <td>:</td>
-                                                       <td><select name="tr_place_id">
-                                                        <option value="">-- Select --</option>
-                                   
-                                    <?php 
-									$trplaces_arr = $db->getrows("SELECT * FROM es_transport_places");
-									if(count($trplaces_arr)>0){
-									foreach($trplaces_arr  as $each){
-									?>
-          <option value="<?php echo $each['tr_place_id'];?>" <?php if($tr_place_id==$each['tr_place_id']){echo "selected='selected'";}?>><?php echo ucwords($each['place_name']); ?></option>
-                                    <?php
-									}
-									}
-									?>
-                                    </select> </td>
-                                                    </tr> 
-                                                    <tr>
-                                                       <td>Route / Board</td>
-                                                       <td>:</td>
-                                                       <td>
-                                                       <select name="boardid">
-                                                       <option value="">Select Route/Board</option>
-                                                       <?php
-													   $route_sql="SELECT * FROM es_trans_route R WHERE R.status!='Delete'";
-													   $route_exe=mysql_query($route_sql);
-													   while($route_row=mysql_fetch_array($route_exe)){
-													   $new_word =substr($route_row['route_Via'], 0, 25);
-													   
-													   ?>
-                                                       <option label="<?php echo $route_row['route_title']." -(".$new_word.")"; ?>">
-                                                       <?php
-													   $board_sql="SELECT * FROM es_trans_board B WHERE B.status!='Delete' AND route_id=".$route_row['id'];
-													   $board_exe=mysql_query($board_sql);
-													   while($board_row=mysql_fetch_array($board_exe)){
-														   
-														   $query_sql="SELECT * FROM es_trans_board_allocation_to_student WHERE status='Active' AND board_id=".$board_row['id'];
-														   $query_exe=mysql_query($query_sql);
-														   $query_num=mysql_num_rows($query_exe);
-														   
-														   if($query_num<$board_row['capacity']){
-														   
-														   ?>													   
-                                                       <option value="<?php echo $board_row['id'];?>" <?php if($boardid==$board_row['id']){?> selected="selected"<?php }?>><?php echo $board_row['board_title']; ?></option>
-                                                       <?php }}?>
-                                                       </option>
-                                                       <?php }?>
-                                                       </select>                                                       </td>
-                                                    </tr> 
-                                                      <tr>
-                                                       <td>Other Transport</td>
-                                                       <td>:</td>
-                                                       <td><input type="text" name="pre_physical_details" value="<?php echo $pre_physical_details;?>"/></td>
-                                                    </tr>
-                                                    <tr>
-                                                       <td><span id="internal-source-marker_0.1335878380918223">Other Transport Description </span></td>
-                                                       <td>:</td>
-                                                      <td><textarea cols="25" rows="5" name="pre_height"><?php echo $pre_height;?></textarea></td>
-                                                    </tr>   
-                                                    </table>
-                                                    
-                                                    </td></tr>
-													
-															
+												    </td></tr>
 													<?php /*?><tr>
 														<td align="center" valign="top">
 								<input type="text" name="pre_physical_details" value="<?php echo $pre_physical_details;?>"/>										

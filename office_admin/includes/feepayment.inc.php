@@ -63,11 +63,6 @@ if(isset($school_year)){
 
 $school_details_sel = "SELECT * FROM `es_finance_master` ORDER BY `es_finance_masterid` DESC";
 $school_details_res = getamultiassoc($school_details_sel);
-
-
-
-
-
 if($action == 'payfee')
 {
 	//--------------------------------------------------------- If student search button is set ---------------------------------------------------------//
@@ -1626,13 +1621,14 @@ if($action == "ad_fee_card" || $action == "print_fee_card")
 		if(!empty($fcp_reg_no))
 		{
 			$is_exists_student = $db->getOne("SELECT COUNT(*) FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no);
-			if($is_exists_student == 0)
-				$errormessage[1] = "Student does not exists";
-		}
-		
+			if($is_exists_student == 0){
+				$errormessage[1] = "Student does not exist";
+			}
+		//$student_count=$db->getOne("SELECT COUNT(*) FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no. "AND ")
 		if(count($errormessage) == 0)
 		{
 			$proceed = true;
+			
 			$student_info = $db->getRow("SELECT * FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no);
 			//$fcp_class = $db->getOne("SELECT es_classname FROM es_classes WHERE es_classesid=".$student_info['pre_class']);
 			$fcp_classesid = $db->getOne("SELECT pre_class FROM es_preadmission_details WHERE es_preadmissionid=".$fcp_reg_no." AND pre_fromdate='".$fcp_fi_startdate."' AND pre_todate='".$fcp_fi_enddate."'");
@@ -1650,14 +1646,9 @@ if($action == "ad_fee_card" || $action == "print_fee_card")
 			}
 		}
 	}
+	}
 }
 ?>
-
-
-
-
-
-
 <?php 
 if($action == "ad_classwise_fee_card" || $action == "ad_classwise_fee_card_print")
 {
