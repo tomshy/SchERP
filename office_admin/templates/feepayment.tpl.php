@@ -497,10 +497,13 @@ if ($action == 'payfee')
                   		function checkAmt(){
                   			var remaining	= document.getElementById("remaining").value;
                   			var entered_val	= parseInt(document.getElementById("amount_payable").value);
-                  			if(entered_val > remaining)
+                  			if(entered_val<1)
 								{
 									alert("Entered amount exceeds balance.\nCannot pay greater than remaining fee.");		
 								}
+							if (isNaN(entered_val)) {
+									alert("Please Enter a NUMBER");
+							};
                   		}
 						function distributeFees()
 						{
@@ -508,8 +511,9 @@ if ($action == 'payfee')
 								var n			= document.getElementById("fee_type_count").value;
 								var entered_val	= parseInt(document.getElementById("amount_payable").value);
 								var fine		= parseInt(document.getElementById("fine_payable").value);
-							
-								if(entered_val > remaining)
+								if (entered_val > 0) {
+									
+									if(entered_val > remaining)
 								{
 									
 									for(var y=0; y<n; y++)
@@ -524,6 +528,12 @@ if ($action == 'payfee')
 									alert("Entered amount exceeds balance.\nCannot pay greater than remaining fee.");	
 									
 								}
+								}else{
+									alert("Amount Must be greater than 0");
+									document.getElementById("amount_payable").value="";
+									document.getElementById("amount_payable").select;
+								};
+								
 							
 								for(var y=0; y<n; y++)
 								{
