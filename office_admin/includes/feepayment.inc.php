@@ -121,16 +121,28 @@ if($action == 'payfee')
 		        //------------------------------- Form validation -------------------------------//
                 $vlc = new FormValidation();
 
-                if($vocturetypesel==""){$errormessage[1]="Select Voucher Type";}
-                if ($es_ledger=="") {$errormessage[2]="Select Ledger";}
+                //if($vocturetypesel==""){$errormessage[1]="Select Voucher Type";}
+                //if ($es_ledger=="") {$errormessage[2]="Select Ledger";}
                 if($es_paymentmode==""){$errormessage[3]="Select Payment Mode";}
-                else if($es_paymentmode!="cash")
+                else if($es_paymentmode=="mpesa")
                 {
-                    if (!$vlc->is_alpha_numeric($es_bankacc))
-                            $errormessage[4]="Enter Bank Account Number";
-                    if (!$vlc->is_alpha_numeric($es_checkno))
-                            $errormessage[5]="Enter Cheque Number";
-                }		
+                    if ($es_mpesa_number==""){
+                            $errormessage[4]="Enter Mpesa Number that made the payment";
+                    }
+                    if ($es_mpesa_code==""){
+                            $errormessage[5]="Enter Mpesa Confirmatio Code";
+                    }                    
+                }
+            	else if($es_paymentmode=="dd")
+                {
+                    if (!$vlc->is_alpha_numeric($es_bankacc)){
+                            $errormessage[6]="Enter Bank Account Number";
+                    }
+                    if (!$vlc->is_alpha_numeric($es_checkno)){
+                            $errormessage[7]="Enter Cheque Number";
+                    }
+                    
+                }
                 //-------------------------- End of form validation ----------------------------//
 		
                 
@@ -152,6 +164,8 @@ if($action == 'payfee')
 
                          $obj_voucherentry->es_bank_pin      = $es_bank_pin;
                          $obj_voucherentry->es_bank_name     = $es_bank_name;
+                         $obj_voucherentry->mpesa_number=$es_mpesa_number;
+                         $obj_voucherentry->mpesa_code=$es_mpesa_code;
                          $obj_voucherentry->es_teller_number = $es_teller_number;
 
                          $obj_voucherentry->es_narration   = $es_narration;

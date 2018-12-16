@@ -204,13 +204,13 @@ $viewfid=$_GET['sid'];
 ?>	
                  <tr>
                     <td align="center" valign="top">
-					<table width="100%" border="1" cellspacing="0" cellpadding="3" class="tbl_grid">
+					<!--<table width="100%" border="1" cellspacing="0" cellpadding="3" class="tbl_grid">
                            <tr><td align="center" valign="middle"><?php /*?><input type="button" style="display:block;cursor:pointer;" id="printfeedet_t" name="print_paid_balance" value="Print Fee Paid and Balance" onclick="window.open('?pid=110&action=printpaid_balance&sid=<?php echo $viewfid; ?>',null,''width=700,height=400,scrollbars=yes,toolbar=no,directories=no,status=no,menubar=yes,left=140,top=30');"  class="bgcolor_02"  /><?php */?>
 						   
 						   <input type="button" style="display:block;cursor:pointer;" id="printfeedet_t" name="print_paid_balance" value="Print Fee Paid and Balance" onclick="window.open('?pid=110&action=printpaid_balance&sid=<?php echo $viewfid; ?>',null,'width=700,height=500,scrollbars=yes,toolbar=no,directories=no,status=no,menubar=yes,left=140,top=30');"  class="bgcolor_02"  />
 						   
 						   </td></tr>
-                        </table>
+                        </table>-->
 					
                         
                     </td>

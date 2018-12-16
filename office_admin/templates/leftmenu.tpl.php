@@ -2,24 +2,24 @@
 <script type="text/javascript" src="includes/js/leftmenu/ddaccordion.js"></script>
 <script type="text/javascript">
 ddaccordion.init({
-	headerclass: "expandable", //Shared CSS class name of headers group that are expandable
-	contentclass: "categoryitems", //Shared CSS class name of contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
+  headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+  contentclass: "categoryitems", //Shared CSS class name of contents group
+  revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+  mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+  collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+  defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+  onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+  animatedefault: false, //Should contents open by default be animated into view?
+  persiststate: true, //persist state of opened contents within browser session?
+  toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+  togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+  animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+  oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+    //do nothing
+  },
+  onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+    //do nothing
+  }
 })
 </script>
 <style type="text/css">
@@ -104,10 +104,10 @@ $top_level_permissions= explode(',', $modules_permissions);
 
 $admin_permissions = explode(',', $permissions['admin_permissions']);
 
-				?>
+        ?>
 <?php
-					if (in_array('1_p', $top_level_permissions) ){
-	if (in_array('1_p', $admin_permissions) ){?>
+          if (in_array('1_p', $top_level_permissions) ){
+  if (in_array('1_p', $admin_permissions) ){?>
 <div class="menuheader expandable">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -192,13 +192,13 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=21&action=serchclass">Search Student Record</a></li>
 
 <li><a href="?pid=21&action=classrecards">Update Student Record</a></li>
-<li><a href="?pid=21&action=malefemalestudents">Male-Female</a></li>
+<!--<li><a href="?pid=21&action=malefemalestudents">Male-Female</a></li>-->
 <?php if (in_array('5_5', $admin_permissions)){?>
 <li><a href="?pid=23&action=issuetcforstudent">Transferred Students</a></li>
 <?php } ?>
 
-<li><a href="?pid=3&action=cast_list">Category&nbsp;Wise&nbsp;Data </a></li>
-<li><a href="?pid=3&action=age_wise">Age&nbsp;Wise&nbsp;Data</a></li>
+<!--<li><a href="?pid=3&action=cast_list">Category&nbsp;Wise&nbsp;Data </a></li>
+<li><a href="?pid=3&action=age_wise">Age&nbsp;Wise&nbsp;Data</a></li>-->
 
 <li><a href="?pid=21&action=studentlist2">Students&nbsp;List&nbsp;</a></li>
 </ul>
@@ -236,106 +236,7 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=79&action=view_list">Misc Fine Collection</a></li>
 <li><a href="?pid=79&action=view_oldbalances">View Old Balances</a></li>-->
 </ul>
-<?php }}if (in_array('10_p', $top_level_permissions) ){if (in_array('10_p', $admin_permissions)){?>
-<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="37px"><img src="images/staff_32.png" /></td>
-    <td>STAFF</td>
-  </tr>
-</table></div>
-<ul class="categoryitems">
-
-<li><a href="?pid=49&action=department">Add Department</a></li>
-<li><a href="?pid=46&action=addnewstaff">Add Staff</a></li>
-<li><a href="?pid=15&action=staffviewing">View Staff</a></li>
-<li><a href="?pid=64&action=asignincharge">Assign Incharge</a></li>
-</ul>
-<?php } }if (in_array('13_p', $top_level_permissions) ){if (in_array('13_p', $admin_permissions)){?>
-<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="37px"><img src="images/inventory_32.png" /></td>
-    <td >Inventory </td>
-  </tr>
-</table></div>
-<ul class="categoryitems">
-<?php /*?><?php if (in_array("13_1", $admin_permissions)) {?>
-<li><a href="?pid=7&action=addinventory">Create Inventory Type</a></li>
-<?php }?>
-<?php */?>
-
-<?php /*?><?php if (in_array("13_1", $admin_permissions)) {?>
-<li><a href="?pid=7&action=addmaintain">Maintanance</a></li>
-<?php }?>
-<?php */?>
-<?php if (in_array("13_4", $admin_permissions)) {?>
-<li><a href="?pid=7&action=addcategory">Add Product Category</a></li>
-<?php }?>
-
-<?php if (in_array("13_7", $admin_permissions)) {?>
-<li><a href="?pid=7&action=additem">Add  Item</a></li>
-<?php }?>
-
-<?php if (in_array("13_10", $admin_permissions)) {?>
-<li><a href="?pid=7&action=addsupply">Add  Supplier</a></li>
-<?php }?>
-
-<?php if (in_array("13_13", $admin_permissions)) {?>
-<li><a href="?pid=7&action=add_order">Purchase Order</a></li>
-<?php }?>
-
-<?php if (in_array("13_14", $admin_permissions)) {?>
-<li><a href="?pid=7&action=goods_reciept">Goods Receipt Note</a></li>
-<?php }?>
-
-<?php if (in_array("13_15", $admin_permissions)) {?>
-<li><a href="?pid=7&action=goods_issue">Goods Issue Note</a></li>
-<?php }?>
-
-<?php if (in_array("13_16", $admin_permissions)) {?>
-<li><a href="?pid=7&action=return_issue">Issue Return Note</a></li>
-<?php }?>
-<li><a href="?pid=7&action=stock_details">Stock Details</a></li>
-<li><a href="?pid=7&action=inventory_reports">Inventory Reports</a></li>
-
-<?php /*?><li><a href="?pid=99&action=inventory_reports">Stationary Sales</a></li>
-<?php if (in_array("13_108", $admin_permissions)) {?>
-<li><a href="?pid=103&action=saled_stationary">Stationary&nbsp;Sales&nbsp;Invoices</a></li>
-<?php } ?><?php */?>
-</ul>
-
-
-<?php }}if (in_array('14_p', $top_level_permissions) ){if (in_array('14_p', $admin_permissions)){?>
-<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="37px"><img src="images/transport_32.png"  height="32" width="32" border="0"/></td>
-    <td >Transport </td>
-  </tr>
-</table></div>
-<ul class="categoryitems">
-<?php /*?><li><a href="?pid=11&action=allotdriver">Allot Driver</a></li>
-<li><a href="?pid=11&action=addtransport">Transport</a></li>
-<li><a href="?pid=11&action=maintenance">Maintenance Details</a></li>
-<li><a href="?pid=11&action=viewreport">Report</a></li><?php */?>
-<!--<li><a href="?pid=78&action=vehiclefees" >Vehicle Fees</a></li>-->
-<li><a href="?pid=77&action=vehiclelist">Vehicle List</a></li>
-<li><a href="?pid=81&action=driverlist">Drivers List</a></li>
-<li><a href="?pid=82&action=allotteddriverlist">Allot Driver to Vehicle</a></li>
-
-<?php if (in_array("14_13", $admin_permissions)) {?>
-<li><a href="?pid=83&action=preparetransportbill">Prepare Transport Fee </a></li>
-<?php }?>
-<li><a href="?pid=84&action=viewtransportbill">View Transport Bills</a></li>
-<!--<li><a href="?pid=85&action=addmaintenance">Add Maintenance</a></li>-->
-
-
-<li><a href="?pid=85&action=maintenancedetails">Maintenance Details</a></li>
-
-
-<li><b>Reports</b></li>
-<li><a href="?pid=86&action=driverreport">Driver Report</a></li>
-<li><a href="?pid=87&action=vehiclereport">Vehicle Report</a></li>
-</ul>
-<?php } } if (in_array('15_p', $top_level_permissions) ){if(in_array('15_p', $admin_permissions)){?>
+<?php }} if (in_array('15_p', $top_level_permissions) ){if(in_array('15_p', $admin_permissions)){?>
 <div class="menuheader expandable">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -370,10 +271,10 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=36&action=createxamexport">Export Exam</a></li>
 <?php }?>
 <?php if (in_array("17_2", $admin_permissions)) {?>
-<li><a href="?pid=36&action=marksentry">Subjectwise Marks</a></li>
+<li><a href="?pid=36&action=marksentry">Enter Marks</a></li>
 <?php }?>
 <?php if (in_array("17_3", $admin_permissions)) {?>
-<li><a href="?pid=36&action=stdmarksentry">Studentwise Marks</a></li>
+<!--<li><a href="?pid=36&action=stdmarksentry">Studentwise Marks</a></li>-->
 <?php }?>
 <?php if (in_array("17_7", $admin_permissions)) {?>
 <li><a href="?pid=36&action=allstudents">Report</a></li>
@@ -401,7 +302,7 @@ if (in_array('2_p', $admin_permissions)){?>
   </tr>
 </table></div>
 <ul class="categoryitems">
-<li><a href="?pid=27&action=slip">Attendance Slips</a></li>
+<!--<li><a href="?pid=27&action=slip">Attendance Slips</a></li>-->
 <li><a href="?pid=27&action=stud_attend">Student Attendance</a></li>
 <li><a href="?pid=27&action=edit_stud_attendence">Edit Attendance</a></li>
 <li><a href="?pid=27&action=staff_attend">Staff Attendance</a></li>
@@ -429,9 +330,9 @@ if (in_array('19_p', $top_level_permissions) ){if (in_array('19_p', $admin_permi
 <li><a href="?pid=19&action=buildreport">Room Availability</a></li>
 <li><a href="?pid=19&action=student_roomallotment">Room Allocation</a></li>
 <li><a href="?pid=19&action=view_persons">View Hostel Persons</a></li>
-<li><a href="?pid=19&action=collect_items">Collect Items</a></li>
+<!--<li><a href="?pid=19&action=collect_items">Collect Items</a></li>
 <li><a href="?pid=19&action=prepare_bill">Prepare Bill</a></li>
-<li><a href="?pid=19&action=viewdetails">View Details</a></li>
+<li><a href="?pid=19&action=viewdetails">View Details</a></li>-->
 </ul>
 
 <?php }}if (in_array('21_p', $top_level_permissions) ){if (in_array('21_p', $admin_permissions)){?>

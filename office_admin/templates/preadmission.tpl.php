@@ -440,7 +440,7 @@ $reg_No = ($db->getone("SELECT MAX(es_preadmissionid) FROM es_preadmission")+1);
 								{$sel_gend_mrs = "selected='selected'";}else{$sel_gend_mrs = ""; }<?php */	?>
                                         <select name="pre_serialno"  id="pre_serialno" style="width:120px;">
                                           <option value="" >Select Tittle </option>
-                                          <option  value="Master" <?php echo $sel_gend_m; ?> >Master</option>
+                                          <option  value="Mister" <?php echo $sel_gend_m; ?> >Mister</option>
                                           <option  value="Miss" <?php echo $sel_gend_miss; ?>>Miss</option>
                                           <?php /*?> <option  value="Mrs" <?php echo $sel_gend_mrs; ?>>Mrs</option><?php */?>
                                         </select>
@@ -532,90 +532,17 @@ $reg_No = ($db->getone("SELECT MAX(es_preadmissionid) FROM es_preadmission")+1);
                                     <td height="35" align="left">Nationality</td>
                                     <td align="left">:</td>
                                     <td align="left"><input type="text" name="test1"  size="15" value="<?php echo $test1;?>"/></td>
-                                    <td align="left">Board</td>
-                                    <td colspan="2" align="left">:</td>
-                                    <td colspan="2" align="left"><input type="text" name="board"  size="15" value="<?php echo $board;?>"/></td>
+                                    
                                     <td>&nbsp;</td>
 					              </tr>
                                   <tr>
-                                    <td height="31" align="left">Category</td>
-                                    <td align="left">:</td>
-                                    <td align="left"><select name="caste_id">
-                                      <?php 
-									$caste_arr = $db->getrows("SELECT * FROM es_caste");
-									if(count($caste_arr)>0){
-									foreach($caste_arr  as $each){
-									?>
-                                      <option value="<?php echo $each['caste_id'];?>" <?php if($caste_id==$each['caste_id']){echo "selected='selected'";}?>><?php echo $each['caste']; ?></option>
-                                      <?php
-									}
-									}
-									?>
-                                    </select></td>
-                                    <td colspan="4" rowspan="5" valign="top"><table width="374" class="regAlumni" style="padding:20px;">
-                                      <!--DWLayoutTable-->
-                                        <!--<form name="photoUpload" method="post" action="sub_stud_temp_photo.php" enctype="multipart/form-data" onSubmit="return validatePhoto()">-->
-                                        <?php $query="select * from es_preadmission";
-$res=mysql_query($query);
-$ret=mysql_fetch_array($res);
-
-?>
-                                        <tr>
-                                          <td height="129" colspan="2" align="left" valign="top"><?php if(isset($_GET['filesuccess'])){?>
-                                              <img src="../images/student_photos/<?php echo $ret['pre_image'];?>" id="" style="border:solid 1px lightgray" width="120" height="120" alt="Recent Photo" />
-                                              <?php } else{?>
-                                              <img src="images/nophoto.jpg" id="photoBrowser" style="border:solid 1px lightgray" width="120" height="120" alt="Recent Photo" />
-                                            <?php }?>                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td width="362" align="left"><input type="file" name="pre_image" id="pre_image" />
-                                          <!--<br/><br/>
-			<input type="submit" name="photoUploadSubmit" value="Upload Photo" id="photoUploadSubmit" />	-->                                          </td>
-                                          <td width="0"></td>
-                                        </tr>
-										
-                                        <!--</form>-->
-                                    </table></td>
-                                  <td width="4">&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                  </tr>
-								   <tr>
-                                    <td height="31" align="left" >Caste </td>
-                                    <td align="left" valign="top">:</td>
-                                    <td align="left" ><input type="text" name="test3"  size="15" value="<?php echo $test3;?>"/></td>
-                                    <td>&nbsp;</td>
+                                   <td width="4">&nbsp;</td>
                                     <td>&nbsp;</td>
                                   </tr>
                                   <tr>
-                                    <td height="32" align="left" >Mother Tongue</td>
-                                    <td align="left" valign="top">:</td>
-                                    <td align="left" ><input type="text" name="pre_alerge"  size="15" value="<?php echo $pre_alerge;?>"/></td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                  </tr>
-								  
-								  
-								  
-					
-					
-					
-					
-					
-								  
-								  
-								  
-								  
-								  
-								  
-								  
-								  
-                                  
-								  
-								  
-								  <tr>
                                     <td height="33" align="left">Class<font color="#FF0000"><b>*</b></font></td>
                                     <td align="left">:</td>
-                                    <td align="left"><select name="pre_class" style="width:120px;" >
+                                    <td align="left"><select name="pre_class"  >
                                       <option value="">Select Class</option>
                                       <?php 
 								//$classlist = getallClasses();
@@ -631,48 +558,15 @@ $ret=mysql_fetch_array($res);
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                   </tr>
-								  
-								  
-								  
-								  
-								  
-                                  <tr>
-                                    <td height="47" align="left">User  Name<font color="#FF0000"><b>*</b></font> </td>
-                                    <td align="left">:</td>
-                                    <td align="left"><input name="pre_student_username" type="text" id="pre_student_username" size="15" value="<?php echo $pre_student_username; ?>">
-                                      </td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                  </tr>
-                                  <tr>
-                                    <td rowspan="2" align="left" valign="top">Password <font color="#FF0000"><b>*</b></font></td>
-                                    <td rowspan="2" align="left" valign="top">:</td>
-                                    <td rowspan="2" align="left" valign="top"><input name="pre_student_password" type="text" id="pre_student_password" size="15">
-                                    </td>
-                                    <td height="12"></td>
-                                    <td width="19"></td>
-                                    <td width="1"></td>
-                                    <td width="266"></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
+
                                   <tr>
                                     <td height="30" align="left" valign="top">Blood Group</td>
                                     <td align="left" valign="top">:</td>
-                                    <td>&nbsp;</td>
+                                    
                                     <td align="left" valign="top"><input name="pre_blood_group" type="text" size="15" value="<?php if (isset($es_enquiryList[0]->eq_name)) {	echo $es_enquiryList[0]->eq_name;}else{echo $pre_blood_group; } ?>"/></td>
                                     <td></td>
                                     <td></td>
                                   </tr>
-                                  
-                                  
-								  
-								  
-                                  
-                                  
-                                 
-                                  
-                                  
                                                                     <?php /*?> <tr>
                                    <font color="#FF0000"><b>*</b></font></td>
                                     <td align="left">Subjects</td>
@@ -726,33 +620,11 @@ $ret=mysql_fetch_array($res);
 									</select>
 									</td>
 							   </tr> <?php */?>
-                                  
-                                  
-
-                                 
-                                  
-								
-								  
-								   <tr>
-                                    <td height="36" align="left">Medium </td>
-                                    <td align="left">:</td>
-                                    <td align="left"><input type="pre_weight" name="pre_weight"  size="15" value="<?php echo $pre_weight;?>"/></td>
-                                    
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                  </tr>
-								  
-								
-								  
-                                  <tr>
+							   <tr>
                                     <td height="36" align="left">Previous School Attended </td>
                                     <td align="left">:</td>
                                     <td align="left"><input type="text" name="es_home"  size="15" value="<?php echo $es_home;?>"/></td>
-                                    <td>Aadhar No.</td>
-                                    <td colspan="2" align="left" valign="top"></td>
-                                    <td><label>
-                                    <input type="text" name="aadharno"  size="15" value="<?php echo $aadharno;?>"/>
-                                    </label></td>
+                                    
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                   </tr>
@@ -762,16 +634,16 @@ $ret=mysql_fetch_array($res);
                                     <td align="left"><input type="text" name="ann_income" value="<?php echo $ann_income;?>" /></td>
                                   </tr><?php */?>
                                   <tr>
-                                    <td align="left" height="44">Class In Which Was Studying </td>
+                                    <!--<td align="left" height="44">Class In Which Was Studying </td>
                                     <td align="left">:</td>
-                                    <td align="left"><input type="text" name="pre_hobbies"  size="15" value="<?php echo $pre_hobbies;?>"/>
+                                    <td align="left"><input type="text" name="pre_hobbies"  size="15" value="<?php echo $pre_hobbies;?>"/>-->
                                       &nbsp;<font color="#FF0000"><b></b></font> </td>
-                                    <td>Date of Leaving Previous School<font color="#FF0000"><b>&nbsp;*</b></font> </td>
-                                    <td colspan="2" align="left" >:</td>
+                                    <!--<td>Date of Leaving Previous School</td>
+                                    <td align="left" >:</td>-->
                                     <td><table width="83%" border="0" cellspacing="0" cellpadding="0">
                                       <tr>
-                                        <td width="30%"><input name="pre_dateofbirth1" type="text" id="pre_dateofbirth1" size="10" value="<?php if (isset($es_enquiryList[0]->eq_dob)) {	echo func_date_conversion("Y-m-d","d/m/Y",$es_enquiryList[0]->eq_dob);}else{echo $pre_dateofbirth1; } ?>" readonly /></td>
-                                        <td width="70%"><a href="javascript:void(0)" onclick="if(self.gfPop)gfPop.fPopCalendar(document.preadmission.pre_dateofbirth1);return false;" ><img src="<?php echo JS_PATH ?>/WeekPicker/calbtn.gif" alt="Calender" name="popcal" width="34" height="22" border="0" align="absmiddle" id="popcal" /></a></td>
+                                        <!--<td width="30%"><input name="pre_dateofbirth1" type="text" id="pre_dateofbirth1" size="10" value="<?php if (isset($es_enquiryList[0]->eq_dob)) {	echo func_date_conversion("Y-m-d","d/m/Y",$es_enquiryList[0]->eq_dob);}else{echo $pre_dateofbirth1; } ?>" readonly /></td>-->
+                                        <!--<td width="70%"><a href="javascript:void(0)" onclick="if(self.gfPop)gfPop.fPopCalendar(document.preadmission.pre_dateofbirth1);return false;" ><img src="<?php echo JS_PATH ?>/WeekPicker/calbtn.gif" alt="Calender" name="popcal" width="34" height="22" border="0" align="absmiddle" id="popcal" /></a></td>-->
                                       </tr>
                                     </table></td>
                                     <td>&nbsp;</td>
@@ -787,16 +659,16 @@ $ret=mysql_fetch_array($res);
                                   
                                   
                                   <tr>
-                                    <td height="43" align="left">Transfer Certificate is enclosed </td>
+                                   <!-- <td height="43" align="left">Transfer Certificate is enclosed </td>
                                     <td align="left">:</td>
-                                    <td align="left">Yes<input type="radio" name="es_econbackward" id="es_econbackward" style="width:10px;" value="Yes"<?php if($es_econbackward=="Yes") {	echo "selected";} ?>/>
+                                    <td align="left">Yes<input type="radio" name="es_econbackward" id="es_econbackward" style="width:10px;" value="Yes"<?php if($es_econbackward=="Yes") {	echo "selected";} ?>/>-->
                                    
 								    
-									No<input type="radio" name="es_econbackward" id="es_econbackward" style="width:10px;" value="No"<?php if($es_econbackward=="No") {	echo "selected";} ?> />
+									<!--Noo<input type="radio" name="es_econbackward" id="es_econbackward" style="width:10px;" value="No"<?php if($es_econbackward=="No") {	echo "selected";} ?> />-->
                                         
                                                                         </td>
                                     <td align="left" valign="top">Admission Date</td>
-                                    <td colspan="2" align="left" valign="top">:</td>
+                                    <td align="left" valign="top">:</td>
                                     <td colspan="2" align="left" valign="top"><input name="admission_date" type="text" id="admission_date" size="10" 
 									value="<?php if (isset($es_enquiryList[0]->admission_date)) {	echo func_date_conversion("Y-m-d","d/m/Y",$es_enquiryList[0]->admission_date);}else{echo $admission_date; } ?>" readonly />
                                       <a href="javascript:void(0)" onclick="if(self.gfPop)gfPop.fPopCalendar(document.preadmission.admission_date);return false;" ><img src="<?php echo JS_PATH ?>/WeekPicker/calbtn.gif" alt="Calender" name="popcal" width="34" height="22" border="0" align="absmiddle" id="popcal" /></a></td>
@@ -805,7 +677,7 @@ $ret=mysql_fetch_array($res);
 								  
 								  
 								  
-								   <tr>
+								   <!--<tr>
                                     <td height="43" align="left">Date Of Birth Certificate Joined or Not </td>
                                     <td align="left">:</td>
                                     <td align="left">Yes<input type="radio" name="es_econbackward1" id="es_econbackward1" style="width:10px;" value="Yes"<?php if($es_econbackward1=="Yes") {	echo "selected";} ?>/>
@@ -827,20 +699,20 @@ $ret=mysql_fetch_array($res);
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     
-                                  </tr>
+                                  </tr>-->
 								  
 								  
 								  
 								  <tr>
-                                    <td height="43" align="left">Mark Sheet Joined or Not </td>
+                                    <!--<td height="43" align="left">Mark Sheet Joined or Not </td>
                                     <td align="left">:</td>
 									
 									  <td align="left">Yes<input type="radio" name="es_econbackward3" id="es_econbackward3" style="width:10px;" value="Yes"<?php if($es_econbackward3=="Yes") {	echo "selected";} ?>/>
 									
 									No<input type="radio" name="es_econbackward3" id="es_econbackward3" style="width:10px;" value="No"<?php if($es_econbackward3=="No") {	echo "selected";} ?>/>
-							                         </td>
+							                         </td>-->
                                      <td>Admission Type</td>
-                                    <td colspan="2" align="left" valign="top">:</td>
+                                    <td align="left" valign="top">:</td>
                                     <td>
                                <select name="es_econbackward4" id="es_econbackward4" style="width:150px;" onchange="func_toggle();"/>
                                 <option value="" >Select Type</option>
@@ -871,7 +743,7 @@ $ret=mysql_fetch_array($res);
 									No<input type="radio" name="es_econbackward5" id="es_econbackward5" style="width:10px;" value="No"<?php if($es_econbackward5=="No") {	echo "selected";} ?>/>
 							                         </td>
 									
-                                      <td>Educational Gap(if Any)</td>
+                                      <!--<td>Educational Gap(if Any)</td>
                                     <td colspan="2" align="left"></td>
                                     <td><label>
                                     <input type="text" name="edugap"  size="15" value="<?php echo $edugap;?>"/>
@@ -883,7 +755,7 @@ $ret=mysql_fetch_array($res);
 										                           </td>
                                     </label></td>
                                     <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>-->
                                     
                                   </tr>
 								  
@@ -894,17 +766,7 @@ $ret=mysql_fetch_array($res);
 								  
                                   
 								  
-								   <tr>
-                                    <td height="30">&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-					              </tr>
+								   
 								  
 								  
                                   <!-- <tr>
@@ -914,7 +776,7 @@ $ret=mysql_fetch_array($res);
                                    </td>
                                   </tr>-->
                                   <!-- <tr>-->
-                                  <?php /*?><td align="left" height="30">Hostel</td>
+                                  <?php ?><td align="left" height="30">Boarding</td>
                                     <td align="left">:</td>
                                     <td align="left">
 								
@@ -928,20 +790,16 @@ $ret=mysql_fetch_array($res);
                                     <td align="left">
 																	
 								<select name="es_buldname" onChange="getsubjects(this.value,'');" ><option value="">-- Select --</option>
-			<?php foreach($getbuldinglist as $eachrecord) { ?>
+
+			<?php 
+			$getbuldinglist=getamultiassoc("SELECT * from es_hostelbuld where status='active'");
+			
+			foreach($getbuldinglist as $eachrecord) { ?>
 			<option value="<?php echo $eachrecord['es_hostelbuldid'];?>"<?php echo ($eachrecord['es_hostelbuldid'] ==$es_buldname)?"selected":""?>><?php echo $eachrecord['buld_name'];?></option>
 			<?php } ?>
 			</select>
                                    </td>
-                                  </tr>
-								   <tr>
-								  <td align="left" height="30">Room</td>
-                                    <td align="left">:</td>
-                                     <td width="317" class="narmal" id="subjectselectbox"><select name="es_hostelroomid" id="s_submodule" style="width:150px;">
-             <option value="">-- Select --</option>
-			        
-           </select></td><?php */?>
-                                  <!--</tr>-->
+                                  </tr>								   
                                   <?php //if($es_buldname!=""){
 					
 					 ?>
@@ -992,17 +850,10 @@ $ret=mysql_fetch_array($res);
                                     <td colspan="2" align="left" valign="top"><input name="pre_pincode1" type="text" size="15" value="<?php if (isset($es_enquiryList[0]->eq_zip) && $es_enquiryList[0]->eq_zip!='') {	echo $es_enquiryList[0]->eq_zip;}else{echo $pre_pincode1; } ?>" /></td>
                                   </tr>
                                   <tr>
-                                    <td height="38" align="left" valign="top"><span class="narmal">State</span></td>
+                                    <td height="38" align="left" valign="top"><span class="narmal">County</span></td>
                                     <td align="left" valign="top">:</td>
                                     <td align="left" valign="top"><input name="pre_state1" size="15" type="text" value="<?php if(isset($es_enquiryList[0]->eq_state) && $es_enquiryList[0]->eq_state!=''){ echo $es_enquiryList[0]->eq_state; } else { echo $pre_state1; } ?>" /></td>
-                                    <td align="left" valign="top"><span class="narmal">SMS Mobile No.<font color="#FF0000"><b>*</b></font></span></td>
-                                    <td align="left" valign="top">:</td>
-                                    <td width="129" align="left" valign="top"><span class="narmal">
-                                      <input name="pre_mobile1" type="text" size="15" value="<?php 
-								if (isset($es_enquiryList[0]->eq_mobile) && $es_enquiryList[0]->eq_mobile!=''){echo $es_enquiryList[0]->eq_mobile;
-									}else{echo $pre_mobile1;}?>"/>
-                                    </span></td>
-                                  <td width="228" valign="top"><span style="color:#FF0000">(All future SMS messages will be sent to this number)</span></td>
+                                    
                                   </tr>
                                   
                                   <tr>
@@ -1011,7 +862,7 @@ $ret=mysql_fetch_array($res);
                                     <td align="left" valign="top"><input name="pre_phno1" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_phno) && $es_enquiryList[0]->eq_phno!=''){echo $es_enquiryList[0]->eq_phno;
 									}else{echo $pre_phno1;} ?>" /></td>
-                                     <td width="167" align="left">Fathers Phone No.<font color="#FF0000"><b>*</b></font></td>
+                                     <td width="167" align="left">Fathers Phone No.<font color="#FF0000"><b>*</b></font><span style="color:#FF0000">(All future SMS messages will be sent to this number)</span></td>
                                     <td width="13" align="left">:</td>
                                     <td colspan="2" align="left" valign="top"><input name="pre_contactno1" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_contactno) && $es_enquiryList[0]->eq_contactno!=''){echo $es_enquiryList[0]->eq_contactno;
@@ -1025,7 +876,7 @@ $ret=mysql_fetch_array($res);
                                     <td align="left" valign="top"><input name="pre_contactno2" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_contactno3) && $es_enquiryList[0]->eq_contactno3!=''){echo $es_enquiryList[0]->eq_contactno3;
 									}else{echo $pre_contactno2;} ?>" /></td>
-                                    <td width="167" align="left">E-mail<font color="#FF0000"><b>*</b></font></td>
+                                    <td width="167" align="left">E-mail</td>
                                      <td width="13" align="left">:</td>
                                     <td colspan="2" align="left" ><input name="pre_resno1" type="text" size="15" value="<?php if (isset($es_enquiryList[0]->eq_resno2) && $es_enquiryList[0]->eq_resno2!=''){echo $es_enquiryList[0]->eq_resno2;
 									}else{echo $pre_resno1;} ?>"/>
@@ -1072,12 +923,10 @@ $ret=mysql_fetch_array($res);
                                     <td align="left"><input name="pre_pincode" type="text" size="15" value="<?php echo $pre_pincode;?>"/></td>
                                   </tr>
                                   <tr>
-                                    <td height="30" align="left">State</td>
+                                    <td height="30" align="left">County</td>
                                     <td align="left">:</td>
                                     <td align="left"><input name="pre_state" type="text" size="15" value="<?php echo $pre_state;?>"/></td>
-                                    <td align="left">SMS Mobile No. </td>
-                                    <td align="left">:</td>
-                                    <td align="left"><input name="pre_mobile" type="text" size="15" value="<?php echo $pre_mobile;?>" /></td>
+                                    
                                   </tr>
                                   <tr>
                                     <td height="30" align="left">Home Landline No.</td>
@@ -1093,7 +942,7 @@ $ret=mysql_fetch_array($res);
                                     <td align="left" >:</td>
                                     <td align="left" ><input name="pre_contactno3" type="text" size="15" value="<?php 
 								echo $pre_contactno3; ?>" /></td>
-                                     <td width="219" align="left">E-mail.<font color="#FF0000"><b>*</b></font> </td>
+                                     <td width="219" align="left">E-mail</td>
                                      <td width="17" align="left">:</td>
                                     <td colspan="2" align="left" ><input name="pre_resno2" type="text" size="15" value="<?php echo $pre_resno2; ?>"/>
                                    </td>
@@ -1118,12 +967,12 @@ $ret=mysql_fetch_array($res);
 								<td align="left" valign="top" class="narmal" colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 								  <!--DWLayoutTable-->
                                   <tr>
-                                    <td width="160" height="30" align="left"> Father Name(Full) <font color="#FF0000"><b>*</b></font></td>
+                                    <td width="160" height="30" align="left"> Father Name(Full) </td>
                                     <td width="18" align="left">:</td>
                                     <td width="284" align="left"><input name="pre_fathername" type="text" size="15" value="<?php echo $pre_fathername;?>" /></td>
-                                    <td width="162" align="left"> Educational Qualification </td>
+                                    <!--<td width="162" align="left"> Educational Qualification </td>
                                     <td width="19" align="left">:</td>
-                                    <td width="303" align="left"><input type="text" name="pre_contactname1"  size="15" value="<?php echo $pre_contactname1;?>"/>                                      &nbsp;</td>
+                                    <td width="303" align="left"><input type="text" name="pre_contactname1"  size="15" value="<?php echo $pre_contactname1;?>"/>                                      &nbsp;</td>-->
                                   </tr>
 								  <tr>
                                     <td height="30" align="left">Age</td>
@@ -1145,12 +994,12 @@ $ret=mysql_fetch_array($res);
                                     <td height="30" align="left">Office Address</td>
                                     <td align="left">:</td>
                                     <td align="left"><textarea name="pre_prev_university" style="width:50%"><?php echo $pre_prev_university; ?></textarea></td>
-                                    <td align="left">Monthly Income  </td>
+                                    <!--<td align="left">Monthly Income  </td>
                                     <td align="left">:</td>
                                     <td align="left"><input name="pre_prev_percentage" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_phno) && $es_enquiryList[0]->eq_phno!=''){echo $es_enquiryList[0]->eq_phno;
 									}else{echo $pre_prev_percentage;} ?>"/>
-                                    &nbsp;</td>
+                                    &nbsp;</td>-->
                                   </tr>
                                <?php /*?> <tr>
                                     <td height="41" align="left">Date Of Birth</td>
@@ -1182,9 +1031,9 @@ $ret=mysql_fetch_array($res);
                                     <td width="210" height="30" align="left">Mother Name(full)</td>
                                     <td width="16" align="left">:</td>
                                     <td colspan="2" align="left"><input name="pre_mothername" type="text" size="15" value="<?php echo $pre_mothername;?>" /></td>
-                                    <td width="162" align="left">&nbsp;&nbsp;Educational Qualification</td>
+                                    <!--<td width="162" align="left">&nbsp;&nbsp;Educational Qualification</td>
                                     <td width="19" align="left">:</td>
-                                    <td width="302" align="left"><input type="text" name="pre_contactname2"  size="15" value="<?php echo $pre_contactname2;?>"/>                                      &nbsp;</td>
+                                    <td width="302" align="left"><input type="text" name="pre_contactname2"  size="15" value="<?php echo $pre_contactname2;?>"/>                                      &nbsp;</td>-->
                                   </tr>
 								  <tr>
 								    <td></td>
@@ -1200,7 +1049,7 @@ $ret=mysql_fetch_array($res);
 								    <td></td>
                                     <td height="30" align="left">Occupation </td>
                                     <td align="left">:</td>
-                                    <td colspan="2" align="left"><input name="pre_motheroccupation" type="text" size="15" value="<?php echo $pre_motheroccupation;?>" /></td>
+                                    <td align="left"><input name="pre_motheroccupation" type="text" size="15" value="<?php echo $pre_motheroccupation;?>" /></td>
                                    <?php /*?> <td align="left">Designation </td>
                                     <td align="left">:</td>
                                     <td align="left"><input name="pre_motheroccupation2" type="text" size="15" value="<?php echo $pre_motheroccupation2;?>" /></td><?php */?>
@@ -1209,13 +1058,13 @@ $ret=mysql_fetch_array($res);
 								    <td></td>
                                     <td height="30" align="left">Office Address</td>
                                     <td align="left">:</td>
-                                    <td colspan="2" align="left"><textarea name="pre_current_percentage1" style="width:100%"><?php echo $pre_current_percentage1; ?></textarea></td>
-                                    <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monthly Income</td>
+                                    <td align="left"><textarea name="pre_current_percentage1" style="width:50%"><?php echo $pre_current_percentage1; ?></textarea></td>
+                                    <!--<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monthly Income</td>
                                     <td align="left">:</td>
                                     <td align="left"><input name="pre_current_result1" type="text" size="15" value="<?php 
 								if (isset($es_enquiryList[0]->eq_phno) && $es_enquiryList[0]->eq_phno!=''){echo $es_enquiryList[0]->eq_phno;
 									}else{echo $pre_current_result1;} ?>"/>
-                                    &nbsp;</td>
+                                    &nbsp;</td>-->
                                   </tr>
                                    <?php /*?><tr>
                                     <td height="8"></td>

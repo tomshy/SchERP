@@ -456,10 +456,9 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 							     <?php if (isset($error_capacity) &&$error_capacity!=""){echo'<div class="error_message">' . $error_capacity . ' </div>';}?>  <font color="#FF0000">*</font></td>
 								 <td align="left" valign="middle">&nbsp;</td>
                 			</tr>	
-							 <tr>
-								  <td width="20%" align="left" valign="middle" class="narmal">&nbsp;Room Rate</td>
+							 <tr>								  
 								  <td width="1%" align="left" valign="middle" class="narmal">:</td>
-							      <td width="39%" valign="middle" class="narmal"><input type="text" name="room_rate" value="<?php echo $room_rate; ?>"/><font color="#FF0000">*</font></td>
+							      
 								 <td align="left" valign="middle">&nbsp;</td>
                 			</tr>			
 							<tr>
@@ -497,7 +496,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
                         <td width="13%" align="left">&nbsp;Room type</td>						
                         <td width="10%" align="center">&nbsp;Capacity </td> 
 						<td width="12%" align="center">&nbsp;Vacancy</td>
-						<td width="12%" align="center">&nbsp;Rate</td>
+						
 						<td width="23%" align="left">&nbsp;Building Name</td>		
                         <td width="20%"  class="order" align="center">&nbsp;<strong>Action</strong></td>  
                       </tr>				  
@@ -513,7 +512,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
                         <td class="narmal" align="left">&nbsp;<?php echo $eachrecord['room_type']; ?></td>
                         <td class="narmal" align="center">&nbsp;<?php echo $eachrecord['room_capacity']; ?> </td>
 						<td class="narmal" align="center">&nbsp;<?php echo $eachrecord['room_vacancy']; ?> </td>
-						<td class="narmal" align="center">&nbsp;Rs:<?php echo $eachrecord['room_rate']; ?> </td>
+						
 						<?php //Fetch the Bulding Name
 							   $query = "SELECT * FROM `es_hostelbuld` WHERE `es_hostelbuldid` ='".$eachrecord['es_hostelbuldid']."' ";
 							   $equery = mysql_query($query);
@@ -1285,7 +1284,7 @@ function newWindowOpen(href)
                         <td  align="left" valign="middle"><strong>&nbsp;Room type</strong></td>
                         <td align="left" valign="middle"><strong>&nbsp;Capacity</strong></td>
 						<td  align="left" valign="middle"><strong>&nbsp;Vacancy</strong></td>
-						<td  align="left" valign="middle"><strong>&nbsp;Rate</strong></td>
+						
                       </tr>
 <?php						
 		 $rw = 1;
@@ -1304,7 +1303,7 @@ foreach ($es_roomList1 as $eachrecord)
 						<td align="left" class="narmal">&nbsp;<?php echo $eachrecord->room_type; ?></td>
 						<td align="left" valign="middle" class="narmal">&nbsp;<?php echo $eachrecord->room_capacity;?></td>
 						<td align="left" class="narmal">&nbsp;<?php echo $eachrecord->room_vacancy; ?></td>
-						<td align="left" class="narmal">&nbsp;Rs:<?php echo $eachrecord->room_rate; ?></td>
+						
 					</tr>
 <?php                  
 					  $rw++;

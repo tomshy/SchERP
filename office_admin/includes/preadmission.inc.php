@@ -33,6 +33,8 @@ if($action=="searchschool")
 /**
 * ***********Pre-admission for Students****************************
 */
+$getbuldinglist="SELECT * from es_hostelbuld where status='active'";
+$getbuldinglistRes=$db->getrow($getbuldinglist);
 
 $query="SELECT fee_amount  FROM es_feemaster WHERE fee_particular='tuition' AND fee_class='".$pre_class."' ";
   $res=$db->getrow($query);
@@ -119,49 +121,6 @@ $query="SELECT fee_amount  FROM es_feemaster WHERE fee_particular='tuition' AND 
 //			
 //				$errormessage[13] = "Select Subjects"; 
 //			}	
-				
-			if (empty($pre_student_username)) {
-			
-			   $errormessage[3] = "Enter User Name"; 	 
-			}else{
-			
-			$pattern = "/^([a-zA-Z0-9._-]+)$/";
-			if (!preg_match($pattern,$pre_student_username)){
-					  $errormessage[3]="Enter valid User Name";        
-			  }else{
-						
-			 $sel_user_sql = 'SELECT count(*) FROM `es_preadmission` WHERE `pre_student_username` = "'.$pre_student_username.'"; '; 
-			 $reg_user_count = $db->getOne($sel_user_sql);
-			 if ($reg_user_count>=1) {
-				 $errormessage[3] = "User Name Already Exist"; 
-			}
-			}
-			}
-
-	   
-			if (empty($pre_student_password)) {
-			
-			   $errormessage[4] = "Enter Password"; 	 
-			}elseif (preg_match($pattern_pass,$pre_student_password)){
-		$errormessage[3]="Password must not contain spaces
-";
-		}
-			
-			if (!$vlc->is_alpha_numeric($pre_student_password)) {
-				 $errormessage[4] = "Enter valid Password"; 
-			}
-			
-					
-			
-						
-			if (empty($pre_fathername)) {
-			
-				$errormessage[5] = "Enter Father's Name";	  
-			}
-			
-		
-		
-				
 			if (!empty($fee_concession)) {	
 			if($count>0){	
 				if(!$vlc->is_nonNegNumber($fee_concession))	
@@ -179,19 +138,7 @@ $query="SELECT fee_amount  FROM es_feemaster WHERE fee_particular='tuition' AND 
 			//$errormessage[15] = "No tuition has been added for the this class"; 
 		}
 		}
-		
-		
-			if (empty($pre_address1)) {
-			
-				$errormessage[6] = "Enter Address"; 
-			}
-			
-			if (empty($pre_mobile1)) {
-			
-				$errormessage[11] = "Enter Mobile No"; 
-			}
-			
-			if (!$vlc->is_alpha_numeric($pre_contactno1)) {
+		if (!$vlc->is_alpha_numeric($pre_contactno1)) {
 			
 				//$errormessage[7] = "Enter Contact No "; 	 
 			}
