@@ -3100,6 +3100,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_m7` varchar(255) NOT NULL,
   `es_m8` varchar(255) NOT NULL,
   `es_m9` varchar(255) NOT NULL,
+  `es_m10` varchar(255) NOT NULL,
   `es_subject` varchar(255) NOT NULL,
   `es_staffid` varchar(255) NOT NULL,
   `es_t1` varchar(255) NOT NULL,
@@ -3111,6 +3112,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_t7` varchar(255) NOT NULL,
   `es_t8` varchar(255) NOT NULL,
   `es_t9` varchar(255) NOT NULL,
+  `es_t10` varchar(255) NOT NULL,
   `es_w1` varchar(255) NOT NULL,
   `es_w2` varchar(255) NOT NULL,
   `es_w3` varchar(255) NOT NULL,
@@ -3120,6 +3122,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_w7` varchar(255) NOT NULL,
   `es_w8` varchar(255) NOT NULL,
   `es_w9` varchar(255) NOT NULL,
+  `es_w10` varchar(255) NOT NULL,
   `es_th1` varchar(255) NOT NULL,
   `es_th2` varchar(255) NOT NULL,
   `es_th3` varchar(255) NOT NULL,
@@ -3129,6 +3132,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_th7` varchar(255) NOT NULL,
   `es_th8` varchar(255) NOT NULL,
   `es_th9` varchar(255) NOT NULL,
+  `es_th10` varchar(255) NOT NULL,
   `es_f1` varchar(255) NOT NULL,
   `es_f2` varchar(255) NOT NULL,
   `es_f3` varchar(255) NOT NULL,
@@ -3138,6 +3142,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_f7` varchar(255) NOT NULL,
   `es_f8` varchar(255) NOT NULL,
   `es_f9` varchar(255) NOT NULL,
+  `es_f10` varchar(255) NOT NULL,
   `es_s1` varchar(255) NOT NULL,
   `es_s2` varchar(255) NOT NULL,
   `es_s3` varchar(255) NOT NULL,
@@ -3147,6 +3152,7 @@ CREATE TABLE IF NOT EXISTS `es_timetable_staff` (
   `es_s7` varchar(255) NOT NULL,
   `es_s8` varchar(255) NOT NULL,
   `es_s9` varchar(255) NOT NULL,
+  `es_s10` varchar(255) NOT NULL,
   PRIMARY KEY (`es_st_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
