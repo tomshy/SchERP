@@ -5,7 +5,7 @@
 if ($action == 'timetable') { ?>
 <table width="100%" border="0"  cellspacing="0" cellpadding="0">
 	<tr>
-         <td height="3" colspan="3"></td>
+         <td height="3" colspan="3"></td>   
 	 </tr>
 	<tr class="bgcolor_02">
 		<td height="25" colspan="3">&nbsp;&nbsp;Time Table</td>
@@ -45,7 +45,7 @@ if ($action == 'timetable') { ?>
 <script type="text/JavaScript">
 	function timetable<?php print $indclass['es_classesid']; ?>add(){		
 		MyWin = "?pid=106&action=edittimetable&es_class=<?php print $indclass['es_classesid']; ?>"; 
-		winpopup = window.open(MyWin,'popup<?php print $indclass['es_classesid']; ?>', 'height=701,width=1100,menubar=no,scrollbars=yes,status=no,toolbar=no,sereenX=100,screenY=0,left=100,top=0,class=text');	
+		winpopup = window.open(MyWin,'popup<?php print $indclass['es_classesid']; ?>', 'height=701,width=1200,menubar=no,scrollbars=yes,status=no,toolbar=no,sereenX=100,screenY=0,left=100,top=0,class=text');	
 		winpopup.moveTo(111,25);
 }
 </script>
@@ -56,7 +56,7 @@ if ($action == 'timetable') { ?>
 function timetable<?php print $indclass['es_classesid']; ?>view()
     {		
 	MyWin="?pid=106&action=viewtimetable&es_class=<?php print $indclass['es_classesid']; ?>"; 
-	winpopup=window.open(MyWin,'popup<?php print $indclass['es_classesid']; ?>','height=701,width=888,menubar=no,scrollbars=yes,status=no,toolbar=no,sereenX=100,screenY=0,left=100,top=0,class=text');	
+	winpopup=window.open(MyWin,'popup<?php print $indclass['es_classesid']; ?>','height=701,width=1200,menubar=no,scrollbars=yes,status=no,toolbar=no,sereenX=100,screenY=0,left=100,top=0,class=text');	
 	winpopup.moveTo(111,25);
 	}
 </script>	
@@ -89,7 +89,7 @@ if ($action=='edittimetable'|| $action=='delete') {
          <td height="3" colspan="3"></td>
 	 </tr>
 	<tr>
-	  <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;Time Table</span></td>
+	  <td height="20" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;Time Table</span></td>
 	</tr>
 	<tr>
 		<td width="1" class="bgcolor_02"></td>
@@ -103,7 +103,7 @@ if ($action=='edittimetable'|| $action=='delete') {
 				if(is_array($errormessage) && count($errormessage)>=1){
 				foreach($errormessage as $eacherrormessage){echo "<a class='success_message'>".$eacherrormessage."</a><br>";}
 				}else{echo "<a class='success_message'>".$sucessmessage[$emsg].'</a>';}?></strong></td>
-                    <td width="26%" align="right" valign="top"><span class="error_msg">[<a href="?pid=106&action=edittimetable&es_class=<?php echo $es_class; ?>" class="error_msg" >Reset</a>]</span></td>
+                    <td width="26%" align="right" valign="top"><span class="error_msg">[<a href="?pid=106&action=  &es_class=<?php echo $es_class; ?>" class="error_msg" >Reset</a>]</span></td>
                 </tr>
 				<tr>
 					<td colspan="4" align="left" valign="top">
@@ -112,11 +112,11 @@ if ($action=='edittimetable'|| $action=='delete') {
 							
 							<tr>
 								<td height="25" align="left" valign="middle">
-									<table width="85%" height="154" border="0" cellpadding="0" cellspacing="3">
+									<table width="85%" height="170" border="0" cellpadding="0" cellspacing="3">
 						  <tr>
 											<td align="left" class="admin">Timings </td>
-										  <td width="14%" colspan="-3" align="left" class="admin">Start Time</td>
-									  <td width="28%" align="left" class="narmal">
+										  <td width="10%" colspan="-3" align="left" class="admin">Start Time</td>
+									  <td width="20%" align="left" class="narmal">
 								<input type="text" name="es_startfrom" value="<?php	echo $school_start_time=$subject_det['es_startfrom']; ?>" />
 												<br />(H : M : S) 
 											</td>
@@ -133,20 +133,39 @@ if ($action=='edittimetable'|| $action=='delete') {
 										  <td width="23%" align="left"> 
                                           <input type="text" name="es_breakto" value="<?php	echo $break_position=$subject_det['es_breakto']; ?>"/>
 											</td>
+
 									  </tr>
 										<tr>
-						<td align="left" class="admin">Break ( 2 ) </td>
-						<td width="14%" colspan="-3" align="left" class="admin">Time Duration</td>
+						<td align="left" class="admin">Break( 2 ) </td>
+						<td width="14%" colspan="-1" align="left" class="admin">Time Duration</td>
 						<td width="28%" align="left" class="narmal">
-					  <input type="text" name="es_lunchfrom" value="<?php	echo $lunch=$subject_det['es_lunchfrom']; ?>"/>Min 						</td>
+					  <input type="text" name="es_breaktwofrom" value="<?php	echo $breaktwo=$subject_det['es_breaktwofrom']; ?>"/>Min</td>
+						<td width="20%" class="admin" align="left">Break after period</td>
+					  <td width="23%" align="left"> 
+                      <input type="text" name="es_breaktwoto" value="<?php	echo $breaktwo_position=$subject_det['es_breaktwoto']; ?>"/></td>
+					</tr>
+					  <tr>
+					  	<td align="left" class="admin">Break (2) </td>
+					  	<td width="14%" colspan="-1" align="left" class="admin">Time Duration</td>
+					  	<td width="28%" align="left" class="narmal">
+					  <input type="text" name="es_lunchfrom" value="<?php	echo $lunch=$subject_det['es_lunchfrom']; ?>"/>Min</td>
 						<td width="20%" class="admin" align="left">Break after period</td>
 					  <td width="23%" align="left"> 
                       <input type="text" name="es_lunchto" value="<?php	echo $lunch_position=$subject_det['es_lunchto']; ?>"/></td>
-					</tr>
+					  </tr>
+					  <!--<tr>
+					  	<td align="left" class="admin">Games( 4 ) </td>
+                        <td width="14%" colspan="-1" align="left" class="admin">Time Duration</td>
+					  	<td width="28%" align="left" class="narmal">
+					  <input type="text" name="es_GamesFrom" value="<?php//	echo $Games=$subject_det['es_GamesFrom']; ?>"/>Min</td>
+						<td width="20%" class="admin" align="left">Break after period</td>
+					  <td width="23%" align="left"> 
+                      <input type="text" name="es_GamesTo" value="<?php //	echo $Games_position=$subject_det['es_GamesTo']; ?>"/></td>
+					  </tr>-->
 					  <tr>
-						<td colspan="2" align="left" class="admin">Each Period Duration </td>
+					  	<td colspan="2" align="left" class="admin">Period Duration </td>
 						<td align="left" class="narmal">
-                        <input type="text" name="es_duration" value="<?php	echo $period_duration=$subject_det['es_duration']; ?>"/>Min </td>
+                        <input type="text" name="es_duration" value="<?php	echo $period_duration=$subject_det['es_duration']; ?>"/>Min</td>
 					  </tr>
 				  </table>
 <?php
@@ -157,7 +176,7 @@ if ($action=='edittimetable'|| $action=='delete') {
 	$peried_1 = explode(":", $school_start_time);
 	$h = $peried_1[0];
 	$m = $peried_1[1];				  
-	$peried_1e = date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));
+	$peried_1e = date("H:i", mktime($h,  $m+$period_duration,0,$dd,$mm,$yy));
 	if ($break_position==1){
 		$peried_2 = explode(":", $peried_1e);
 		$h = $peried_2[0];
@@ -171,11 +190,12 @@ if ($action=='edittimetable'|| $action=='delete') {
 		$peried_2s =	$peried_1e;			  
 		$peried_2e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));										
 	}
-	if ($break_position==2 || $lunch_position==2){
+	if ($break_position==2 || $lunch_position==2 || $breaktwo_position==2){
 		$peried_3 = explode(":", $peried_2e);
-		$h = $peried_3[0];
+		$h = $peried_3[0];  
 		$m = $peried_3[1];
 		if($break_position==2) {$b=$break;}
+		if($breaktwo_position==2) {$b=$breaktwo;}
 		if($lunch_position==2) {$b=$lunch;}
 		$peried_3s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 		$peried_3e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -186,11 +206,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 		$peried_3s =	$peried_2e;			  
 		$peried_3e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
-	if ($break_position==3 || $lunch_position==3){
+
+	if ($break_position==3 || $lunch_position==3 || $breaktwo_position==3){
 		$peried_4 = explode(":", $peried_3e);
 		$h = $peried_4[0];
 		$m = $peried_4[1];
 		if($break_position==3) {$b=$break;}
+		if($breaktwo_position==3) {$b=$breaktwo;}
 		if($lunch_position==3) {$b=$lunch;}
 		$peried_4s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 		$peried_4e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -201,11 +223,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 		$peried_4s =	$peried_3e;			  
 		$peried_4e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
-	if ($break_position==4 || $lunch_position==4){
+
+	if ($break_position==4 || $lunch_position==4 || $breaktwo_position ==4){
 		$peried_5 = explode(":", $peried_4e);
 		$h = $peried_5[0];
 		$m = $peried_5[1];
 		if($break_position==4) {$b=$break;}
+		if($breaktwo_position==4) {$b=$breaktwo;}
 		if($lunch_position==4) {$b=$lunch;}
 		$peried_5s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 		$peried_5e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -216,11 +240,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 		$peried_5s =	$peried_4e;			  
 		$peried_5e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
-	if ($break_position==5 || $lunch_position==5){
+
+	if ($break_position==5 || $lunch_position==5 || $breaktwo_position==5){
 	$peried_6 = explode(":", $peried_5e);
 	$h = $peried_6[0];
 	$m = $peried_6[1];
 	if($break_position==5) {$b=$break;}
+	if($breaktwo_position==5) {$b=$breaktwo;}
 	if($lunch_position==5) {$b=$lunch;}
 	$peried_6s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 	$peried_6e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -234,12 +260,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 	$peried_6e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
 
-	if($break_position==6 || $lunch_position==6)
+	if($break_position==6 || $lunch_position==6 || $breaktwo_position ==6)
 	{
 	$peried_7 = explode(":", $peried_6e);
 	$h = $peried_7[0];
 	$m = $peried_7[1];
 	if($break_position==6) {$b=$break;}
+	if($breaktwo_position==6) {$b=$breaktwo;}
 	if($lunch_position==6) {$b=$lunch;}
 	$peried_7s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 	$peried_7e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -253,12 +280,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 	$peried_7e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
 
-	if($break_position==7 || $lunch_position==7)
+	if($break_position==7 || $lunch_position==7 || $breaktwo_position ==7)
 	{
 	$peried_8 = explode(":", $peried_7e);
 	$h = $peried_8[0];
 	$m = $peried_8[1];
 	if($break_position==7) {$b=$break;}
+	if($breaktwo_position==7) {$b=$breaktwo;}
 	if($lunch_position==7) {$b=$lunch;}
 	$peried_8s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 	$peried_8e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -272,12 +300,13 @@ if ($action=='edittimetable'|| $action=='delete') {
 	$peried_8e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
 
-	if($break_position==8 || $lunch_position==8)
+	if($break_position==8 || $lunch_position==8 || $breaktwo_position==8)
 	{
 	$peried_9 = explode(":", $peried_8e);
 	$h = $peried_9[0];
 	$m = $peried_9[1];
 	if($break_position==8) {$b=$break;}
+	if($breaktwo_position==8) {$b=$breaktwo;}
 	if($lunch_position==8) {$b=$lunch;}
 	$peried_9s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
 	$peried_9e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
@@ -290,53 +319,86 @@ if ($action=='edittimetable'|| $action=='delete') {
 	$peried_9s =	$peried_8e;			  
 	$peried_9e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 	}
+	if($break_position==9 || $lunch_position==9 || $breaktwo_position==9)
+	{
+	$peried_10 = explode(":", $peried_9e);
+	$h = $peried_10[0];
+	$m = $peried_10[1];
+	if($break_position==9) {$b=$break;}
+	if($breaktwo_position==9) {$b=$breaktwo;}
+	if($lunch_position==9) {$b=$lunch;}
+	$peried_10s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
+	$peried_10e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
+	}
+	else
+	{					
+	$peried_10 = explode(":", $peried_9e);
+	$h = $peried_10[0];
+	$m = $peried_10[1];
+	$peried_10s =	$peried_9e;			  
+	$peried_10e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));
+	}
 ?>					
 					<table width="100%" height="262" border="1" cellpadding="5" cellspacing="0">
                       <tr  class="bgcolor_02"><?php $ttimage = str_replace("css", "", $_SESSION['eschools']['user_theme']);?>
-                        <td width="19%" align="center"><img src="images/tt_<?php echo $ttimage;?>jpg" border="0"></td>
+                        <td width="18%" align="center"><img src="images/tt_<?php echo $ttimage;?>jpg" border="0"></td>
                         <td width="12%" height="23" align="center"><strong>1<br />
 						<?php 
 						$school_start_time_1=explode(":",$school_start_time); 
 						print $school_start_time_1['0']." : ".$school_start_time_1['1'];
 						echo " TO <br> ".$peried_1e;
 						?> </strong></td>
-						<?php if($break_position==1) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==1) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==1) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==1) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==1) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
-                        <td width="13%"align="center"><strong>2<?php print "<br>".$peried_2s." TO <br>".$peried_2e; ?></strong></td>
-						<?php if($break_position==2) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==2) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+                        <td width="10%"align="center"><strong>2<?php print "<br>".$peried_2s." TO <br>".$peried_2e; ?></strong></td>
+						<?php if($break_position==2) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==2) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==2) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
-						 <!--<td width="13%"align="center"><strong> ---- </strong></td> -->
+						 <!--<td width="10%"align="center"><strong> ---- </strong></td> -->
                         <td width="15%" align="center"><strong>3<?php print "<br>".$peried_3s." TO <br>".$peried_3e; ?></strong></td>
-						<?php if($break_position==3) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==3) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==3) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==3) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==3) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
-                        <?php if($number_of_periods >= 4) { ?><td width="17%" align="center"><strong>4<?php print "<br>".$peried_4s." TO <br>".$peried_4e; ?> </strong></td><?php }?>
-						<?php if($break_position==4) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==4) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+                        <?php if($number_of_periods >= 4) { ?><td width="16%" align="center"><strong>4<?php print "<br>".$peried_4s." TO <br>".$peried_4e; ?> </strong></td><?php }?>
+						<?php if($break_position==4) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==4) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==4) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
                         <?php if($number_of_periods >= 5) { ?><td width="14%"align="center"><strong>5<?php print "<br>".$peried_5s." TO <br>".$peried_5e; ?></strong></td><?php }?>
-						<?php if($break_position==5) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==5) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==5) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==5) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==5) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
 						 
 						<?php if($number_of_periods >= 6) { ?><td width="14%"align="center"><strong>6<?php print "<br>".$peried_6s." TO <br>".$peried_6e; ?></strong></td><?php }?>
-						<?php if($break_position==6) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==6) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==6) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==6) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==6) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
 						<?php if($number_of_periods >= 7) { ?><td width="14%"align="center"><strong>7<?php print "<br>".$peried_7s." TO <br>".$peried_7e; ?></strong></td><?php }?>
-						<?php if($break_position==7) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==7) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
-						
+						<?php if($break_position==7) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==7) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==7) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
+					
 						<?php if($number_of_periods >= 8) { ?><td width="14%"align="center"><strong>8<?php print "<br>".$peried_8s." TO <br>".$peried_8e; ?></strong></td><?php }?>
-						<?php if($break_position==8) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==8) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==8) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==8) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==8) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
 						<?php if($number_of_periods >= 9) { ?><td width="14%"align="center"><strong>9<?php print "<br>".$peried_9s." TO <br>".$peried_9e; ?></strong></td><?php }?>
-						<?php if($break_position==9) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==9) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==9) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==9) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==9) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
+						<?php if($number_of_periods >= 10) { ?><td width="14%"align="center"><strong>10<?php print "<br>".$peried_10s." TO <br>".$peried_10e; ?></strong></td><?php }?>
+						<?php if($break_position==10) { ?><td width="9%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==10) { ?><td width="9%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==10) { ?><td width="9%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
+
                       </tr>
 					  
                       <tr >
@@ -378,6 +440,7 @@ WHERE classid =".$es_class."
 						$es_m7 = $subject_det['es_m7']; $es_m7f = $staff_det['es_m7'];
 						$es_m8 = $subject_det['es_m8']; $es_m8f = $staff_det['es_m8'];
 						$es_m9 = $subject_det['es_m9']; $es_m9f = $staff_det['es_m9'];
+						$es_m10 = $subject_det['es_m10']; $es_m10f = $staff_det['es_m10'];
 						
 						$es_t1 = $subject_det['es_t1']; $es_t1f = $staff_det['es_t1'];
 						$es_t2 = $subject_det['es_t2']; $es_t2f = $staff_det['es_t2'];
@@ -388,6 +451,7 @@ WHERE classid =".$es_class."
 						$es_t7 = $subject_det['es_t7']; $es_t7f = $staff_det['es_t7'];
 						$es_t8 = $subject_det['es_t8']; $es_t8f = $staff_det['es_t8'];
 						$es_t9 = $subject_det['es_t9']; $es_t9f = $staff_det['es_t9'];
+						$es_t10 = $subject_det['es_t10']; $es_t10f = $staff_det['es_t10'];
 						
 						
 						$es_w1 = $subject_det['es_w1']; $es_w1f = $staff_det['es_w1'];
@@ -399,6 +463,7 @@ WHERE classid =".$es_class."
 						$es_w7 = $subject_det['es_w7']; $es_w7f = $staff_det['es_w7'];
 						$es_w8 = $subject_det['es_w8']; $es_w8f = $staff_det['es_w8'];
 						$es_w9 = $subject_det['es_w9']; $es_w9f = $staff_det['es_w9'];
+						$es_w10 = $subject_det['es_w10']; $es_w10f = $staff_det['es_w10'];
 						
 						
 						$es_th1 = $subject_det['es_th1']; $es_th1f = $staff_det['es_th1'];
@@ -410,6 +475,7 @@ WHERE classid =".$es_class."
 						$es_th7 = $subject_det['es_th7']; $es_th7f = $staff_det['es_th7'];
 						$es_th8 = $subject_det['es_th8']; $es_th8f = $staff_det['es_th8'];
 						$es_th9 = $subject_det['es_th9']; $es_th9f = $staff_det['es_th9'];
+						$es_th10 = $subject_det['es_th10']; $es_th10f = $staff_det['es_th10'];
 						
 						$es_f1 = $subject_det['es_f1']; $es_f1f = $staff_det['es_f1'];
 						$es_f2 = $subject_det['es_f2']; $es_f2f = $staff_det['es_f2'];
@@ -420,7 +486,8 @@ WHERE classid =".$es_class."
 						$es_f7 = $subject_det['es_f7']; $es_f7f = $staff_det['es_f7'];
 						$es_f8 = $subject_det['es_f8']; $es_f8f = $staff_det['es_f8'];
 						$es_f9 = $subject_det['es_f9']; $es_f9f = $staff_det['es_f9'];
-						
+						$es_f10 = $subject_det['es_f10']; $es_s10f = $staff_det['es_s10'];
+
 						
 						$es_s1 = $subject_det['es_s1']; $es_s1f = $staff_det['es_s1'];
 						$es_s2 = $subject_det['es_s2']; $es_s2f = $staff_det['es_s2'];
@@ -431,7 +498,7 @@ WHERE classid =".$es_class."
 						$es_s7 = $subject_det['es_s7']; $es_s7f = $staff_det['es_s7'];
 						$es_s8 = $subject_det['es_s8']; $es_s8f = $staff_det['es_s8'];
 						$es_s9 = $subject_det['es_s9']; $es_s9f = $staff_det['es_s9'];
-						
+						$es_s10 = $subject_det['es_s10']; $es_s10f = $staff_det['es_s10'];
 						
 						}
 						
@@ -504,6 +571,14 @@ WHERE classid =".$es_class."
 									$m9_staff_arr = showstaff($es_class,"es_m9");
 							      echo $html_obj->draw_selectfield('es_m9f',$m9_staff_arr,'','style="width:101px;"');
 						     ?>         
+                             </td>
+                         <?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                             <?php 
+							      echo $html_obj->draw_selectfield('es_m10',$subjects_arr,'','style="width:101px;"'); 
+									$m10_staff_arr = showstaff($es_class,"es_m10");
+							      echo $html_obj->draw_selectfield('es_m10f',$m10_staff_arr,'','style="width:101px;"');
+						     ?>         
                              </td><?php }?>
                       </tr>
                       <tr>
@@ -561,6 +636,13 @@ WHERE classid =".$es_class."
                         <?php echo $html_obj->draw_selectfield('es_t9',$subjects_arr,'','style="width:101px;"'); 
                               $t9_staff_arr = showstaff($es_class,"es_t9");
                              echo $html_obj->draw_selectfield('es_t9f',$t9_staff_arr,'','style="width:101px;"');
+                        ?>
+                        </td>
+                    <?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                        <?php echo $html_obj->draw_selectfield('es_t10',$subjects_arr,'','style="width:101px;"'); 
+                              $t10_staff_arr = showstaff($es_class,"es_t10");
+                             echo $html_obj->draw_selectfield('es_t10f',$t10_staff_arr,'','style="width:101px;"');
                         ?>
                         </td><?php }?>
                       </tr>
@@ -622,6 +704,12 @@ WHERE classid =".$es_class."
                               echo $html_obj->draw_selectfield('es_w9f',$w9_staff_arr,'','style="width:101px;"');
                         ?>
                         </td><?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                        <?php echo $html_obj->draw_selectfield('es_w10',$subjects_arr,'','style="width:101px;"'); 
+                              $w10_staff_arr = showstaff($es_class,"es_w10");
+                              echo $html_obj->draw_selectfield('es_w10f',$w10_staff_arr,'','style="width:101px;"');
+                        ?>
+                        </td><?php }?>
                         
                       </tr>
                       <tr>
@@ -678,6 +766,13 @@ WHERE classid =".$es_class."
                         <?php echo $html_obj->draw_selectfield('es_th9',$subjects_arr,'','style="width:101px;"'); 
                               $th9_staff_arr = showstaff($es_class,"es_th9");
                               echo $html_obj->draw_selectfield('es_th9f',$th9_staff_arr,'','style="width:101px;"');
+                        ?>
+                        </td>
+                    <?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                        <?php echo $html_obj->draw_selectfield('es_th10',$subjects_arr,'','style="width:101px;"'); 
+                              $th10_staff_arr = showstaff($es_class,"es_th10");
+                              echo $html_obj->draw_selectfield('es_th10f',$th10_staff_arr,'','style="width:101px;"');
                         ?>
                         </td><?php }?>
                         
@@ -737,6 +832,13 @@ WHERE classid =".$es_class."
                               $f9_staff_arr = showstaff($es_class,"es_f9");
                               echo $html_obj->draw_selectfield('es_f9f',$f9_staff_arr,'','style="width:101px;"');
                         ?>
+                        </td>
+                    <?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                        <?php echo $html_obj->draw_selectfield('es_f10',$subjects_arr,'','style="width:101px;"'); 
+                              $f10_staff_arr = showstaff($es_class,"es_f10");
+                              echo $html_obj->draw_selectfield('es_f10f',$f10_staff_arr,'','style="width:101px;"');
+                        ?>
                         </td><?php }?>
                        
                       </tr>
@@ -794,6 +896,12 @@ WHERE classid =".$es_class."
                         <?php echo $html_obj->draw_selectfield('es_s9',$subjects_arr,'','style="width:101px;"'); 
                               $s9_staff_arr = showstaff($es_class,"es_s9");
                               echo $html_obj->draw_selectfield('es_s9f',$s9_staff_arr,'','style="width:101px;"');
+                        ?>
+                       </td> <?php }?>
+                        <?php if($number_of_periods >= 10) { ?><td align="center" valign="middle">
+                        <?php echo $html_obj->draw_selectfield('es_s10',$subjects_arr,'','style="width:101px;"'); 
+                              $s10_staff_arr = showstaff($es_class,"es_s10");
+                              echo $html_obj->draw_selectfield('es_s10f',$s10_staff_arr,'','style="width:101px;"');
                         ?>
                        </td> <?php }?>
                         
@@ -892,7 +1000,7 @@ WHERE classid =".$es_class."
 */
 if($action == 'viewtimetable') { ?>
 <form action="" method="post" name="edittimetable">
-<table border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
          <td height="3" colspan="3"></td>
 	 </tr>
@@ -921,7 +1029,7 @@ if($action == 'viewtimetable') { ?>
                     <td width="50%" align="left" valign="top" class="narmal"></td>
 					
                     <td width="15%" align="left" class="narmal" valign="right"> <?php if(isset($es_class) && $es_class!='')
-{ ?> <a href="?pid=106&action=edittimetable" ></a> <?php }?></td>
+                          { ?> <a href="?pid=106&action=edittimetable" ></a> <?php }?></td>
                   </tr> 
 			
 				  
@@ -948,6 +1056,8 @@ if($action == 'viewtimetable') { ?>
 					<?php	$number_of_periods=$view_timetable['es_endto']; ?>
 					<?php	$break=$view_timetable['es_breakfrom']; ?>
 					<?php	$break_position=$view_timetable['es_breakto']; ?>
+					<?php	$breaktwo=$view_timetable['es_breaktwofrom']; ?>
+					<?php	$breaktwo_position=$view_timetable['es_breaktwoto']; ?>
 					<?php	$lunch=$view_timetable['es_lunchfrom']; ?>
 
 					<?php	$lunch_position=$view_timetable['es_lunchto']; ?>
@@ -1114,10 +1224,28 @@ if($action == 'viewtimetable') { ?>
 				    $peried_9e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
 					}
 					
+					if($break_position==9 || $lunch_position==9)
+				    {
+					$peried_10 = explode(":", $peried_9e);
+                    $h = $peried_10[0];
+                    $m = $peried_10[1];
+					if($break_position==9) {$b=$break;}
+					if($lunch_position==9) {$b=$lunch;}
+					$peried_10s =date("H:i", mktime($h,$m+$b,0,$dd,$mm,$yy));		  
+				    $peried_10e = date("H:i", mktime($h,$m+$b+$period_duration,0,$dd,$mm,$yy));					
+					}
+				  else
+				    {					
+					$peried_10 = explode(":", $peried_9e);
+                    $h = $peried_10[0];
+                    $m = $peried_10[1];
+					$peried_10s =	$peried_9e;			  
+				    $peried_10e=date("H:i", mktime($h,$m+$period_duration,0,$dd,$mm,$yy));						
+					}
 				  ?>
 				  <table width="100%" height="300" border="1" cellpadding="0" cellspacing="0">
                       <tr  class="bgcolor_02">
-                        <td width="6%" align="center"><?php $ttimage = str_replace("css", "", $_SESSION['eschools']['user_theme']);?><img src="images/tt_<?php echo $ttimage;?>jpg" border="0"></td>
+                        <td width="8%" align="center"><?php $ttimage = str_replace("css", "", $_SESSION['eschools']['user_theme']);?><img src="images/tt_<?php echo $ttimage;?>jpg" border="0"></td>
                         <td width="8%" height="23" align="center"><strong>1<?php 
 						$school_start_time_1=explode(":",$school_start_time); 
 						print "<br/>".$school_start_time_1['0']." : ".$school_start_time_1['1'];
@@ -1125,51 +1253,74 @@ if($action == 'viewtimetable') { ?>
 						?>
 						 </strong></td>
 						 
-						 <?php if($break_position==1) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==1) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						 <?php if($break_position==1) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==1) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==1) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
-                        <td width="10%"align="center"><strong>2<?php print "<br>".$peried_2s." TO <br>".$peried_2e; ?></strong></td>
+                        <td width="8%"align="center"><strong>2<?php print "<br>".$peried_2s." TO <br>".$peried_2e; ?></strong></td>
 						
-						<?php if($break_position==2) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==2) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==2) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==2) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==2) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						  
                           <td width="8%" align="center"><strong>3<?php print "<br>".$peried_3s." TO <br>".$peried_3e; ?></strong></td>
 						  
-						  <?php if($break_position==3) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==3) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						  <?php if($break_position==3) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==3) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==3) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						<?php if($number_of_periods >= 4) { ?>
-                        <td width="9%" align="center"><strong>4<?php print "<br>".$peried_4s." TO <br>".$peried_4e; ?></strong></td>
+                        <td width="8%" align="center"><strong>4<?php print "<br>".$peried_4s." TO <br>".$peried_4e; ?></strong></td>
 							<?php } ?>
-						<?php if($break_position==4) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==4) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==4) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==4) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==4) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						<?php if($number_of_periods >= 5) { ?>
-                        <td width="10%"align="center"><strong>5<?php print "<br>".$peried_5s." TO <br>".$peried_5e; ?></strong></td>
+                        <td width="8%"align="center"><strong>5<?php print "<br>".$peried_5s." TO <br>".$peried_5e; ?></strong></td>
 							<?php } ?>
-						<?php if($break_position==5) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==5) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($break_position==5) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==5) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==5) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 								<?php if($number_of_periods >= 6) { ?>
-						    <td width="9%"align="center"><strong>6<?php print "<br>".$peried_6s." TO <br>".$peried_6e; ?></strong></td>
+						    <td width="8%"align="center"><strong>6<?php print "<br>".$peried_6s." TO <br>".$peried_6e; ?></strong></td>
 							<?php } ?>
-							<?php if($break_position==6) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						    <?php if($lunch_position==6) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+							<?php if($break_position==6) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						    <?php if($lunch_position==6) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						    <?php if($breaktwo_position==6) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 								<?php if($number_of_periods >= 7) { ?>
-							    <td width="9%"align="center"><strong>7<?php print "<br>".$peried_7s." TO <br>".$peried_7e; ?></strong></td>
+							    <td width="8%"align="center"><strong>7<?php print "<br>".$peried_7s." TO <br>".$peried_7e; ?></strong></td>
 								<?php } ?>
-								<?php if($break_position==7) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						        <?php if($lunch_position==7) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+								<?php if($break_position==7) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						        <?php if($lunch_position==7) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td>
+						        <?php if($breaktwo_position==7) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
+
+						         <?php } ?>
+								<?php if($number_of_periods >= 8) { ?>
+							    <td width="8%"align="center"><strong>8<?php print "<br>".$peried_8s." TO <br>".$peried_8e; ?></strong></td>
+								<?php } ?>
+								<?php if($break_position==8) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						        <?php if($lunch_position==8) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						        <?php if($breaktwo_position==8) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
+						        
 						
-									<?php if($number_of_periods >= 8) { ?>
-								    <td width="10%"align="center"><strong>8<?php print "<br>".$peried_8s." TO <br>".$peried_8e; ?></strong></td>
+									<?php if($number_of_periods >= 9) { ?>
+			    <td width="8%"align="center"><strong>9<?php print "<br>".$peried_9s." TO <br>".$peried_9e; ?></strong></td>
 									<?php } ?>
 									
-									<?php if($break_position==8) { ?><td width="13%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
-						<?php if($lunch_position==8) { ?><td width="13%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+				<?php if($break_position==9) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+				<?php if($lunch_position==9) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+				<?php if($breaktwo_position==9) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
 						
-									    <?php	//echo $number_of_periods=$timetabledetails[0]->es_endto; ?>
-										
-										<?php if($number_of_periods >= 9) { ?>
-										<td width="9%"align="center"><strong>9<?php print "<br>".$peried_9s." TO <br>".$peried_9e; ?></strong></td>
-										<?php } ?>
+									    
+
+										<?php if($number_of_periods >= 10) { ?>
+								    <td width="8%"align="center"><strong>10<?php print "<br>".$peried_10s." TO <br>".$peried_10e; ?></strong></td>
+									<?php } ?>
+									
+									<?php if($break_position==10) { ?><td width="4%" rowspan="7"align="center"><strong>B1</strong></td> <?php } ?>
+						<?php if($lunch_position==10) { ?><td width="4%" rowspan="7"align="center"><strong>B2</strong></td> <?php } ?>
+						<?php if($breaktwo_position==10) { ?><td width="4%" rowspan="7"align="center"><strong>B3</strong></td> <?php } ?>
+
+
                       </tr>
 					  
                   <tr >
@@ -1183,7 +1334,8 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 6) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m6']]."<br>".$staff_arr[$view_timetable['es_m6f']]; ?></td><?php } ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m7']]."<br>".$staff_arr[$view_timetable['es_m7f']]; ?></td><?php } ?>
                     <?php if($number_of_periods >= 8) { ?> <td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m8']]."<br>".$staff_arr[$view_timetable['es_m8f']]; ?></td><?php } ?>
-                    <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m9']]."<br>".$staff_arr[$view_timetable['es_m9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 9) { ?> <td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m9']]."<br>".$staff_arr[$view_timetable['es_m9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_m10']]."<br>".$staff_arr[$view_timetable['es_m10f']]; ?></td><?php } ?>
                   </tr>
                   <tr>
                     <td height="42" class="bgcolor_02" >&nbsp;&nbsp;<strong>Tue</strong></td>
@@ -1197,6 +1349,7 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_t7f']]."<br>".$staff_arr[$view_timetable['es_t7f']]; ?></td><?php } ?>
                     <?php if($number_of_periods >= 8) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_t8']]."<br>".$staff_arr[$view_timetable['es_t8f']]; ?></td><?php } ?>
                     <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_t9']]."<br>".$staff_arr[$view_timetable['es_t9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_t10']]."<br>".$staff_arr[$view_timetable['es_t10f']]; ?></td><?php } ?>
                   </tr>
                   <tr>
                     <td height="42" class="bgcolor_02" >&nbsp;&nbsp;<strong>Wed</strong></td>
@@ -1211,6 +1364,7 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_w7']]."<br>".$staff_arr[$view_timetable['es_w7f']]; ?></td><?php } ?>
                   <?php if($number_of_periods >= 8) { ?>  <td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_w8']]."<br>".$staff_arr[$view_timetable['es_w8f']]; ?></td><?php } ?>
                     <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_w9']]."<br>".$staff_arr[$view_timetable['es_w9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_w10']]."<br>".$staff_arr[$view_timetable['es_w10f']]; ?></td><?php } ?>
                   </tr>
                   <tr>
                        <td height="42" class="bgcolor_02" >&nbsp;&nbsp;<strong>Thurs</strong></td>
@@ -1225,6 +1379,7 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_th7']]."<br>".$staff_arr[$view_timetable['es_th7f']]; ?></td><?php } ?>
                     <?php if($number_of_periods >= 8) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_th8']]."<br>".$staff_arr[$view_timetable['es_th8f']]; ?></td> <?php } ?>  
                     <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_th9']]."<br>".$staff_arr[$view_timetable['es_th9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_th10']]."<br>".$staff_arr[$view_timetable['es_th10f']]; ?></td><?php } ?>
                   </tr>
                   <tr>
                       <td height="42" class="bgcolor_02" >&nbsp;&nbsp;<strong>Fri</strong></td>
@@ -1239,6 +1394,7 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_f7']]."<br>".$staff_arr[$view_timetable['es_f7f']]; ?></td><?php } ?>
                    <?php if($number_of_periods >= 8) { ?> <td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_f8']]."<br>".$staff_arr[$view_timetable['es_f8f']]; ?></td> <?php } ?>
                     <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_f9']]."<br>".$staff_arr[$view_timetable['es_f9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_f10']]."<br>".$staff_arr[$view_timetable['es_f10f']]; ?></td><?php } ?>
                   </tr>
                   <tr>
                     <td height="42" class="bgcolor_02" >&nbsp;&nbsp;<strong>Sat</strong></td>
@@ -1252,6 +1408,7 @@ if($action == 'viewtimetable') { ?>
                      <?php if($number_of_periods >= 7) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_s7']]."<br>".$staff_arr[$view_timetable['es_s7f']]; ?></td><?php } ?>
                      <?php if($number_of_periods >= 8) { ?> <td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_s8']]."<br>".$staff_arr[$view_timetable['es_s8f']]; ?></td> <?php } ?>
                     <?php if($number_of_periods >= 9) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_s9']]."<br>".$staff_arr[$view_timetable['es_s9f']]; ?></td><?php } ?>
+                    <?php if($number_of_periods >= 10) { ?><td align="center" class="narmal"><?php echo $subject_array[$view_timetable['es_s10']]."<br>".$staff_arr[$view_timetable['es_s10f']]; ?></td><?php } ?>
                     <?php }?>
         </tr>
                     </table></td>

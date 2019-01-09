@@ -190,17 +190,13 @@ function newWindowOpen(href)
              <td class="bgcolor_02"></td>
              <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                <!--DWLayoutTable-->
-			 <tr>
-                  <td width="19" height="30">&nbsp;</td>
-                   <td width="239" align="left"><span class="narmal">STUDENT-UID (Aadhar-Card) No.</span></td>
-                 <td width="9" align="left">:</td>
-                   <td width="201" align="left"> <?php echo $eachrecord1['aadharno']; ?> </td></tr>
+			 
 				   <tr>
 				  
 				   <td height="30">&nbsp;</td>
 				   <frameset cols="80%","20%">
 				   <frame />
-                   <td align="left"><span class="narmal">Tittle</span></td>
+                   <td align="left"><span class="narmal">Title</span></td>
                  <td width="9" align="left">:</td>
                    <td width="201" align="left"><?php echo $eachrecord1['pre_serialno']; ?>&nbsp;<?php echo $eachrecord1['pre_name']; ?> </td></frameset>	
 									  
@@ -329,40 +325,7 @@ function newWindowOpen(href)
                    <td align="left">Religion</td>
                    <td align="left">:</td>
                    <td align="left"><?php echo htmlentities($eachrecord1['test2']); ?></td>
-				   
-				   
-				   
-                   <td align="left" valign="top"><span class="narmal">Category</span></td>
-                   <td align="left">:</td>
-				   <?php
-								$q="select * from es_caste where caste_id='".$eachrecord1['caste_id']."'";
-								$r=mysql_query($q);
-								$ret=mysql_fetch_array($r);
-								//$caste=$ret['caste'];
-								//echo $caste;
-								?>       
-								
-				   <td align="left" valign="top"><?php echo htmlentities($ret['caste']); ?></td>
-               </tr>
-			   
-			   
-			   
-			   
-                 <tr>
-                   <td height="30">&nbsp;</td>
-                   <td align="left">Caste </td>
-                   <td align="left">:</td>
-                   <td align="left"><?php echo htmlentities($eachrecord1['test3']); ?></td>
-                   <td align="left" valign="top">Mother Tongue</td>
-                   <td align="left">:</td>
-                   <td align="left" valign="top"><?php echo htmlentities($eachrecord1['pre_alerge']); ?>&nbsp;</td>
-               </tr>
-			  
-			   
-			   
-			   
-			   
-			     <tr>
+				 <tr>
                    <td height="30">&nbsp;</td>
                    <td align="left">Physical Handicaped </td>
                    <td align="left">:</td>
@@ -490,27 +453,7 @@ function newWindowOpen(href)
                              <td></td>
                              <td></td>
                              <td></td>
-							      <tr><td height="30">&nbsp;</td>
-                                    <?php /*?><td align="left">Residence</td>
-                                    <td align="left">:</td>
-                                    <td align="left">
-									<?php echo $eachrecord1['es_home'];	?>                                    </td><?php */?>
-                                    <td align="left">Username</td>
-                                    <td align="left">:</td>
-                                    <td align="left"><?php echo htmlentities($eachrecord1['pre_student_username']); ?></td>
-               </tr>
-								  
-								  <tr>
-                                  <td height="30">&nbsp;</td>
-                                    <td align="left">Password</td>
-                                    <td align="left">:</td>
-                                    <td align="left"><?php echo $eachrecord1['pre_student_password'];?></td>
-                                    <td align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                    <td align="left"><!--DWLayoutEmptyCell-->&nbsp;</td>
-                                  </tr>
-								  
-								   <?php /*?><tr>
+							      <?php /*?><tr>
                                   <td height="30">&nbsp;</td>
 								   <td align="left">Building</td>
                                     <td align="left">:</td>
@@ -559,7 +502,7 @@ function newWindowOpen(href)
                </tr>
                <tr>
                  <td>&nbsp;</td>
-                 <td height="30" align="left">State</td>
+                 <td height="30" align="left">County</td>
                  <td align="left">:</td>
                  <td align="left"><?php  if($eachrecord1['pre_state1']!='') {echo $eachrecord1['pre_state1']; } else { echo $pre_state1; }?></td>
                  <td align="left"><span class="narmal">Pin Code </span></td>
@@ -618,7 +561,7 @@ function newWindowOpen(href)
                </tr>
                <tr>
                  <td>&nbsp;</td>
-                 <td height="30" align="left">State</td>
+                 <td height="30" align="left">County</td>
                  <td align="left">:</td>
                  <td align="left"><?php  if($eachrecord1['pre_state']!='') { echo $eachrecord1['pre_state']; } else {echo $pre_state;}?></td>
                  <td align="left"><span class="narmal">Pin Code</span></td>
