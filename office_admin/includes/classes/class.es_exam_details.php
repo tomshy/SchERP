@@ -54,6 +54,8 @@ class es_exam_details extends POG_Base
 	 * @var INT
 	 */
 	public $pass_marks;
+
+	public $supervisor;
 	
 	/**
 	 * @var LONGTEXT
@@ -89,7 +91,7 @@ class es_exam_details extends POG_Base
 		}
 	}
 	
-	function es_exam_details($academicexam_id='', $subject_id='', $exam_date='', $exam_duration='', $total_marks='', $pass_marks='', $upload_exam_paper='')
+	function es_exam_details($academicexam_id='', $subject_id='', $exam_date='', $exam_duration='', $total_marks='', $pass_marks='',$supervisor='', $upload_exam_paper='')
 	{
 		$this->academicexam_id = $academicexam_id;
 		$this->subject_id = $subject_id;
@@ -97,6 +99,7 @@ class es_exam_details extends POG_Base
 		$this->exam_duration = $exam_duration;
 		$this->total_marks = $total_marks;
 		$this->pass_marks = $pass_marks;
+		$this->supervisor = $supervisor;
 		$this->upload_exam_paper = $upload_exam_paper;
 	}
 	
@@ -120,6 +123,7 @@ class es_exam_details extends POG_Base
 			$this->exam_duration = $this->Unescape($row['exam_duration']);
 			$this->total_marks = $this->Unescape($row['total_marks']);
 			$this->pass_marks = $this->Unescape($row['pass_marks']);
+			$this->supervisor = $this->Unescape($row['supervisor']);
 			$this->upload_exam_paper = $this->Unescape($row['upload_exam_paper']);
 		}
 		return $this;
@@ -237,17 +241,18 @@ class es_exam_details extends POG_Base
 			`exam_duration`='".$this->Escape($this->exam_duration)."', 
 			`total_marks`='".$this->Escape($this->total_marks)."', 
 			`pass_marks`='".$this->Escape($this->pass_marks)."', 
+			`supervisor`='".$this->Escape($this->supervisor)."', 
 			`upload_exam_paper`='".$this->Escape($this->upload_exam_paper)."' where `es_exam_detailsid`='".$this->es_exam_detailsId."'";
 		}
 		else
 		{
-			$this->pog_query = "insert into `es_exam_details` (`academicexam_id`, `subject_id`, `exam_date`, `exam_duration`, `total_marks`, `pass_marks`, `upload_exam_paper` ) values (
+			$this->pog_query = "insert into `es_exam_details` (`academicexam_id`, `subject_id`, `exam_date`, `exam_duration`, `total_marks`, `supervisor`, `upload_exam_paper` ) values (
 			'".$this->Escape($this->academicexam_id)."', 
 			'".$this->Escape($this->subject_id)."', 
 			'".$this->exam_date."', 
 			'".$this->Escape($this->exam_duration)."', 
-			'".$this->Escape($this->total_marks)."', 
-			'".$this->Escape($this->pass_marks)."', 
+			'".$this->Escape($this->total_marks)."', 			 
+			'".$this->Escape($this->supervisor)."', 
 			'".$this->Escape($this->upload_exam_paper)."' )";
 		}
 		$insertId = Database::InsertOrUpdate($this->pog_query, $connection);

@@ -412,9 +412,9 @@ function showtable(){
 						  <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="tbl_grid">
                             <tr>
                               <td width="7%" height="20" class="bgcolor_02"><strong>&nbsp;S No </strong></td>
-                              <td width="31%" class="bgcolor_02"><strong>&nbsp;&nbsp;&nbsp;Exam Passed </strong></td>
-							  <td width="31%" class="bgcolor_02"><strong>&nbsp;&nbsp;&nbsp;Marks Obtained </strong></td>
-                              <td width="35%" class="bgcolor_02"><strong>&nbsp;&nbsp;Board / University </strong></td>
+                              <td width="31%" class="bgcolor_02"><strong>&nbsp;&nbsp;&nbsp;Exam </strong></td>
+							  <td width="31%" class="bgcolor_02"><strong>&nbsp;&nbsp;&nbsp;Degree/Grade </strong></td>
+                              <td width="35%" class="bgcolor_02"><strong>&nbsp;&nbsp;School/ University/ Board</strong></td>
                               <td width="27%" class="bgcolor_02"><strong>&nbsp;&nbsp;Year/session</strong></td>
                             </tr>
                             <tr>

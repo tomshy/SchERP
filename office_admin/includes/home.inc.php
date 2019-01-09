@@ -23,5 +23,10 @@ list($year, $month) = explode('-', date('Y-n'));
 
   $sql_todaybirth = "SELECT *  FROM es_preadmission  WHERE  pre_status!= 'inactive' AND status !='inactive'  ORDER BY pre_class ASC";
    $students_det = $db->getrows($sql_todaybirth);
-//$sql_todaybirth = "SELECT *  FROM es_preadmission  WHERE  pre_status!= 'inactive' AND status !='inactive'  ORDER BY pre_class ASC"AND pre_dateofbirth = '".$month."';
+   $staff_no="SELECT * FROM es_staff";
+   $staff_num=$db->getrows($staff_no);
+   $sql_students = "SELECT *  FROM es_preadmission  WHERE  pre_status!= 'inactive' AND status !='inactive'";
+   $student_num=$db->getrows($sql_students);
+   $sql_classes="SELECT * FROM es_classes";
+   $class_num=$db->getrows($sql_classes);
 ?>

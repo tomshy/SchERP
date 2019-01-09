@@ -615,12 +615,12 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 ?>			
 
 			<tr id="subjectList" height="25" class="bgcolor_02">
-				<td width="20%" align="left" valign="middle" class="admin">&nbsp;S.No</td>							   
+				<td width="20%" align="left" valign="middle" class="admin">Subject Code</td>							   
 				<td width="40%" align="left" valign="middle" class="admin">Subject Name </td>                              						  
 				<td width="40%" align="left" valign="middle" class="admin">Action</td>
 			</tr>
 
-<?php		$rownum = 1;
+<?php
 			if(count($obj_subjectlistarr) > 0)
 			{ 
 				foreach ($obj_subjectlistarr as $eachrecord)
@@ -628,7 +628,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 ?>						<tr height="25">
 <?php					if (isset($scid) && $scid == $eachrecord->es_subjectId )
 						{
-?>							<td width="20%" align="left" valign="middle" class="narmal"><?php echo $rownum ?></td>
+?>							<td width="20%" align="left" valign="middle" class="narmal"><?php echo '<input type="text" name="code_edit" size="7" value="'.$eachrecord->es_subjectcode.'">'; ?></td>
 					        <td width="40%" align="left" valign="middle" class="narmal">
 								<?php echo '<input type="text" name="sub_edit" size="7" value="'.$eachrecord->es_subjectname.'">'; ?>
                             </td>
@@ -644,7 +644,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 <?php					}
 						else
 						{
-?>							<td width="20%" align="left" valign="middle" class="narmal"><?php echo $rownum ?></td>
+?>							<td width="20%" align="left" valign="middle" class="narmal"><?php echo $eachrecord->es_subjectcode; ?></td>
 							<td width="40%" align="left" valign="middle" class="narmal"><?php echo $eachrecord->es_subjectname; ?></td>
 					        <td width="40%" align="left" valign="middle">
 			                    <table width="30%" border="0" cellspacing="0" cellpadding="0">
@@ -678,12 +678,12 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 <?php					}
 ?>						</tr>
 <?php
-						$rownum++;
+						
 				}
 			}
 ?>
 			<tr height="25">
-				<td width="10%" align="left" valign="middle" class="narmal"><?php echo $rownum; ?></td>
+				<td width="10%" align="left" valign="middle" class="narmal"><input name="code[]" type="text" size="10" /></td>
 				<td width="30%" align="left" valign="middle"><input name="subject[]" type="text" size="15" /></td>
 				<td width="30%" align="left" valign="middle">
 					<table width="48%" border="0" cellspacing="0" cellpadding="0">
@@ -877,7 +877,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 
 	  newcell.id = newcell.uniqueID;
 
-	  newcell.innerHTML = "<table width='100%' border='0' cellpadding='0' cellspacing='0'><tr height='25'><td align='left' class='narmal' width='20%'>"+ newrowiddd +"</td><td align='left' width='40%'><input name='subject[]' type='text' size='15' /></td><td align='left' width='40%'><a href='javascript:AddRow2()' title='Add'><img src='images/add_16.png' border='0' /></a>&nbsp;<a href='javascript:DelRow2()' title='Delete'><img src='images/b_drop.png' border='0' /></a></td></tr></table>";
+	  newcell.innerHTML = "<table width='100%' border='0' cellpadding='0' cellspacing='0'><tr height='25'><td align='left' class='narmal' width='20%'><input name='code[]' type='text' size='10' /></td><td align='left' width='40%'><input name='subject[]' type='text' size='15' /></td><td align='left' width='40%'><a href='javascript:AddRow2()' title='Add'><img src='images/add_16.png' border='0' /></a>&nbsp;<a href='javascript:DelRow2()' title='Delete'><img src='images/b_drop.png' border='0' /></a></td></tr></table>";
 
 	  
 

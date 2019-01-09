@@ -202,6 +202,21 @@ if (in_array('2_p', $admin_permissions)){?>
 
 <li><a href="?pid=21&action=studentlist2">Students&nbsp;List&nbsp;</a></li>
 </ul>
+
+<?php }}if (in_array('10_p', $top_level_permissions) ){if (in_array('10_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/staff_32.png" /></td>
+    <td>STAFF</td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+
+<li><a href="?pid=49&action=department">Add Department</a></li>
+<li><a href="?pid=46&action=addnewstaff">Add Staff</a></li>
+<li><a href="?pid=15&action=staffviewing">View Staff</a></li>
+<li><a href="?pid=64&action=asignincharge">Assign Incharge</a></li>
+</ul>
 <?php }}if (in_array('6_p', $top_level_permissions) ){if (in_array('6_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
