@@ -1,6 +1,6 @@
 <?php 
 sm_registerglobal('pid', 'action', 'start','emsg','es_timetablesid','es_class','es_sec','es_day','es_staffid','es_subject', 	
-'staffid','elid','Submit' ,'es_m1','es_m2','es_m3','es_m4','es_m5','es_m6','es_m7','es_m8','es_m9' ,'es_t1','es_t2','es_t3','es_t4','es_t5','es_t6','es_t7','es_t8','es_t9' ,'es_w1','es_w2','es_w3','es_w4','es_w5','es_w6','es_w7','es_w8','es_w9' ,'es_th1','es_th2','es_th3','es_th4','es_th5','es_th6','es_th7','es_th8','es_th9'  ,'es_f1','es_f2','es_f3','es_f4','es_f5','es_f6','es_f7','es_f8','es_f9' ,'es_s1','es_s2','es_s3','es_s4','es_s5','es_s6','es_s7','es_s8','es_s9','groups','class' ,'orderby', 'updatetable','Update','es_mmid','selectempnum', 'es_staffidnam','es_startfrom','es_endto','es_breakfrom','es_breakto','es_lunchfrom','es_lunchto','es_duration','es_tmid','submit_newsubject','new_subject','es_m1f','es_m2f','es_m3f','es_m4f','es_m5f','es_m6f','es_m7f','es_m8f','es_m9f','es_t1f','es_t2f','es_t3f','es_t4f','es_t5f','es_t6f','es_t7f','es_t8f','es_t9f' ,'es_w1f','es_w2f','es_w3f','es_w4f','es_w5f','es_w6f','es_w7f','es_w8f','es_w9f' ,'es_th1f','es_th2f','es_th3f','es_th4f','es_th5f','es_th6f','es_th7f','es_th8f','es_th9f'  ,'es_f1f','es_f2f','es_f3f','es_f4f','es_f5f','es_f6f','es_f7f','es_f8f','es_f9f' ,'es_s1f','es_s2f','es_s3f','es_s4f','es_s5f','es_s6f','es_s7f','es_s8f','es_s9f');
+'staffid','elid','Submit' ,'es_m1','es_m2','es_m3','es_m4','es_m5','es_m6','es_m7','es_m8','es_m9' ,'es_m10','es_t1','es_t2','es_t3','es_t4','es_t5','es_t6','es_t7','es_t8','es_t9','es_t10','es_w1','es_w2','es_w3','es_w4','es_w5','es_w6','es_w7','es_w8','es_w9','es_w10','es_th1','es_th2','es_th3','es_th4','es_th5','es_th6','es_th7','es_th8','es_th9','es_th10','es_f1','es_f2','es_f3','es_f4','es_f5','es_f6','es_f7','es_f8','es_f9' ,'es_f10','es_s1','es_s2','es_s3','es_s4','es_s5','es_s6','es_s7','es_s8','es_s9','es_s10','groups','class' ,'orderby', 'updatetable','Update','es_mmid','selectempnum', 'es_staffidnam','es_startfrom','es_endto','es_breakfrom','es_breakto','es_breaktwofrom' ,'es_breaktwoto','es_lunchfrom','es_lunchto' ,'es_GamesFrom','es_GamesTo','es_duration','es_tmid','submit_newsubject','new_subject','es_m1f','es_m2f','es_m3f','es_m4f','es_m5f','es_m6f','es_m7f','es_m8f','es_m9f','es_t1f','es_t2f','es_t3f','es_t4f','es_t5f','es_t6f','es_t7f','es_t8f','es_t9f' ,'es_w1f','es_w2f','es_w3f','es_w4f','es_w5f','es_w6f','es_w7f','es_w8f','es_w9f' ,'es_th1f','es_th2f','es_th3f','es_th4f','es_th5f','es_th6f','es_th7f','es_th8f','es_th9f'  ,'es_f1f','es_f2f','es_f3f','es_f4f','es_f5f','es_f6f','es_f7f','es_f8f','es_f9f' ,'es_s1f','es_s2f','es_s3f','es_s4f','es_s5f','es_s6f','es_s7f','es_s8f','es_s9f');
 if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_user']=="" ) {
 	header('location: ./?pid=1&unauth=0');
 	exit;
@@ -24,17 +24,17 @@ if (isset($groups)&& $groups!=""){
 	$class_data = getClasses($groups);
   }
   
-  $weekdays_arr=array("es_m1"=>"Monday 1st Period", "es_m2"=>"Monday 2nd Period", "es_m3"=>"Monday 3rd Period", "es_m4"=>"Monday 4th Period", "es_m5"=>"Monday 5th Period", "es_m6"=>"Monday 6th Period", "es_m7"=>"Monday 7th Period", "es_m8"=>"Monday 8th Period", "es_m9"=>"Monday 9th Period", 
+  $weekdays_arr=array("es_m1"=>"Monday 1st Period", "es_m2"=>"Monday 2nd Period", "es_m3"=>"Monday 3rd Period", "es_m4"=>"Monday 4th Period", "es_m5"=>"Monday 5th Period", "es_m6"=>"Monday 6th Period", "es_m7"=>"Monday 7th Period", "es_m8"=>"Monday 8th Period", "es_m9"=>"Monday 9th Period","es_m10"=>"Monday 10th Period", 
 							
-							"es_t1"=>"Tuesday 1st Period", "es_t2"=>"Tuesday 2nd Period", "es_t3"=>"Tuesday 3rd Period", "es_t4"=>"Tuesday 4th Period", "es_t5"=>"Tuesday 5th Period", "es_t6"=>"Tuesday 6th Period", "es_t7"=>"Tuesday 7th Period", "es_t8"=>"Tuesday 8th Period", "es_t9"=>"Tuesday 9th Period", 
+							"es_t1"=>"Tuesday 1st Period", "es_t2"=>"Tuesday 2nd Period", "es_t3"=>"Tuesday 3rd Period", "es_t4"=>"Tuesday 4th Period", "es_t5"=>"Tuesday 5th Period", "es_t6"=>"Tuesday 6th Period", "es_t7"=>"Tuesday 7th Period", "es_t8"=>"Tuesday 8th Period", "es_t9"=>"Tuesday 9th Period","es_t10"=>"Tuesday 10th Period", 
 							
-							"es_w1"=>"Wednesday 1st Period", "es_w2"=>"Wednesday 2nd Period", "es_w3"=>"Wednesday 3rd Period", "es_w4"=>"Wednesday 4th Period", "es_w5"=>"Wednesday 5th Period", "es_w6"=>"Wednesday 6th Period", "es_w7"=>"Wednesday 7th Period", "es_w8"=>"Wednesday 8th Period", "es_w9"=>"Wednesday 9th Period", 
+							"es_w1"=>"Wednesday 1st Period", "es_w2"=>"Wednesday 2nd Period", "es_w3"=>"Wednesday 3rd Period", "es_w4"=>"Wednesday 4th Period", "es_w5"=>"Wednesday 5th Period", "es_w6"=>"Wednesday 6th Period", "es_w7"=>"Wednesday 7th Period", "es_w8"=>"Wednesday 8th Period", "es_w9"=>"Wednesday 9th Period","es_w10"=>"Wednesday 10th Period", 
 							
-							"es_th1"=>"Thursday 1st Period", "es_th2"=>"Thursday 2nd Period", "es_th3"=>"Thursday 3rd Period", "es_th4"=>"Thursday 4th Period", "es_th5"=>"Thursday 5th Period", "es_th6"=>"Thursday 6th Period", "es_th7"=>"Thursday 7th Period", "es_th8"=>"Thursday 8th Period", "es_th9"=>"Thursday 9th Period", 
+							"es_th1"=>"Thursday 1st Period", "es_th2"=>"Thursday 2nd Period", "es_th3"=>"Thursday 3rd Period", "es_th4"=>"Thursday 4th Period", "es_th5"=>"Thursday 5th Period", "es_th6"=>"Thursday 6th Period", "es_th7"=>"Thursday 7th Period", "es_th8"=>"Thursday 8th Period", "es_th9"=>"Thursday 9th Period","es_th10"=>"Thursday 10th Period", 
 							
-							"es_f1"=>"Friday 1st Period", "es_f2"=>"Friday 2nd Period", "es_f3"=>"Friday 3rd Period", "es_f4"=>"Friday 4th Period", "es_f5"=>"Friday 5th Period", "es_f6"=>"Friday 6th Period", "es_f7"=>"Friday 7th Period", "es_f8"=>"Friday 8th Period", "es_f9"=>"Friday 9th Period", 
+							"es_f1"=>"Friday 1st Period", "es_f2"=>"Friday 2nd Period", "es_f3"=>"Friday 3rd Period", "es_f4"=>"Friday 4th Period", "es_f5"=>"Friday 5th Period", "es_f6"=>"Friday 6th Period", "es_f7"=>"Friday 7th Period", "es_f8"=>"Friday 8th Period", "es_f9"=>"Friday 9th Period","es_f10"=>"Friday 10th Period", 
 							
-							"es_s1"=>"Saturday 1st Period", "es_s2"=>"Saturday 2nd Period", "es_s3"=>"Saturday 3rd Period", "es_s4"=>"Saturday 4th Period", "es_s5"=>"Saturday 5th Period", "es_s6"=>"Saturday 6th Period", "es_s7"=>"Saturday 7th Period", "es_s8"=>"Saturday 8th Period", "es_s9"=>"Saturday 9th Period"
+							"es_s1"=>"Saturday 1st Period", "es_s2"=>"Saturday 2nd Period", "es_s3"=>"Saturday 3rd Period", "es_s4"=>"Saturday 4th Period", "es_s5"=>"Saturday 5th Period", "es_s6"=>"Saturday 6th Period", "es_s7"=>"Saturday 7th Period", "es_s8"=>"Saturday 8th Period", "es_s9"=>"Saturday 9th Period","es_s10"=>"Saturday 10th Period"
 							
 							);
 
@@ -79,17 +79,17 @@ if($action == 'edittimetable') {
 		if (isset($updatetable) && $updatetable=='Update'){
 		
 			
-			$array_values=array("es_m1"=>$es_m1, "es_m2"=>$es_m2, "es_m3"=>$es_m3, "es_m4"=>$es_m4, "es_m5"=>$es_m5, "es_m6"=>$es_m6, "es_m7"=>$es_m7, "es_m8"=>$es_m8, "es_m9"=>$es_m9, 
+			$array_values=array("es_m1"=>$es_m1, "es_m2"=>$es_m2, "es_m3"=>$es_m3, "es_m4"=>$es_m4, "es_m5"=>$es_m5, "es_m6"=>$es_m6, "es_m7"=>$es_m7, "es_m8"=>$es_m8, "es_m9"=>$es_m9,"es_m10"=>$es_m10, 
 								
-								"es_t1"=>$es_t1, "es_t2"=>$es_t2, "es_t3"=>$es_t3, "es_t4"=>$es_t4, "es_t5"=>$es_t5, "es_t6"=>$es_t6, "es_t7"=>$es_t7, "es_t8"=>$es_t8, "es_t9"=>$es_t9, 
+								"es_t1"=>$es_t1, "es_t2"=>$es_t2, "es_t3"=>$es_t3, "es_t4"=>$es_t4, "es_t5"=>$es_t5, "es_t6"=>$es_t6, "es_t7"=>$es_t7, "es_t8"=>$es_t8, "es_t9"=>$es_t9, "es_t10"=>$es_t10,
 								
-								"es_w1"=>$es_w1, "es_w2"=>$es_w2, "es_w3"=>$es_w3, "es_w4"=>$es_w4, "es_w5"=>$es_w5, "es_w6"=>$es_w6, "es_w7"=>$es_w7, "es_w8"=>$es_w8, "es_w9"=>$es_w9, 
+								"es_w1"=>$es_w1, "es_w2"=>$es_w2, "es_w3"=>$es_w3, "es_w4"=>$es_w4, "es_w5"=>$es_w5, "es_w6"=>$es_w6, "es_w7"=>$es_w7, "es_w8"=>$es_w8, "es_w9"=>$es_w9,"es_w10"=>$es_w10,
 								
-								"es_th1"=>$es_th1, "es_th2"=>$es_th2, "es_th3"=>$es_th3, "es_th4"=>$es_th4, "es_th5"=>$es_th5, "es_th6"=>$es_th6, "es_th7"=>$es_th7, "es_th8"=>$es_th8, "es_th9"=>$es_th9, 
+								"es_th1"=>$es_th1, "es_th2"=>$es_th2, "es_th3"=>$es_th3, "es_th4"=>$es_th4, "es_th5"=>$es_th5, "es_th6"=>$es_th6, "es_th7"=>$es_th7, "es_th8"=>$es_th8, "es_th9"=>$es_th9,"es_th10"=>$es_th10, 
 								
-								"es_f1"=>$es_f1, "es_f2"=>$es_f2, "es_f3"=>$es_f3, "es_f4"=>$es_f4, "es_f5"=>$es_f5, "es_f6"=>$es_f6, "es_f7"=>$es_f7, "es_f8"=>$es_f8, "es_f9"=>$es_f9, 
+								"es_f1"=>$es_f1, "es_f2"=>$es_f2, "es_f3"=>$es_f3, "es_f4"=>$es_f4, "es_f5"=>$es_f5, "es_f6"=>$es_f6, "es_f7"=>$es_f7, "es_f8"=>$es_f8, "es_f9"=>$es_f9, "es_f10"=>$es_f10, 
 								
-								"es_s1"=>$es_s1, "es_s2"=>$es_s2, "es_s3"=>$es_s3, "es_s4"=>$es_s4, "es_s5"=>$es_s5, "es_s6"=>$es_s6, "es_s7"=>$es_s7, "es_s8"=>$es_s8, "es_s9"=>$es_s9
+								"es_s1"=>$es_s1, "es_s2"=>$es_s2, "es_s3"=>$es_s3, "es_s4"=>$es_s4, "es_s5"=>$es_s5, "es_s6"=>$es_s6, "es_s7"=>$es_s7, "es_s8"=>$es_s8, "es_s9"=>$es_s9, "es_s10"=>$es_s10
 								
 								);
 			
@@ -102,9 +102,9 @@ if($action == 'edittimetable') {
 			
 			 
 			if(count($error)==0){
-			$db->update('es_timetable_subject', "es_m1 ='" . $es_m1 . "', es_m2 ='" . $es_m2 . "',	es_m3 ='" . $es_m3 . "', es_m4 ='" . $es_m4 . "',	es_m5 ='" . $es_m5 . "',es_m6 ='" . $es_m6 . "', es_m7 ='" . $es_m7 . "',es_m8 ='" . $es_m8 . "',es_m9 ='" . $es_m9 . "',es_t1 ='" . $es_t1 . "',es_t2 ='" . $es_t2 . "',es_t3 ='" . $es_t3 . "',es_t4 ='" . $es_t4 . "',es_t5 ='" . $es_t5 . "',es_t6 ='" . $es_t6 . "',es_t7 ='" . $es_t7 . "',es_t8 ='" . $es_t8 . "',es_t9 ='" . $es_t9 . "',es_w1 ='" . $es_w1 . "',es_w2 ='" . $es_w2 . "',es_w3 ='" . $es_w3 . "',es_w4 ='" . $es_w4 . "',es_w5 ='" . $es_w5 . "',es_w6 ='" . $es_w6 . "',es_w7 ='" . $es_w7 . "',es_w8 ='" . $es_w8 . "',es_w9 ='" . $es_w9 . "',es_th1 ='" . $es_th1 . "',es_th2 ='" . $es_th2 . "',es_th3 ='" . $es_th3 . "',es_th4 ='" . $es_th4 . "',es_th5 ='" . $es_th5 . "',es_th6 ='" . $es_th6 . "',es_th7 ='" . $es_th7 . "',es_th8 ='" . $es_th8 . "',es_th9 ='" . $es_th9 . "',es_f1 ='" . $es_f1 . "',es_f2 ='" . $es_f2 . "',es_f3 ='" . $es_f3 . "',es_f4 ='" . $es_f4 . "',es_f5 ='" . $es_f5 . "',es_f6 ='" . $es_f6 . "',es_f7 ='" . $es_f7 . "',es_f8 ='" . $es_f8 . "',es_f9 ='" . $es_f9 . "',es_s1 ='" . $es_s1 . "',es_s2 ='" . $es_s2 . "',es_s3 ='" . $es_s3 . "',es_s4 ='" . $es_s4 . "',es_s5 ='" . $es_s5 . "',es_s6 ='" . $es_s6 . "',es_s7 ='" . $es_s7 . "',es_s8 ='" . $es_s8 . "',es_s9 ='" . $es_s9 . "',es_startfrom ='" . $es_startfrom . "',es_endto ='" . $es_endto . "',es_breakfrom ='" . $es_breakfrom . "',es_breakto ='" . $es_breakto . "',es_lunchfrom ='" . $es_lunchfrom . "',es_lunchto ='" . $es_lunchto . "',es_duration ='" . $es_duration . "'",'es_class =' . "'$es_class'");
+			$db->update('es_timetable_subject', "es_m1 ='" . $es_m1 . "', es_m2 ='" . $es_m2 . "',	es_m3 ='" . $es_m3 . "', es_m4 ='" . $es_m4 . "',	es_m5 ='" . $es_m5 . "',es_m6 ='" . $es_m6 . "', es_m7 ='" . $es_m7 . "',es_m8 ='" . $es_m8 . "',es_m9 ='" . $es_m9 . "',es_m10 ='" . $es_m10 . "',es_t1 ='" . $es_t1 . "',es_t2 ='" . $es_t2 . "',es_t3 ='" . $es_t3 . "',es_t4 ='" . $es_t4 . "',es_t5 ='" . $es_t5 . "',es_t6 ='" . $es_t6 . "',es_t7 ='" . $es_t7 . "',es_t8 ='" . $es_t8 . "',es_t9 ='" . $es_t9 . "',es_t10 ='" . $es_t10 . "',es_w1 ='" . $es_w1 . "',es_w2 ='" . $es_w2 . "',es_w3 ='" . $es_w3 . "',es_w4 ='" . $es_w4 . "',es_w5 ='" . $es_w5 . "',es_w6 ='" . $es_w6 . "',es_w7 ='" . $es_w7 . "',es_w8 ='" . $es_w8 . "',es_w9 ='" . $es_w9 . "',es_w10 ='" . $es_w10 . "',es_th1 ='" . $es_th1 . "',es_th2 ='" . $es_th2 . "',es_th3 ='" . $es_th3 . "',es_th4 ='" . $es_th4 . "',es_th5 ='" . $es_th5 . "',es_th6 ='" . $es_th6 . "',es_th7 ='" . $es_th7 . "',es_th8 ='" . $es_th8 . "',es_th9 ='" . $es_th9 . "',es_th10 ='" . $es_th10 . "',es_f1 ='" . $es_f1 . "',es_f2 ='" . $es_f2 . "',es_f3 ='" . $es_f3 . "',es_f4 ='" . $es_f4 . "',es_f5 ='" . $es_f5 . "',es_f6 ='" . $es_f6 . "',es_f7 ='" . $es_f7 . "',es_f8 ='" . $es_f8 . "',es_f9 ='" . $es_f9 . "',es_f10 ='" . $es_f10 . "',es_s1 ='" . $es_s1 . "',es_s2 ='" . $es_s2 . "',es_s3 ='" . $es_s3 . "',es_s4 ='" . $es_s4 . "',es_s5 ='" . $es_s5 . "',es_s6 ='" . $es_s6 . "',es_s7 ='" . $es_s7 . "',es_s8 ='" . $es_s8 . "',es_s9 ='" . $es_s9 . "',es_s10 ='" . $es_s10 . "',es_startfrom ='" . $es_startfrom . "',es_endto ='" . $es_endto . "',es_breakfrom ='" . $es_breakfrom . "',es_breakto ='" . $es_breakto . "',es_breaktwofrom ='" . $es_breaktwofrom . "',es_breaktwoto ='" . $es_breaktwoto . "',es_lunchfrom ='" . $es_lunchfrom . "',es_lunchto ='" . $es_lunchto . "',es_GamesFrom='" . $es_GamesFrom . "',es_GamesTo='" . $es_GamesTo . "',es_duration ='" . $es_duration . "'",'es_class =' . "'$es_class'");
 			
-			$db->update('es_timetable_staff', "es_m1 ='" . $es_m1f . "', es_m2 ='" . $es_m2f . "',	es_m3 ='" . $es_m3f . "', es_m4 ='" . $es_m4f . "',	es_m5 ='" . $es_m5f . "',es_m6 ='" . $es_m6f . "', es_m7 ='" . $es_m7f . "',es_m8 ='" . $es_m8f . "',es_m9 ='" . $es_m9f . "',es_t1 ='" . $es_t1f . "',es_t2 ='" . $es_t2f . "',es_t3 ='" . $es_t3f . "',es_t4 ='" . $es_t4f . "',es_t5 ='" . $es_t5f . "',es_t6 ='" . $es_t6f . "',es_t7 ='" . $es_t7f . "',es_t8 ='" . $es_t8f . "',es_t9 ='" . $es_t9f . "',es_w1 ='" . $es_w1f . "',es_w2 ='" . $es_w2f . "',es_w3 ='" . $es_w3f . "',es_w4 ='" . $es_w4f . "',es_w5 ='" . $es_w5f . "',es_w6 ='" . $es_w6f . "',es_w7 ='" . $es_w7f . "',es_w8 ='" . $es_w8f . "',es_w9 ='" . $es_w9f . "',es_th1 ='" . $es_th1f . "',es_th2 ='" . $es_th2f . "',es_th3 ='" . $es_th3f . "',es_th4 ='" . $es_th4f . "',es_th5 ='" . $es_th5f . "',es_th6 ='" . $es_th6f . "',es_th7 ='" . $es_th7f . "',es_th8 ='" . $es_th8f . "',es_th9 ='" . $es_th9f . "',es_f1 ='" . $es_f1f . "',es_f2 ='" . $es_f2f . "',es_f3 ='" . $es_f3f . "',es_f4 ='" . $es_f4f . "',es_f5 ='" . $es_f5f . "',es_f6 ='" . $es_f6f . "',es_f7 ='" . $es_f7f . "',es_f8 ='" . $es_f8f . "',es_f9 ='" . $es_f9f . "',es_s1 ='" . $es_s1f . "',es_s2 ='" . $es_s2f . "',es_s3 ='" . $es_s3f . "',es_s4 ='" . $es_s4f . "',es_s5 ='" . $es_s5f . "',es_s6 ='" . $es_s6f . "',es_s7 ='" . $es_s7f . "',es_s8 ='" . $es_s8f . "',es_s9 ='" . $es_s9f . "'",'es_class =' . "'$es_class'");
+			$db->update('es_timetable_staff', "es_m1 ='" . $es_m1f . "', es_m2 ='" . $es_m2f . "',	es_m3 ='" . $es_m3f . "', es_m4 ='" . $es_m4f . "',	es_m5 ='" . $es_m5f . "',es_m6 ='" . $es_m6f . "', es_m7 ='" . $es_m7f . "',es_m8 ='" . $es_m8f . "',es_m9 ='" . $es_m9f . "',es_m10 ='" . $es_m10f . "',es_t1 ='" . $es_t1f . "',es_t2 ='" . $es_t2f . "',es_t3 ='" . $es_t3f . "',es_t4 ='" . $es_t4f . "',es_t5 ='" . $es_t5f . "',es_t6 ='" . $es_t6f . "',es_t7 ='" . $es_t7f . "',es_t8 ='" . $es_t8f . "',es_t9 ='" . $es_t9f . "',es_t10 ='" . $es_t10f . "',es_w1 ='" . $es_w1f . "',es_w2 ='" . $es_w2f . "',es_w3 ='" . $es_w3f . "',es_w4 ='" . $es_w4f . "',es_w5 ='" . $es_w5f . "',es_w6 ='" . $es_w6f . "',es_w7 ='" . $es_w7f . "',es_w8 ='" . $es_w8f . "',es_w9 ='" . $es_w9f . "',es_w10 ='" . $es_w10f . "',es_th1 ='" . $es_th1f . "',es_th2 ='" . $es_th2f . "',es_th3 ='" . $es_th3f . "',es_th4 ='" . $es_th4f . "',es_th5 ='" . $es_th5f . "',es_th6 ='" . $es_th6f . "',es_th7 ='" . $es_th7f . "',es_th8 ='" . $es_th8f . "',es_th9 ='" . $es_th9f . "',es_th10 ='" . $es_th10f . "',es_f1 ='" . $es_f1f . "',es_f2 ='" . $es_f2f . "',es_f3 ='" . $es_f3f . "',es_f4 ='" . $es_f4f . "',es_f5 ='" . $es_f5f . "',es_f6 ='" . $es_f6f . "',es_f7 ='" . $es_f7f . "',es_f8 ='" . $es_f8f . "',es_f9 ='" . $es_f9f . "',es_f10 ='" . $es_f10f . "',es_s1 ='" . $es_s1f . "',es_s2 ='" . $es_s2f . "',es_s3 ='" . $es_s3f . "',es_s4 ='" . $es_s4f . "',es_s5 ='" . $es_s5f . "',es_s6 ='" . $es_s6f . "',es_s7 ='" . $es_s7f . "',es_s8 ='" . $es_s8f . "',es_s9 ='" . $es_s9f . "',es_s10 ='" . $es_s10f . "'",'es_class =' . "'$es_class'");
 		
 	
 	
@@ -140,6 +140,7 @@ F.es_m6 as es_m6f,
 F.es_m7 as es_m7f,
 F.es_m8 as es_m8f,
 F.es_m9 as es_m9f,
+F.es_m10 as es_m10f,
 F.es_t1 as es_t1f,
 F.es_t2 as es_t2f,
 F.es_t3 as es_t3f,
@@ -149,6 +150,7 @@ F.es_t6 as es_t6f,
 F.es_t7 as es_t7f,
 F.es_t8 as es_t8f,
 F.es_t9 as es_t9f,
+F.es_t10 as es_t10f,
 F.es_w1 as es_w1f,
 F.es_w2 as es_w2f,
 F.es_w3 as es_w3f,
@@ -158,6 +160,7 @@ F.es_w6 as es_w6f,
 F.es_w7 as es_w7f,
 F.es_w8 as es_w8f,
 F.es_w9 as es_w9f,
+F.es_w10 as es_w10f,
 F.es_th1 as es_th1f,
 F.es_th2 as es_th2f,
 F.es_th3 as es_th3f,
@@ -167,6 +170,7 @@ F.es_th6 as es_th6f,
 F.es_th7 as es_th7f,
 F.es_th8 as es_th8f,
 F.es_th9 as es_th9f,
+F.es_th10 as es_th10f,
 F.es_f1 as es_f1f,
 F.es_f2 as es_f2f,
 F.es_f3 as es_f3f,
@@ -176,6 +180,7 @@ F.es_f6 as es_f6f,
 F.es_f7 as es_f7f,
 F.es_f8 as es_f8f,
 F.es_f9 as es_f9f,
+F.es_f10 as es_f10f,
 F.es_s1 as es_s1f,
 F.es_s2 as es_s2f,
 F.es_s3 as es_s3f,
@@ -184,7 +189,8 @@ F.es_s5 as es_s5f,
 F.es_s6 as es_s6f,
 F.es_s7 as es_s7f,
 F.es_s8 as es_s8f,
-F.es_s9 as es_s9f FROM es_timetable_subject S, es_timetable_staff F WHERE S.es_class = F.es_class AND S.es_class= '".$es_class."'";
+F.es_s9 as es_s9f,
+F.es_s10 as es_s10f FROM es_timetable_subject S, es_timetable_staff F WHERE S.es_class = F.es_class AND S.es_class= '".$es_class."'";
 	 
 	$view_timetable = $db->getrow($timetable_sql);
 	//array_print($view_timetable);
