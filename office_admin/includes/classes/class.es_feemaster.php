@@ -65,6 +65,8 @@ class es_feemaster extends POG_Base
 	 * @var DATE
 	 */
 	public $fee_todate;
+
+	public $term;
 	
 	public $pog_attribute_type = array(
 		"es_feemasterId" => array('db_attributes' => array("NUMERIC", "INT")),
@@ -253,7 +255,7 @@ class es_feemaster extends POG_Base
 		}
 		else
 		{
-			$this->pog_query = "insert into `es_feemaster` (`fee_particular`, `fee_class`, `fee_amount`, `fee_instalments`, `fee_extra1`, `fee_extra2`, `fee_fromdate`, `fee_todate` ) values (
+			$this->pog_query = "insert into `es_feemaster` (`fee_particular`, `fee_class`, `fee_amount`, `fee_instalments`, `fee_extra1`, `fee_extra2`, `fee_fromdate`, `fee_todate`, `term`) values (
 			'".$this->Escape($this->fee_particular)."', 
 			'".$this->Escape($this->fee_class)."', 
 			'".$this->Escape($this->fee_amount)."', 
@@ -261,7 +263,8 @@ class es_feemaster extends POG_Base
 			'".$this->Escape($this->fee_extra1)."', 
 			'".$this->Escape($this->fee_extra2)."', 
 			'".$this->fee_fromdate."', 
-			'".$this->fee_todate."' )";
+			'".$this->fee_todate."',
+			'".$this->term."' )";
 		}
 		$insertId = Database::InsertOrUpdate($this->pog_query, $connection);
 		if ($this->es_feemasterId == "")

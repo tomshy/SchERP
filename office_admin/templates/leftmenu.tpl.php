@@ -2,24 +2,24 @@
 <script type="text/javascript" src="includes/js/leftmenu/ddaccordion.js"></script>
 <script type="text/javascript">
 ddaccordion.init({
-	headerclass: "expandable", //Shared CSS class name of headers group that are expandable
-	contentclass: "categoryitems", //Shared CSS class name of contents group
-	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
-	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
-	persiststate: true, //persist state of opened contents within browser session?
-	toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-	togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-		//do nothing
-	},
-	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-		//do nothing
-	}
+  headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+  contentclass: "categoryitems", //Shared CSS class name of contents group
+  revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+  mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+  collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+  defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+  onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+  animatedefault: false, //Should contents open by default be animated into view?
+  persiststate: true, //persist state of opened contents within browser session?
+  toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+  togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+  animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+  oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+    //do nothing
+  },
+  onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+    //do nothing
+  }
 })
 </script>
 <style type="text/css">
@@ -104,10 +104,10 @@ $top_level_permissions= explode(',', $modules_permissions);
 
 $admin_permissions = explode(',', $permissions['admin_permissions']);
 
-				?>
+        ?>
 <?php
-					if (in_array('1_p', $top_level_permissions) ){
-	if (in_array('1_p', $admin_permissions) ){?>
+          if (in_array('1_p', $top_level_permissions) ){
+  if (in_array('1_p', $admin_permissions) ){?>
 <div class="menuheader expandable">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -192,13 +192,13 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=21&action=serchclass">Search Student Record</a></li>
 
 <li><a href="?pid=21&action=classrecards">Update Student Record</a></li>
-<li><a href="?pid=21&action=malefemalestudents">Male-Female</a></li>
+<!--<li><a href="?pid=21&action=malefemalestudents">Male-Female</a></li>-->
 <?php if (in_array('5_5', $admin_permissions)){?>
 <li><a href="?pid=23&action=issuetcforstudent">Transferred Students</a></li>
 <?php } ?>
 
-<li><a href="?pid=3&action=cast_list">Category&nbsp;Wise&nbsp;Data </a></li>
-<li><a href="?pid=3&action=age_wise">Age&nbsp;Wise&nbsp;Data</a></li>
+<!--<li><a href="?pid=3&action=cast_list">Category&nbsp;Wise&nbsp;Data </a></li>
+<li><a href="?pid=3&action=age_wise">Age&nbsp;Wise&nbsp;Data</a></li>-->
 
 <li><a href="?pid=21&action=studentlist2">Students&nbsp;List&nbsp;</a></li>
 </ul>
@@ -356,7 +356,7 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=86&action=driverreport">Driver Report</a></li>
 <li><a href="?pid=87&action=vehiclereport">Vehicle Report</a></li>
 </ul>
-<?php } } if (in_array('15_p', $top_level_permissions) ){if(in_array('15_p', $admin_permissions)){?>
+<?php }} if (in_array('15_p', $top_level_permissions) ){if(in_array('15_p', $admin_permissions)){?>
 <div class="menuheader expandable">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -391,10 +391,10 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=36&action=createxamexport">Export Exam</a></li>
 <?php }?>
 <?php if (in_array("17_2", $admin_permissions)) {?>
-<li><a href="?pid=36&action=marksentry">Subjectwise Marks</a></li>
+<li><a href="?pid=36&action=marksentry">Enter Marks</a></li>
 <?php }?>
 <?php if (in_array("17_3", $admin_permissions)) {?>
-<li><a href="?pid=36&action=stdmarksentry">Studentwise Marks</a></li>
+<!--<li><a href="?pid=36&action=stdmarksentry">Studentwise Marks</a></li>-->
 <?php }?>
 <?php if (in_array("17_7", $admin_permissions)) {?>
 <li><a href="?pid=36&action=allstudents">Report</a></li>

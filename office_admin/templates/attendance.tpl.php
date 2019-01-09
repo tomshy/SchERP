@@ -11,21 +11,6 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 		header('location: ./?pid=1&unauth=0');
 		exit;
 	}
-	if ($action == 'slip') {
-/*
-*Start of Attendance Slips Web Page
-*/	
-
-?>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
-  </tr>
-  <tr>
-    <td align="left" valign="top">&nbsp;</td>
-  </tr>
-</table>
-<?php } 
 /*
 *End of Attendance Slips Web Page
 */	
@@ -40,17 +25,7 @@ $log_insert_exe=mysql_query($log_insert_sql);
 
 /*
 *Start of Attendance Slips Print Page
-*/	
-?>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
-  </tr>
-  <tr>
-    <td align="left" valign="top">&nbsp;</td>
-  </tr>
-</table>
-<?php }
+*/}
 
 /*
 *End of Attendance Slips Print Page
@@ -81,7 +56,7 @@ if($action=='stud_attend' ){
 		<td width="1" class="bgcolor_02"></td>
 		<td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 		  <tr>
-		    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+		    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature will be Available in the next Update</td>
 	      </tr>
 		  <tr>
 		    <td align="left" valign="top">&nbsp;</td>
@@ -105,7 +80,7 @@ if($action=='staff_attend' ){
 ?>
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature will be Available in the next Update</td>
   </tr>
   <tr>
     <td align="left" valign="top">&nbsp;</td>
@@ -131,7 +106,7 @@ if($action == 'stud_report') {
                 <td width="1" class="bgcolor_02"></td>
                 <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+                    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature will be Available in the next Update</td>
                   </tr>
                   <tr>
                     <td align="left" valign="top">&nbsp;</td>
@@ -1648,7 +1623,7 @@ foreach ($staff_absenties as $eachabsent)
 		<td width="1" class="bgcolor_02"></td>
 		<td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 		  <tr>
-		    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+		    <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature will be Available in the next Update</td>
 	      </tr>
 		  <tr>
 		    <td align="left" valign="top">&nbsp;</td>
