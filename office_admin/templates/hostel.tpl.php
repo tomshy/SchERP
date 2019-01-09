@@ -412,7 +412,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
          <td height="3" colspan="3"></td>
 	 </tr>
           <tr>
-				<td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;Add Room </span></td>
+				<td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;Add BED </span></td>
           </tr>
           <tr>
 				<td class="bgcolor_02"></td>
@@ -436,13 +436,13 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 								 <td width="40%" align="left" valign="middle">&nbsp;</td>
             				</tr>
           					<tr>
-                 				<td align="left" valign="middle" class="narmal">&nbsp;Room No </td>
+                 				<td align="left" valign="middle" class="narmal">&nbsp;Bed No </td>
                  				<td align="left" valign="middle" class="narmal">:</td>
 							    <td valign="middle" class="narmal"><input type="text" name="room_no" value="<?php echo $room_no; ?>"/><?php if (isset($error_room) &&$error_room!=""){echo '<div class="error_message">' . $error_room . '</div>';	}?>	<font color="#FF0000">*</font></td>
 								 <td width="40%" align="left" valign="middle">&nbsp;</td>
             				</tr>
                 			<tr>
-								  <td align="left" valign="middle" class="narmal">&nbsp;Room Type </td>
+								  <td align="left" valign="middle" class="narmal">&nbsp;Bed Type </td>
 								  <td align="left" valign="middle" class="narmal">:</td>
 							      <td valign="middle" class="narmal"><input type="text" name="room_type" value="<?php echo $room_type; ?>"/>
 				  				<?php if (isset($error_type) &&$error_type!=""){echo '<div class="error_message">' . $error_type . '</div>';	}?>				  				  <font color="#FF0000">*</font></td>
@@ -450,15 +450,16 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
        				       </tr>				
                			  
 							<tr>
-								  <td width="20%" align="left" valign="middle" class="narmal">&nbsp;Room Capacity                                  </td>
+								  <td width="20%" align="left" valign="middle" class="narmal">&nbsp;Bed Capacity                                  </td>
 								  <td width="1%" align="left" valign="middle" class="narmal">:</td>
 							      <td width="39%" valign="middle" class="narmal"><input type="text" name="room_capacity" value="<?php echo $room_capacity; ?>"/>
 							     <?php if (isset($error_capacity) &&$error_capacity!=""){echo'<div class="error_message">' . $error_capacity . ' </div>';}?>  <font color="#FF0000">*</font></td>
 								 <td align="left" valign="middle">&nbsp;</td>
                 			</tr>	
-							 <tr>								  
+							 <tr>
+								  <td width="20%" align="left" valign="middle" class="narmal">&nbsp;Bed Rate</td>
 								  <td width="1%" align="left" valign="middle" class="narmal">:</td>
-							      
+							      <td width="39%" valign="middle" class="narmal"><input type="text" name="room_rate" value="<?php echo $room_rate; ?>"/><font color="#FF0000">*</font></td>
 								 <td align="left" valign="middle">&nbsp;</td>
                 			</tr>			
 							<tr>
@@ -492,11 +493,11 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 					<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" >
                       <?php if(count($es_roomList) > 0 ){ ?>
                       <tr class="bgcolor_02">					 
-                        <td width="10%" height="25" align="left">&nbsp;Room No </td>
-                        <td width="13%" align="left">&nbsp;Room type</td>						
-                        <td width="10%" align="center">&nbsp;Capacity </td> 
+                        <td width="10%" height="25" align="left">&nbsp;Bed No </td>
+                        <td width="13%" align="left">&nbsp;Bed type</td>						
+                        <td width="10%" align="center">&nbsp;Bed Capacity </td> 
 						<td width="12%" align="center">&nbsp;Vacancy</td>
-						
+						<td width="12%" align="center">&nbsp;Rate</td>
 						<td width="23%" align="left">&nbsp;Building Name</td>		
                         <td width="20%"  class="order" align="center">&nbsp;<strong>Action</strong></td>  
                       </tr>				  
@@ -512,7 +513,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
                         <td class="narmal" align="left">&nbsp;<?php echo $eachrecord['room_type']; ?></td>
                         <td class="narmal" align="center">&nbsp;<?php echo $eachrecord['room_capacity']; ?> </td>
 						<td class="narmal" align="center">&nbsp;<?php echo $eachrecord['room_vacancy']; ?> </td>
-						
+						<td class="narmal" align="center">&nbsp;Kshs:<?php echo $eachrecord['room_rate']; ?> </td>
 						<?php //Fetch the Bulding Name
 							   $query = "SELECT * FROM `es_hostelbuld` WHERE `es_hostelbuldid` ='".$eachrecord['es_hostelbuldid']."' ";
 							   $equery = mysql_query($query);
@@ -949,7 +950,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
          <td height="3" colspan="3"></td>
 	 </tr>
               <tr>
-                <td height="25" colspan="3" class="bgcolor_02"><strong>&nbsp;&nbsp;Room Allocation to a Person </strong></td>
+                <td height="25" colspan="3" class="bgcolor_02"><strong>&nbsp;&nbsp;Bed Allocation  </strong></td>
               </tr>
               <tr>
                 <td width="1" class="bgcolor_02"></td>
@@ -966,7 +967,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 			<?php } ?>
 			</select></td>
 			
-					  <td width="32%" align="left" valign="top" class="narmal">&nbsp;Select Room No                    
+					  <td width="32%" align="left" valign="top" class="narmal">&nbsp;Select Bed No                    
 					    <select name="selectroom" onchange="JavaScript:document.roomalocform.submit();">
                           <option value="select" >Select</option>
                           <?php if(count($es_roomList) > 0 ){
@@ -984,7 +985,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 				  <tr>
                     <td width="33%" align="left" valign="top" class="narmal">&nbsp;</td>
                     <td width="32%" align="right" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
-{   if (count($errormessage)==0){	?> &nbsp;Room Type : 
+{   if (count($errormessage)==0){	?> &nbsp;Bed Type : 
                     <?php } }?></td>
                     <td width="27%" align="left" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
 {   if (count($errormessage)==0){	?><?php echo $es_roomDetails->room_type;?><?php } }?></td>
@@ -993,7 +994,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 				    <tr>
                     <td width="33%" align="left" valign="top" class="narmal">&nbsp;</td>
                     <td width="32%" align="right" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
-{ if (count($errormessage)==0){?>&nbsp;Room Capacity  :<?php } }?></td>
+{ if (count($errormessage)==0){?>&nbsp;Bed Capacity  :<?php } }?></td>
                     <td width="27%" align="left" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
 {   if (count($errormessage)==0){	?><?php echo $es_roomDetails->room_capacity;?><?php    } }?> </td>
                     <td width="8%" align="left" valign="top">&nbsp;</td>
@@ -1001,7 +1002,7 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 				   <tr>
                     <td width="33%" align="left" valign="top" class="narmal">&nbsp;</td>
                     <td width="32%" align="right" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
-{ if (count($errormessage)==0){ ?>&nbsp;Room No  :<?php } }?></td>
+{ if (count($errormessage)==0){ ?>&nbsp;Bed No  :<?php } }?></td>
                     <td width="27%" align="left" valign="middle" class="narmal"><?php if(isset($selectroom) && $selectroom!='')
 {   if (count($errormessage)==0){	?><?php echo $es_roomDetails->room_no;?><?php    } }?>
                      <input type="hidden" name="studentroomid" value="<?php echo $es_roomDetails->es_hostelroomId;?>" /></td>
@@ -1230,7 +1231,7 @@ function newWindowOpen(href)
          <td height="3" colspan="3"></td>
 	 </tr>
               <tr>
-                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Rooms Availability</strong></span></td>
+                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Bed Availability</strong></span></td>
               </tr>
 			   <tr>
 			    <td class="bgcolor_02" ></td>
@@ -1280,11 +1281,11 @@ function newWindowOpen(href)
 						
 					  <tr class="bgcolor_02">
                         <td height="18" align="left" valign="middle" ><strong>&nbsp;S.No</strong></td>
-                        <td height="25" align="left" valign="middle"><strong>&nbsp;Room No</strong></td>
-                        <td  align="left" valign="middle"><strong>&nbsp;Room type</strong></td>
-                        <td align="left" valign="middle"><strong>&nbsp;Capacity</strong></td>
+                        <td height="25" align="left" valign="middle"><strong>&nbsp;Bed No</strong></td>
+                        <td  align="left" valign="middle"><strong>&nbsp;Bed type</strong></td>
+                        <td align="left" valign="middle"><strong>&nbsp;Bed Capacity</strong></td>
 						<td  align="left" valign="middle"><strong>&nbsp;Vacancy</strong></td>
-						
+						<td  align="left" valign="middle"><strong>&nbsp;Rate</strong></td>
                       </tr>
 <?php						
 		 $rw = 1;
@@ -1303,7 +1304,7 @@ foreach ($es_roomList1 as $eachrecord)
 						<td align="left" class="narmal">&nbsp;<?php echo $eachrecord->room_type; ?></td>
 						<td align="left" valign="middle" class="narmal">&nbsp;<?php echo $eachrecord->room_capacity;?></td>
 						<td align="left" class="narmal">&nbsp;<?php echo $eachrecord->room_vacancy; ?></td>
-						
+						<td align="left" class="narmal">&nbsp;kshs:<?php echo $eachrecord->room_rate; ?></td>
 					</tr>
 <?php                  
 					  $rw++;
@@ -1650,7 +1651,7 @@ function newWindowOpen(href)
                           &nbsp;&nbsp;<input name="Submit" type="button" onclick="newWindowOpen ('?pid=19&action=printviewrecord<?php echo $ridurl;?>');" class="bgcolor_02" value="Print" style="cursor:pointer"/> 
                           &nbsp;&nbsp;</td>
                   </tr>                 
-                </table></td>                                            
+                </table></td>   Â Â                                        
 
                 <td width="1" class="bgcolor_02"></td>
               </tr>              
@@ -1999,7 +2000,7 @@ function popup_letter(url) {
          <td height="3" colspan="3"></td>
 	 </tr>
               <tr>
-                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Hostel Charges Details</strong></span></td>
+                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Dormitory Charges Details</strong></span></td>
               </tr>
 			   <tr>
 			    <td class="bgcolor_02" ></td>
@@ -3126,7 +3127,7 @@ foreach ($all_issued_items as $eachrecord)
          <td height="3" colspan="3"></td>
 	 </tr>
               <tr>
-                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Hostel Persons </strong></span></td>
+                <td height="25" colspan="3" class="bgcolor_02"><span class="admin">&nbsp;<strong>Dormitory Persons </strong></span></td>
               </tr>
 			   <tr>
 			    <td class="bgcolor_02" ></td>
@@ -3150,7 +3151,7 @@ foreach ($all_issued_items as $eachrecord)
 			</select></td>
                       </tr>
 					  <tr>								  
-                         <td width="23%" class="narmal" >Select Room</td>
+                         <td width="23%" class="narmal" >Select Bed</td>
 						 <td>:</td>
                          <td width="77%" class="narmal" id="subjectselectbox"><select name="es_hostelroomid" id="s_submodule" style="width:150px;">
              <option value="">-- Select --</option>
@@ -3212,8 +3213,8 @@ getsubjects('<?php echo $es_buldname; ?>','<?php echo $es_hostelroomid;?>');
                      <tr height="25" class="bgcolor_02">
 					 		<td align="center" valign="middle">S.No</td>
 							<td align="center" valign="middle">Building Name</td>
-					        <td align="center" valign="middle">Room Type</td>
-							<td align="center" valign="middle">Room Number</td>
+					        <td align="center" valign="middle">Bed Type</td>
+							<td align="center" valign="middle">Bed Number</td>
 							<td align="center" valign="middle">Person Id</td>
 							<td align="center" valign="middle">Person Name</td>
 							<td align="center" valign="middle">Person Type</td>
