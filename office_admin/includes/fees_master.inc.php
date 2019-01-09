@@ -1,6 +1,6 @@
 <?php
 
-sm_registerglobal('pid', 'action','emsg', 'update', 'fid', 'submit', 'fee_amount', 'admin', 'fee_class', 'fee_instalments','as_sec','as_lastdate','as_name','as_description', 'Submit','as_createdon','as_lastdate','update','es_assid','back', 'particulars','groups','selectclass','amount','instalments', 'updatefeeitem', 'newparticular', 'newamount', 'newinstalment', 'print_id','pre_year');
+sm_registerglobal('pid', 'action','emsg', 'update', 'fid', 'submit', 'fee_amount', 'admin', 'fee_class', 'fee_instalments','as_sec','as_lastdate','as_name','as_description', 'Submit','as_createdon','as_lastdate','update','es_assid','back', 'particulars','groups','selectclass','amount','instalments', 'updatefeeitem', 'newparticular', 'newamount', 'newinstalment', 'print_id','pre_year','term');
 /**
 * Only Admin users can view the pages
 */
@@ -78,8 +78,9 @@ $vlc = new FormValidation();
 					$obj_feesmaster->fee_class = $eachclass['es_classesid'];
 					$obj_feesmaster->fee_amount = round($amount[$i],2);
 					$obj_feesmaster->fee_instalments = $instalments[$i];
-					$obj_feesmaster->fee_fromdate = $from_finance; 
-				    $obj_feesmaster->fee_todate = $to_finance; 
+					$obj_feesmaster->fee_fromdate = $from_finance;
+				    $obj_feesmaster->fee_todate = $to_finance;
+				    $obj_feesmaster->term=$term;
 					$sel_leave = "SELECT * FROM  es_feemaster WHERE fee_class = '" . $eachclass['es_classesid'] . "'
 					                                       AND fee_particular  = '" . $particulars[$i] . "' 
 														   AND fee_fromdate = '" . $from_finance . "' 

@@ -774,7 +774,11 @@ if(isset($classwiseserch)||$action=='classwise1')
 	  
   $classwisestudent = $students ->GetList(array(array("pre_class", "=",$sid),array("pre_status", "=",'inactive')));
   }
-  
+  if($action=='yearwise')
+  {
+	  
+  $classwisestudent = $students ->GetList(array(array("pre_class", "=",$sid),array("pre_status", "=",'inactive')));
+  }
   if(isset($resultserch))
   {
  $name =$students ->Get($sid);

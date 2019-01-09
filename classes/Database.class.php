@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(0);
 /*
  * Database.class.php -- Version 01-Feb-2006
  *

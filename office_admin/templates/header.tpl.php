@@ -32,10 +32,7 @@
 </object></td>
     <?php }} ?>
   </tr>
-  <tr>
-    <td colspan="2" align="right"><?php if ($header_videos_rows>= 1) {?><a href="?pid=56&action=gallerylist" class="video_link">View More Videos&nbsp;</a><?php }else{echo "Videos to be added";}?></td>
-    
-  </tr>
+  
 </table>
 </td>
       </tr>

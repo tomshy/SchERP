@@ -7,14 +7,9 @@
 */
 
 if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_user']=="" ) {
-
 	header('location: ./?pid=1&unauth=0');
-
 	exit;
-
 }
-
-
 	// Getting class list asynchronously (Refer line no. 550)
 	if(isset($_REQUEST['group_id']) && $_REQUEST['group_id'] != '')
 	{
@@ -54,18 +49,10 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 
   </tr>	
 
-			  <tr>
-
-                <td width="1px" class="bgcolor_02" ></td>
-
+			  <tr>    <td width="1px" class="bgcolor_02" ></td>
                 <td height="5" align="right"></td>
-
-                 <td width="1px" class="bgcolor_02" ></td></td>
-
+                <td width="1px" class="bgcolor_02" ></td></td>
               </tr>	
-
-              
-
               <tr>
 
                 <td height="25" colspan="3" class="bgcolor_02">&nbsp;&nbsp;<span class="admin">Create Groups</span></td>

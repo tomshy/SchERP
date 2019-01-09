@@ -1969,7 +1969,7 @@ $PageUrl = "&submit_fee_status=submit&pre_class=$pre_class";
 }
 
   ?>
- 
+
 <?php
  if($action=='payamount' || $action=='receipt'|| $action=='receiptpayment'){
 

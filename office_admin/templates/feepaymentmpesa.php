@@ -7,6 +7,7 @@ function validatecls(){
 }
 
 function newWindowOpen(href){
+	
     window.open(href,null, 'width=900,height=900,scrollbars=yes,toolbar=no,directories=no,status=no,menubar=yes,left=140,top=30');
 }
 
@@ -147,10 +148,6 @@ document.getElementById('fee_total').innerHTML = total;
 //alert('Total selected Amount is Ksh: '+total);
 }
 </script>
-
-
-
-
 <?php 
 if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_user']=="" ) {
 	header('location: ./?pid=1&unauth=0');
@@ -158,7 +155,6 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 }
 if ($action == 'payfee')
 { 
-
 ?>
 <style type="text/css">
 .style2 {
@@ -166,14 +162,17 @@ if ($action == 'payfee')
 	font-weight: bold;
 }
 </style>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+         <td width="22" align="center" valign="top" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:17px; color:#000000; text-decoration:underline; padding:8px; font-weight:bold;">This Feature Available at  Full Version at <a href="http://pro.arox.in" target="_blank">pro.arox.in</a></td>
+  </tr>
 	<tr><td height="25" colspan="3" class="bgcolor_02">&nbsp;&nbsp;<span class="admin">Pay Fee</span></td></tr>
 	<tr>
 		<td align="left" valign="top">
 			<form method="post" action="" name="fetchstudent">
 			<div><div >&nbsp;</div>
-				<span align="left"  >&nbsp;&nbsp;Student Regiration No :</span>
+				<span align="left"  >&nbsp;&nbsp;Student Registration No :</span>
 				<span  class="narmal"><?php echo $_SESSION['eschools']['student_prefix'];?>&nbsp;<input type="text" name="studentid"  value="<?php echo $studetails['es_preadmissionid']; ?>" /></span>&nbsp;<select name="pre_year">
 						<?php  foreach($school_details_res as $each_record) { ?>
 						<option value="<?php echo $each_record['es_finance_masterid']; ?>" <?php if ($each_record['es_finance_masterid']==$pre_year) { echo "selected"; }?>><?php echo displaydate($each_record['fi_startdate'])." To ".displaydate($each_record['fi_enddate']); ?>						                        </option>
@@ -184,20 +183,20 @@ if ($action == 'payfee')
 			</form>
 		</td>
 		<td width="1" class="bgcolor_02"></td>
-
 	</tr>
 	<tr>
-		
+		<td width="1" class="bgcolor_02"></td>
 		<td height="10" >&nbsp;</td>
 		<td width="1" class="bgcolor_02"></td>
 	</tr>
-	
+	<tr><td height="1" colspan="3" class="bgcolor_02"></td></tr>
 </table>
 <?php
 //echo 'sfsf'.$studentid;
-	if ($getstudetails=="Go" && isset($studetails) ) {	
+	if ($getstudetails=="Go" && isset($studetails) ) { 
+	
+	
 ?>
-
 <form method="post" action="" name="paystudentfee">
 
 <table width="100%" border="0" cellspacing="2" cellpadding="0" align="center">
@@ -354,14 +353,24 @@ if ($action == 'payfee')
                                                         </tr>
                           					   
       </table><br />
-			
+			<script type="text/JavaScript">
+				function showpay(){
+					document.getElementById('balance').style.display = "none";
+					document.getElementById('pay').style.display = "block";
+					document.getElementById('paybutton').style.display = "block";
+				
+					//document.getElementById('printfree').style.display = "none";
+					
+				}
+
+			</script>
             
 		  <div id="paybutton" style="display:block">
                       
                       
                   <table width="98%" align="center" style="border: solid thin;">
                         <tr class="bgcolor_02">
-                           <th align="left" colspan="2" style="padding: 5px;">Pay fee</th>
+                           <th align="left" colspan="2" style="padding: 5px;">Pay Fee</th>
                         </tr>
                         <tr>
                            <td>
@@ -370,14 +379,14 @@ if ($action == 'payfee')
                                        <td>1)</td>
                                        <td>Amount</td>
                                        <td>:</td>
-                                       <td>Ksh. <input type="text" name="amount_payable" id="amount_payable" onkeyup="calcRemaining(); distributeFees();" required/></td>
+                                       <td>Ksh. <input type="text" name="amount_payable" id="amount_payable" onkeyup="calcRemaining(); distributeFees();" onblur="calcRemaining(); distributeFees();" required /></td>
                                    </tr>
-                                   <!--<tr>
+                                   <tr>
                                        <td>2)</td>
-                                       <td>Lunch</td>
+                                       <td>Fine</td>
                                        <td>:</td>
-                                       <td>Ksh. <input type="text" name="fine_payable" id="fine_payable"   /></td>
-                                   </tr>-->
+                                       <td>Ksh. <input type="text" name="fine_payable" id="fine_payable" onkeyup="calcRemaining(); distributeFees();" onblur="calcRemaining(); distributeFees();" /></td>
+                                   </tr>
                                    <tr>
                                        <td></td>
                                        <td></td>
@@ -431,7 +440,6 @@ if ($action == 'payfee')
                                 balance = parseInt(remaining) - parseInt(current_payment);
                             
                             document.getElementById("remaining_after_current").value = balance;
-                            
                       }
                   </script>
                   
@@ -466,7 +474,11 @@ if ($action == 'payfee')
                                 </tr>
                       <?php }
                       ?>
-                                
+                                <tr>
+                                    <td align='center'><?php echo ($count+1); ?></td>
+                                    <td style="padding-left: 20px;">FINE</td>
+                                    <td style="padding-left: 20px;" id="fine_distribution"></td>
+                                </tr>
                                 <input type="hidden" name="distr" id="fee_type_count" value="<?php echo $db->getOne("SELECT COUNT(*) FROM es_feemaster WHERE fee_class='".$prev_class."' AND fee_fromdate='".$from_finance."' AND fee_todate='".$to_finance."'"); ?>" />
                                 
                                 <tr>
@@ -479,46 +491,19 @@ if ($action == 'payfee')
                   
                   
                   <script>
-                  		function checkAmt(){
-                  			var remaining	= document.getElementById("remaining").value;
-                  			var entered_val	= parseInt(document.getElementById("amount_payable").value);
-                  			if(entered_val<1)
-								{
-									alert("Entered amount exceeds balance.\nCannot pay greater than remaining fee.");		
-								}
-							if (isNaN(entered_val)) {
-									alert("Please Enter a NUMBER");
-							};
-                  		}
 						function distributeFees()
 						{
 								var remaining	= document.getElementById("remaining").value;
 								var n			= document.getElementById("fee_type_count").value;
 								var entered_val	= parseInt(document.getElementById("amount_payable").value);
-								//var fin		= parseInt(document.getElementById("fine_payable").value);
-								if (entered_val > 0) {
-									
-									if(entered_val > remaining)
+								var fine		= parseInt(document.getElementById("fine_payable").value);
+							
+								if(entered_val > remaining)
 								{
 									
-									for(var y=0; y<n; y++)
-									{
-										document.getElementsByClassName("distr")[y].innerHTML = "";
-										document.getElementsByClassName("fp_distr")[y].value = "";
-										document.getElementById("total_distribution").innerHTML = "";
-										document.getElementById("total_payment").value = "";
-										document.getElementById("remaining_after_current").value = remaining;
-										document.getElementById("amount_payable").value="";
-									}	
-									alert("Entered amount exceeds balance.\nCannot pay greater than remaining fee.");	
-									
+									//alert("Entered amount exceeds balance.\nCannot pay greater than remaining fee.");
+									//return;
 								}
-								}else{
-									alert("Amount Must be greater than 0");
-									document.getElementById("amount_payable").value="";
-									document.getElementById("amount_payable").select;
-								};
-								
 							
 								for(var y=0; y<n; y++)
 								{
@@ -532,12 +517,12 @@ if ($action == 'payfee')
 							
 							
 							
-								//if(isNaN(fine))
-								//	fine = 0;
+								if(isNaN(fine))
+									fine = 0;
 							
 							
-								document.getElementById("total_distribution").innerHTML = (entered_val);
-								//document.getElementById("fine_distribution").innerHTML = document.getElementById("fine_payable").value;
+								document.getElementById("total_distribution").innerHTML = (entered_val + fine);
+								document.getElementById("fine_distribution").innerHTML = document.getElementById("fine_payable").value;
 								document.getElementById("total_payment").value = document.getElementById("total_distribution").innerHTML;
 							
 								for(var i=0; i<n; i++)
@@ -557,7 +542,8 @@ if ($action == 'payfee')
 										{
 											document.getElementsByClassName("distr")[j].innerHTML = "0";
 											document.getElementsByClassName("fp_distr")[i].value = "0";
-										}								
+										}
+								
 										if(isNaN(entered_val))
 										{
 											for(var y=0; y<n; y++)
@@ -571,7 +557,6 @@ if ($action == 'payfee')
 										return;
 									}
 								}
-
 						}
 
 						function getReadyForPost()
@@ -584,12 +569,15 @@ if ($action == 'payfee')
 									
 							for(var i=0; i<n; i++)
 								document.getElementById("fp_distr_"+feetype[i]).value = document.getElementById("distr_"+feetype[i]).innerHTML;
-								document.getElementById("total_payment").value = document.getElementById("total_distribution").innerHTML;
+							document.getElementById("total_payment").value = document.getElementById("total_distribution").innerHTML;
 						}
                   </script>
       
-		    <table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" class="tbl_grid" >              
-              <?php			  
+		    <table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" class="tbl_grid" >
+              
+              
+              <?php
+			  
 			  if(is_array($newfepaid_det) && $newfepaid_det['paid_on']!=""){
 			  $sql_fees_assigned = "SELECT * FROM `es_feemaster` WHERE `fee_class`='".$prev_class."' 
 				                  AND fee_fromdate = '" . $from_finance . "' AND fee_todate = '" . $to_finance . "' ";
@@ -988,15 +976,6 @@ if ($action == 'payfee')
 			  
               <!-- start Voucher information -->
               <script type="text/javascript" >
-              	function checkVisibility () {
-              		var mpesaDiv=document.getElementById("mpesaDiv");
-              		if(mpesaDiv.style.display==="none"){
-              			document.getElementById("mpesa_code").required="false";
-              		}
-              		if(mpesaDiv.style.display==="block"){
-              			document.getElementById("mpesa_code").required="true";
-              		}
-              	}
 				function showAvatar(){
 					var ch = document.paystudentfee.es_paymentmode.value;
 					if (ch=='cash' || ch==''){
@@ -1008,12 +987,13 @@ if ($action == 'payfee')
 					}else{
 						document.getElementById("patiddivdisp").style.display="inline";
 						document.getElementById("mpesaDiv").style.display="none";
-					}				}		  
+					}
+				}		  
 			</script>
               <tr>
                 <td height="25" colspan="4" class="bgcolor_02">&nbsp;&nbsp;<span class="admin">Voucher Entry</span></td>
               </tr>
-              <!--<tr>
+              <tr>
                 <td></td>
                 <td  align="left" class="narmal" >Voucher Type</td>
                 <td  align="left" class="narmal" colspan="2" ><select name="vocturetypesel" >
@@ -1042,7 +1022,7 @@ if ($action == 'payfee')
                     <?php } ?>
                   </select>
                     <font color="#FF0000"><b>*</b></font></td>
-              </tr>-->
+              </tr>
               <tr>
                 <td></td>
                 <td align="left" class="narmal" >Payment&nbsp;Mode</td>
@@ -1050,7 +1030,7 @@ if ($action == 'payfee')
                     <option value="">-- Select --</option>
                     <option value="cash" <?php if($es_paymentmode=='cash'){echo "selected='selected'";}?>>Cash</option>
                     <option value="cheque" <?php if($es_paymentmode=='cheque'){echo "selected='selected'";}?>>Cheque</option>
-                    <option value="dd" <?php if($es_paymentmode=='bd'){echo "selected='selected'";}?>>Bank Deposit</option>
+                    <option value="bd" <?php if($es_paymentmode=='bd'){echo "selected='selected'";}?>>Bank Deposit</option>
                     <option value="mpesa" <?php if($es_paymentmode=='mpesa'){echo "selected='selected'";}?>>Mpesa</option>
                   </select>
                     <font color="#FF0000"><b>*</b></font></td>
@@ -1063,12 +1043,12 @@ if ($action == 'payfee')
                     <tr>
                       <td width="361" align="left" class="narmal" >Mpesa Number </td>
                       <td align="left">:</td>
-                      <td width="776" align="left"><input type="text" name="es_mpesa_number" value="<?php echo $es_mpesa_number;?>"/></td>
+                      <td width="776" align="left"><input type="text" name="es_mpesa_number" value="<?php echo $es_bank_name;?>" /></td>
                     </tr>
                     <tr>
                       <td align="left"  class="narmal"> Mpesa Code</td>
                       <td width="25" align="left">:</td>
-                      <td align="left" ><input type="text" id="mpesa_code" name="es_mpesa_code" value="<?php echo $es_mpesa_code;?>"/></td>
+                      <td align="left" ><input type="text" name="es_mpesa_code" value="<?php echo $es_bankacc;?>" /></td>
                     </tr>
                                      
                 </table></td>
@@ -1089,12 +1069,10 @@ if ($action == 'payfee')
                       <td align="left" ><input type="text" name="es_bankacc" value="<?php echo $es_bankacc;?>" /></td>
                     </tr>
                     <tr>
-                      <td align="left" class="narmal">Cheque / Bank Slip Number </td>
+                      <td align="left" class="narmal">Cheque / BD Number </td>
                       <td align="left">:</td>
                       <td align="left"><input type="text" name="es_checkno" value="<?php echo $es_checkno;?>" /></td>
-                    </tr>
-                    
-                    
+                    </tr>                  
                 </table></td>
               </tr>
               <tr>
@@ -1130,12 +1108,13 @@ if ($action == 'payfee')
 			        <input type="hidden" name="getstudetails" value="Go" />
                     <input type="hidden" name="studentid" value="<?php echo $studentid;?>" />
                     <input type="hidden" name="prev_class" value="<?php echo $prev_class;?>" />
-                    <input type="hidden" name="pre_year" value="<?php echo $pre_year;?>" />                    
+                     <input type="hidden" name="pre_year" value="<?php echo $pre_year;?>" />
+                    
+			<?php if(in_array('6_3',$admin_permissions) && $total_amount!=0){?>
 
-					<?php if(in_array('6_3',$admin_permissions) && $total_amount!=0 && $studetails['status']!='inactive'){?>
-					<input type="submit" name="Submitpayform" value="Pay Fee" class="bgcolor_02" id="pay" onClick="javascript:getReadyForPost();" style="display:block;cursor:pointer;" />	
-					<?php }?>
-				  </td>
+
+<input type="submit" name="Submitpayform" value="Pay Fee" class="bgcolor_02" id="pay" onClick="javascript:getReadyForPost();" style="display:block;cursor:pointer;" />	
+<?php }?>			  </td>
 					<td  align="center" class="narmal"> 
 					
 					<?php if(in_array('6_6',$admin_permissions)){?>
@@ -1415,7 +1394,7 @@ if ($action=='feepaidlist'|| $action=='feepaidlistreport'){ ?>
 		<td width="1" class="bgcolor_02"></td>
 		<td align="left" class="narmal">
 			<ul><b><u>NOTE:</u></b>
-				<li>By selecting <B>ALL</B> the entire School fee paid details will be displayed.</li>
+				<li>By selecting <B>ALL</B> the entire Institute fee paid details will be displayed.</li>
 				<li><b>FROM</b> and <b>To</b> dates search will display fee paid details between these dates</li>
 				<li><b>SUB TOTAL</b> => will display Page wise Total</li>
                 <li><b>GRAND TOTAL</b> => will display till date fee payment which is received</li> 
@@ -3180,7 +3159,7 @@ $prev_dt_arr = array();
   <tr>
     <td><?php echo $i;?></td>
     <td><?php echo date("d/m/Y", strtotime($each['paid_on']));//func_date_conversion("Y-m-d","d/m/Y",$each['paid_on']);?></td>
-    <td><?php echo 'SPNBSS'.$each['fid']; ?></td>
+    <td><?php echo 'HRC'.$each['fid']; ?></td>
     <td><?php if($each['paid']>0){echo $_SESSION['eschools']['currency']."&nbsp;".number_format($each['paid'], 2, '.', '');}  ?></td>
     <td><a href="javascript: void(0)" onclick="popup_letter('?pid=40&action=print_each_receipt&studentid=<?php echo $studentid;?>&pre_year=<?php echo $pre_year;?>&rid=<?php  echo $each['fid'] ; ?>')" ><img src="images/print_16.png" border="0" title="Print Recipt" alt="Print Recipt" /></a>
     
@@ -3248,13 +3227,13 @@ if($action=='print_each_receipt')
                 <tr>
 					<td align="left" class="narmal">Receipt No</td>
 					<td align="left" class="narmal">:</td>
-					<td align="left" class="narmal"><?php echo 'SPNBSS'.$rid;  ?></td>
+					<td align="left" class="narmal"><?php echo 'HRC'.$rid;  ?></td>
 					<td align="left" class="narmal">&nbsp;</td>
 				</tr>
 				<tr>
 					<td align="left" class="narmal" width="31%">Student Name </td>
 					<td align="left" class="narmal" width="1%">:</td>
-					<td align="left" class="narmal" width="27%"><?php echo $studetails['pre_name']." ".$studetails['pre_lastname']; ?></td>
+					<td align="left" class="narmal" width="27%"><?php echo $studetails['pre_name']." ".$studetails['pre_fathername']." ".$studetails['pre_lastname']; ?></td>
 					<?php /*?><td align="left" class="narmal" width="41%" rowspan="11"><?php if(isset($studetails['pre_image']) && $studetails['pre_image']!='')
 					{echo displayimage("images/student_photos/".$studetails['pre_image'], "127");} ?></td><?php */?>
 				</tr>
@@ -3420,7 +3399,7 @@ if($action=='print_each_receipt')
 				<tr>
 					<td align="left" class="narmal" width="31%">Student Name </td>
 					<td align="left" class="narmal" width="1%">:</td>
-					<td align="left" class="narmal" width="27%"><?php echo $studetails['pre_name']." ".$studetails['pre_lastname']; ?></td>
+					<td align="left" class="narmal" width="27%"><?php echo $studetails['pre_name']; ?></td>
 					<td align="left" class="narmal" width="41%" rowspan="11"><?php if(isset($studetails['pre_image']) && $studetails['pre_image']!='')
 					{echo displayimage("images/student_photos/".$studetails['pre_image'], "127");} ?></td>
 				</tr>
@@ -3496,7 +3475,7 @@ $prev_dt_arr = array();
   <tr>
     <td align="center"><?php echo $i;?></td>
     <td align="center"><?php echo func_date_conversion("Y-m-d","d/m/Y",$each['paid_on']);?></td>
-    <td align="center"><?php echo 'SPNBSS'.$each['fid']; ?></td>
+    <td align="center"><?php echo 'HRC'.$each['fid']; ?></td>
     <td align="right"  style="padding-right:20px;"><?php if($each['paid']>0){echo $_SESSION['eschools']['currency']."&nbsp;".number_format($each['paid'], 2, '.', '');}  ?></td>
   </tr>
   <?php
@@ -3639,7 +3618,7 @@ font-size:9px;
                                  
 					<?php	for($i=1; $i<=$fcp_installments_paid; $i++)
 							{
-								$inst = $db->getRows("SELECT * FROM es_feepaid WHERE es_installment=".$i." AND studentid=".$fcp_reg_no." AND fi_fromdate='".$fcp_fi_startdate."' AND fi_todate='".$fcp_fi_enddate."' ORDER BY particularid ASC");	?>
+								$inst = $db->getRows("SELECT * FROM es_feepaid WHERE es_installment=".$i." AND studentid=".$fcp_reg_no." ORDER BY particularid ASC");	?>
 								<tr>
 									<td><?php echo date("d/m/Y", strtotime($inst[0]['date'])); ?></td>
 									<?php
@@ -3651,7 +3630,7 @@ font-size:9px;
 										}
 										$fcp_balance = $fcp_fee_for_class - $fcp_total;
 										$fcp_fine = $db->getOne("SELECT fine_amount FROM es_fine_charged_collected WHERE studentid=".$fcp_reg_no." AND es_installment=".$i);
-									?>									
+									?>
 									<td><?php if(isset($fcp_fine)){echo $fcp_fine;}else{echo "0";} ?></td>
 									<td><?php echo ($paid+$fcp_fine); $paid=0;?></td>
 									<td><?php echo $fcp_balance;?></td>
@@ -3664,13 +3643,12 @@ font-size:9px;
 					<?php		foreach($fcp_feemaster_particulars as $fp)
 								{
 									$fcp_individual_sum_paid = $db->getOne("SELECT SUM(feeamount) FROM es_feepaid WHERE studentid=".$fcp_reg_no." AND particularid=".$fp['es_feemasterid']); ?>
-                                    <td><?php if(isset($fcp_individual_sum_paid)){echo $fcp_individual_sum_paid;}else{echo "0";} ?></td>
+                                    <td><?php echo $fcp_individual_sum_paid; ?></td>
 					<?php		} ?>
                     			<td><?php if(isset($fcp_total_fine_amount)){echo $fcp_total_fine_amount;}else{echo "0";} ?></td>
                     			<td><?php echo $fcp_total;?></td>
-                    			<td><?php echo $fcp_fee_for_class-$fcp_total;?></td>
-                    			<td><?php echo $fcp_fee_for_class; ?></td>
-                            
+                    			<td></td>
+                    			<td></td>
                             </tr>
                         </table>
                 <!--------------------------------------------- End of student fee card display ------------------------------------------>
@@ -4825,7 +4803,7 @@ if($action == "ad_fee_card")
                 <form method="post">
             	<table align="center">
                 	<tr>
-                    	<td>Student Registration No</td>
+                    	<td>Student Registration No.</td>
                         <td>:</td>
                         <td><input type="text" name="fcp_reg_no" style="width:90%;" value="<?php if(isset($fcp_reg_no)){echo $fcp_reg_no;} ?>" /></td>
                         <td><select name="fcp_fin_year">	<!--Financial year select box-->
@@ -4844,7 +4822,7 @@ if($action == "ad_fee_card")
                 <?php
                 if(isset($fcp_search_student))
 				{
-					if($proceed === true)
+					if($proceed === true && )
 					{?>
                     	<!--------------------------------------- Student details display --------------------------------------->
 						<table width="100%" style="margin-top:20px; border-spacing:10px;">
@@ -4859,7 +4837,7 @@ if($action == "ad_fee_card")
                         	<tr>
                             	<td style="font-weight:bold;">Student Name</td>
                             	<td style="font-weight:bold;">:</td>
-                            	<td><?php echo $student_info['pre_serialno']." ".$student_info['pre_name']." ".$student_info['middle_name']." ".$student_info['pre_lastname']; ?></td>
+                            	<td><?php echo $student_info['pre_name']." ".$student_info['middle_name']." ".$student_info['pre_lastname']; ?></td>
                             	<td style="font-weight:bold;">Father's Name</td>
                             	<td style="font-weight:bold;">:</td>
                             	<td><?php echo $student_info['pre_fathername']; ?></td>
@@ -4868,17 +4846,15 @@ if($action == "ad_fee_card")
                             	<td style="font-weight:bold;">Class</td>
                             	<td style="font-weight:bold;">:</td>
                             	<td><?php echo $fcp_class; ?></td>
-                            	<td style="font-weight:bold;">Status</td>
-                            	<td style="font-weight:bold;">:</td>
-                            	<td><?php echo $student_info['pre_status']; ?></td>
+                            	
                             </tr>
                         </table>
                         <!----------------------------------- End of Student details display --------------------------------------->
 			<?php	}	// End of if($proceed === true)
 			
-					if($is_paid_fee == 0 && count($errormessage) == 0)	// If student has not paid any fee
-					{?>
-						<div style='width:100%; text-align:center; font-weight:bold; background-color:#900; color:#FFF; padding:3px 0px 3px 0px;'>No fee paid by student</div>
+					if($is_paid_fee == 0)	// If student has not paid any fee
+					{?> 
+						<div style='width:100%; text-align:center; font-weight:bold; background-color:#900; color:#FFF; padding:3px 0px 3px 0px;'>No fee paid by student</div>"
 			<?php	}
 					if(count($errormessage) == 0 && $is_paid_fee != 0)	// Student has fee paid record
 					{?>
@@ -4914,7 +4890,9 @@ if($action == "ad_fee_card")
                                  
 					<?php	for($i=1; $i<=$fcp_installments_paid; $i++)
 							{
-								$inst = $db->getRows("SELECT * FROM es_feepaid WHERE es_installment=".$i." AND studentid=".$fcp_reg_no." AND fi_fromdate='".$fcp_fi_startdate."' AND fi_todate='".$fcp_fi_enddate."' ORDER BY particularid ASC");	?>
+								$inst = $db->getRows("SELECT * FROM es_feepaid WHERE es_installment=".$i." AND studentid=".$fcp_reg_no." ORDER BY particularid ASC");	
+								$fee_paid=$db->getRows("SELECT SUM(paid) as sum_paid,SUM(balance) as balance FROM es_feepaid_new WHERE es_preadmissionid=".$fcp_reg_no);
+								$f_paid=$db->getRows("SELECT paid FROM es_feepaid_new WHERE es_preadmissionid=".$fcp_reg_no)?>
 								<tr>
 									<td><?php echo date("d/m/Y", strtotime($inst[0]['date'])); ?></td>
 									<?php
@@ -4927,9 +4905,8 @@ if($action == "ad_fee_card")
 										$fcp_balance = $fcp_fee_for_class - $fcp_total;
 										$fcp_fine = $db->getOne("SELECT fine_amount FROM es_fine_charged_collected WHERE studentid=".$fcp_reg_no." AND es_installment=".$i);
 									?>
-									
 									<td><?php if(isset($fcp_fine)){echo $fcp_fine;}else{echo "0";} ?></td>
-									<td><?php echo ($paid+$fcp_fine); $paid=0;?></td>
+									<td><?php echo ($paid+$fcp_fine);$paid=0;?></td>
 									<td><?php echo $fcp_balance;?></td>
 									<td><?php echo $fcp_fee_for_class; ?></td>
 								</tr>
@@ -4940,13 +4917,12 @@ if($action == "ad_fee_card")
 					<?php		foreach($fcp_feemaster_particulars as $fp)
 								{
 									$fcp_individual_sum_paid = $db->getOne("SELECT SUM(feeamount) FROM es_feepaid WHERE studentid=".$fcp_reg_no." AND particularid=".$fp['es_feemasterid']); ?>
-                                    <td><?php if(isset($fcp_individual_sum_paid)){echo $fcp_individual_sum_paid;}else{echo "0";} ?></td>
+                                    <td><?php echo $fcp_individual_sum_paid; ?></td>
 					<?php		} ?>
                     			<td><?php if(isset($fcp_total_fine_amount)){echo $fcp_total_fine_amount;}else{echo "0";} ?></td>
                     			<td><?php echo $fcp_total;?></td>
                     			<td><?php echo $fcp_fee_for_class-$fcp_total;?></td>
                     			<td><?php echo $fcp_fee_for_class; ?></td>
-                            
                             </tr>
                         </table>
 						<div style="width: 100%; text-align:center;"><input type="button" style="cursor:pointer; margin-top: 20px;" value="Print" onclick="window.open('?pid=40&action=print_fee_card&studentid=<?php echo $fcp_reg_no; ?>&pre_year=<?php echo $fcp_fin_year; ?>',null,'width=700,height=600,scrollbars=yes,toolbar=no,directories=no,status=no,menubar=yes,left=140,top=30');"  class="bgcolor_02"  /></div>
@@ -4999,7 +4975,7 @@ if($action == "ad_classwise_fee_card" || $action == "ad_classwise_fee_card_print
     			<td>
                 <form method="post" action="" name="fetchstudent">
 				
-                <!------------------------------ Start: 'class' select tag ------------------------------>
+                <!-- Start: 'class' select tag -->
 				<span align="left"><br>&nbsp;&nbsp;Class :</span>
                 <select name="cfc_pre_class">
                     <option value="">-- Select Class --</option>

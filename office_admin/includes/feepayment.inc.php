@@ -63,11 +63,6 @@ if(isset($school_year)){
 
 $school_details_sel = "SELECT * FROM `es_finance_master` ORDER BY `es_finance_masterid` DESC";
 $school_details_res = getamultiassoc($school_details_sel);
-
-
-
-
-
 if($action == 'payfee')
 {
 	//--------------------------------------------------------- If student search button is set ---------------------------------------------------------//
@@ -126,16 +121,28 @@ if($action == 'payfee')
 		        //------------------------------- Form validation -------------------------------//
                 $vlc = new FormValidation();
 
-                if($vocturetypesel==""){$errormessage[1]="Select Voucher Type";}
-                if ($es_ledger=="") {$errormessage[2]="Select Ledger";}
+                //if($vocturetypesel==""){$errormessage[1]="Select Voucher Type";}
+                //if ($es_ledger=="") {$errormessage[2]="Select Ledger";}
                 if($es_paymentmode==""){$errormessage[3]="Select Payment Mode";}
-                else if($es_paymentmode!="cash")
+                else if($es_paymentmode=="mpesa")
                 {
-                    if (!$vlc->is_alpha_numeric($es_bankacc))
-                            $errormessage[4]="Enter Bank Account Number";
-                    if (!$vlc->is_alpha_numeric($es_checkno))
-                            $errormessage[5]="Enter Cheque Number";
-                }		
+                    if ($es_mpesa_number==""){
+                            $errormessage[4]="Enter Mpesa Number that made the payment";
+                    }
+                    if ($es_mpesa_code==""){
+                            $errormessage[5]="Enter Mpesa Confirmatio Code";
+                    }                    
+                }
+            	else if($es_paymentmode=="dd")
+                {
+                    if (!$vlc->is_alpha_numeric($es_bankacc)){
+                            $errormessage[6]="Enter Bank Account Number";
+                    }
+                    if (!$vlc->is_alpha_numeric($es_checkno)){
+                            $errormessage[7]="Enter Cheque Number";
+                    }
+                    
+                }
                 //-------------------------- End of form validation ----------------------------//
 		
                 
@@ -157,6 +164,8 @@ if($action == 'payfee')
 
                          $obj_voucherentry->es_bank_pin      = $es_bank_pin;
                          $obj_voucherentry->es_bank_name     = $es_bank_name;
+                         $obj_voucherentry->mpesa_number=$es_mpesa_number;
+                         $obj_voucherentry->mpesa_code=$es_mpesa_code;
                          $obj_voucherentry->es_teller_number = $es_teller_number;
 
                          $obj_voucherentry->es_narration   = $es_narration;
@@ -1626,13 +1635,14 @@ if($action == "ad_fee_card" || $action == "print_fee_card")
 		if(!empty($fcp_reg_no))
 		{
 			$is_exists_student = $db->getOne("SELECT COUNT(*) FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no);
-			if($is_exists_student == 0)
-				$errormessage[1] = "Student does not exists";
-		}
-		
+			if($is_exists_student == 0){
+				$errormessage[1] = "Student does not exist";
+			}
+		//$student_count=$db->getOne("SELECT COUNT(*) FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no. "AND ")
 		if(count($errormessage) == 0)
 		{
 			$proceed = true;
+			
 			$student_info = $db->getRow("SELECT * FROM es_preadmission WHERE es_preadmissionid=".$fcp_reg_no);
 			//$fcp_class = $db->getOne("SELECT es_classname FROM es_classes WHERE es_classesid=".$student_info['pre_class']);
 			$fcp_classesid = $db->getOne("SELECT pre_class FROM es_preadmission_details WHERE es_preadmissionid=".$fcp_reg_no." AND pre_fromdate='".$fcp_fi_startdate."' AND pre_todate='".$fcp_fi_enddate."'");
@@ -1650,14 +1660,9 @@ if($action == "ad_fee_card" || $action == "print_fee_card")
 			}
 		}
 	}
+	}
 }
 ?>
-
-
-
-
-
-
 <?php 
 if($action == "ad_classwise_fee_card" || $action == "ad_classwise_fee_card_print")
 {

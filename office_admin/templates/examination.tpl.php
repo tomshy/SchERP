@@ -250,7 +250,7 @@ if ($action=="createxam_next"){
 					<td align="center" valign="middle" width="14%" class="admin">Duration (hr)</td>
 					<td align="center" valign="middle" width="10%" class="admin">Total Marks</td>
 					<td align="center" valign="middle" width="11%" class="admin">Pass Marks</td>
-					<td align="center" valign="middle" width="11%" class="admin">Upload</td>
+					
 				</tr>
 			<?php
 				if(count($subjects_data) > 0) {
@@ -308,17 +308,7 @@ if ($action=="createxam_next"){
 							</td>
 							<td align="center" valign="middle" class="narmal"><input type="text" name="total_marks[<?php echo $ar;?>]" value="<?php if ($total_marks[$ar]!="") echo $total_marks[$ar]; else if($arrSubDetails[$subid]['total_marks'] !="") echo $arrSubDetails[$subid]['total_marks']; else echo "";?>" size="3" maxlength="5"></td>
 							<td align="center" valign="middle" class="narmal"><input type="text" name="pass_marks[<?php echo $ar;?>]" value="<?php if ($pass_marks[$ar]!="") echo $pass_marks[$ar]; else if($arrSubDetails[$subid]['pass_marks'] !="") echo $arrSubDetails[$subid]['pass_marks']; else echo "";?>" size="3" maxlength="5"></td>
-							<td align="center" valign="middle" class="narmal"><?php if ($arrSubDetails[$subid]['upload_exam_paper']=="") { ?>
-	<input type="file" name="upload_exam_paper[<?php echo $ar;?>]" size="7" value"<?php if ($upload_exam_paper[$ar]!="") 
-		  echo $upload_exam_paper[$ar]; 
-		  else if($arrSubDetails[$subid]['upload_exam_paper'] !="") 
-		  			echo $arrSubDetails[$subid]['upload_exam_paper'];
-		  			else echo "";?>"/><br /><font color="#FF0000" face="Verdana, Arial, Helvetica, sans-serif" size="2">Note :</font>  Please do not upload .docx files
-					
-					<?php }
-					 else  { ?><a href="documents/<?php echo $arrSubDetails[$subid]['upload_exam_paper'];?>"><img src="images/download.png" alt="download" border="0"/></a> &nbsp; <a href="?pid=36&action=delete_paper&exmid=<?php echo $exmid?>&class_id=<?php echo $class_id?>&exam_detailsid=<?php echo $arrSubDetails[$subid]['es_exam_detailsid']; ?>">Delete</a>
-					 <input type="hidden" name="old_exam_paper[<?php echo $arrSubDetails[$subid]['es_exam_detailsid']; ?>]" value="<?php echo $arrSubDetails[$subid]['upload_exam_paper'];?>" />
-					 <?php } ?></td>
+							
 						</tr>
 			<?php
 						$cn++;
@@ -763,10 +753,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 </table>
 
 													</td></tr>
-														
-		
-		
-		
+																											
 												<?php
 													if(count($class_students)>0)
 													{
@@ -776,6 +763,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 															<td height="20" width="19%" align="center">Registration #</td>
 														  <td height="20" width="55%" align="center">Student Name</td>
 															<td height="20" width="20%" align="center">Marks Obtained</td>
+															<td>Grading</td>
 														</tr>
 												<?php
 														$in=0;
@@ -802,6 +790,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 																<?php if($action=="entermarks"){ ?>
 																<input type="text" name="stud_marks[]" value="<?php if($std_mrks_det['es_marksobtined']!="" && !$_POST) {echo $std_mrks_det['es_marksobtined']; }else{ echo $stud_marks[$in];} ?>" size="8">
 																<?php } else{ if($std_mrks_det['es_marksobtined']!="") echo $std_mrks_det['es_marksobtined']; }?></td>
+																<td id="gradng">45</td></td>
 															</tr>
 												<?php
 														$n++;
@@ -810,12 +799,14 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 													}
 												?>
 														<tr>
-															<td height="40" colspan="4" valign="middle" align="center" class="narmal">
+															<td height="40" colspan="5" valign="middle" align="center" class="narmal">
 																<?php if($action=="entermarks"){?>
 																<input name="submit_marks" type="submit" class="bgcolor_02" value="Submit" style="cursor:pointer; height:20px;" />
 																<a href="?pid=36&action=marksentry&groups_id=<?php echo $groups_id; ?>&classes_id=<?php echo $classes_id; ?>&examname=<?php echo $examname; ?>&academicyear=<?php echo $academicyear; ?>&exam_search=Search" class="bgcolor_02" style="text-decoration:none;  padding:3px;">Back</a>																
 															
 															<script>
+															
+																							
 															function sendprint(MyWin)
 																{
 																winpopup=window.open(MyWin,'print1','height=600,width=800,menubar=no,scrollbars=yes,status=no,toolbar=no,sereenX=100,screenY=0,left=100,top=0,class=text');	
@@ -826,6 +817,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 															<?php }?>
 															
 															</td>
+
 														</tr>
 														
 													</form>
@@ -1443,13 +1435,14 @@ if ($action=='classwise' || $action=='classwise1'){
                         <td width="11%" align="left" class="adminfont">Reg .No </td>
                         <td width="11%" align="left" class="narmal"><select name='studentid' style="width:130px;" onchange="goto_URL(this.form.studentid);">
                             <option value="all" >Select</option>
-<?php 
+                            <option value="2" >2</option>
+<?php 						
 
 	if (count($classwisestudent)>0){
 	
 		foreach($classwisestudent as $classwisestudents){
 ?>
-<option value=" ?pid=36&action=studentwise&stid=<?php echo $classwisestudents->es_preadmissionId; ?>&sid=<?php echo $sid ?>"  <?php echo ($classwisestudents->es_preadmissionId==$stid)?"selected":""?>>student_<?php echo $classwisestudents->es_preadmissionId; ?></option>
+<option value="value"><?php echo $classwisestudents->es_preadmissionId; ?></option>
 <?php
 
 		}
@@ -1687,6 +1680,7 @@ if($loop >= $loopstrt && $loop < $loopend) {
 													<td width="20%" height="23" align="center"><b>Max</b></td>
 													<td width="20%" height="23" align="center"><b>Min</b></td>
 													<td width="20%"  height="23" align="center"><b>Obtained</b></td>
+													<td width="20%"  height="23" align="center"><b>Grading</b></td>
 													<td width="20%"  height="23" align="center"><b>Result</b></td>
 												</tr>
 											<?php  
@@ -2213,7 +2207,7 @@ if($loop >= $loopstrt && $loop < $loopend) {
   </tr>
   <tr>
   	<td width="1" class="bgcolor_02"></td>
-  	<td align="left" valign="top">
+  	<tsd align="left" valign="top">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  		<tr>
 				<td colspan="8" align="center">
@@ -2302,9 +2296,10 @@ if($loop >= $loopstrt && $loop < $loopend) {
 								<td width="10%" align="center" height="20" class="admin">S&nbsp;No</td>
 								<td width="24%" align="left" class="admin">Subject</td>
 								<td width="16%" align="center" class="admin">Total Marks</td>
-								<td width="15%" align="center" class="admin">Pass Marks</td>
-								<td width="15%" align="center" class="admin">Marks Obtained</td>
-								<td width="20%" align="center" class="admin">Status</td>
+								<td width="10%" align="center" class="admin">Pass Marks</td>
+								<td width="10%" align="center" class="admin">Marks Obtained</td>
+								<td width="10%" align="center" class="admin">Grading</td>
+								<td width="10%" align="center" class="admin">Status</td>
 						  </tr>
 					<?php 
 						if (count($sub_data) > 0 && count($reportdetails) > 0){
@@ -2328,6 +2323,7 @@ if($loop >= $loopstrt && $loop < $loopend) {
 									<td align="center" class="narmal"><?php echo $subArray[$sbid]['total_marks'];?></td>
 									<td align="center" class="narmal"><?php echo $subArray[$sbid]['pass_marks'];?></td>
 									<td align="center" class="narmal"><?php echo strtoupper($subArray[$sbid]['marks_obtined']);?></td>
+									<td align="center" class="narmal" id="grading">A</td>
 									<td align="center" class="narmal"><?php if((int)$subArray[$sbid]['marks_obtined']>=(int)$subArray[$sbid]['pass_marks']){echo "Pass";}else{echo "Fail";}?></td>
 						       </tr>
 				  <?php 
@@ -2374,6 +2370,42 @@ if($loop >= $loopstrt && $loop < $loopend) {
 							}
 						?>
 			  			</form>
+			  			<script type="text/javascript">
+			  			function grade () {
+														var grade;
+														var marks=document.getElementsByName('stud_marks[]').value;
+														if (marks>79) {
+																grade="A";
+													}else if(marks>75){
+														grade="A-";
+													}else if(marks>70){
+														grade="B+";
+													}else if(marks>65){
+														grade="B";
+													}else if(marks==60){
+														grade="B";
+													}else if(marks>55){
+														grade="B-";
+													}else if(marks>50){
+														grade="C+";
+													}else if(marks>45){
+														grade="C";
+													}else if(marks>40){
+														grade="C-";
+													}else if(marks>35){
+														grade="D+";
+													}else if(marks>30){
+														grade="D";
+													}else if(marks>25){
+														grade="D-";
+													}else{
+														grade="E";
+													}
+													document.getElementById('grading').innerHTML=grade;
+													
+													}	
+													grade()	;
+												</script>
            			</table></td>
 	 		 </tr>
 

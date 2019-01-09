@@ -656,6 +656,13 @@ function newWindowOpen(href)
 								</td>
 							</tr>
 						</table>
+						<script type="text/javascript">
+							function goBack(){
+								parent.history.back;
+								return false;
+							}
+						</script>
+						<button onclick="goBack()">Back</button><button>Admit</button>
 						
 						 </td>
 					 </tr>
@@ -762,7 +769,7 @@ function newWindowOpen(href)
 
 	  <td width="29%" height="25" align="left" valign="middle" class="admin">&nbsp;Applicant Name</td>
 	 <td width="16%" height="25" class="admin" align="center">Date</td>
-	 <td width="42%" height="25" class="admin" align="center">Action </td>
+	 <td colspan="2" width="42%" height="25" class="admin" align="center">Action </td>
    </tr>
 <?php 	
 	$rownum = 1;
@@ -780,6 +787,14 @@ function newWindowOpen(href)
 		<td class="narmal" align="center">
 		<?php if (in_array('3_2', $admin_permissions)){?>
 		<a href="<?php echo buildurl(array('pid'=>2, 'action'=>'registration', 'uid'=>$eachrecord['es_enquiryid']));?>&disptype=formpurchase" class="video_link"> View </a>  <?php }if (in_array('3_3', $admin_permissions)){?>
+		<a href="?pid=2&action=registration&uid=<?php echo $eachrecord['es_enquiryid']; ?>&disptype=studentmarks" class="video_link"></a> <?php }
+		
+		if (in_array('4_p', $admin_permissions)){?>
+		<?php if($eachrecord['es_preadmissionid']<1){?><a href="?pid=5&action=view&uid=<?php echo $eachrecord['es_enquiryid'];?>" class="video_link"><span style="color:#FF0000; font-weight:bold; size:14px;"></span></a><?php }else{?><span style="color:#000000; font-weight:bold; size:14px;"></span><?php }}?>
+		</td>
+		<td class="narmal" align="center">
+		<?php if (in_array('3_2', $admin_permissions)){?>
+		<a href="<?php echo buildurl(array('pid'=>2, 'action'=>'registration', 'uid'=>$eachrecord['es_enquiryid']));?>&disptype=formpurchase" class="video_link"> Admit </a>  <?php }if (in_array('3_3', $admin_permissions)){?>
 		<a href="?pid=2&action=registration&uid=<?php echo $eachrecord['es_enquiryid']; ?>&disptype=studentmarks" class="video_link"></a> <?php }
 		
 		if (in_array('4_p', $admin_permissions)){?>

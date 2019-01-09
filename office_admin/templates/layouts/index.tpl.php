@@ -144,14 +144,6 @@ src: url('includes/fonts/Belwec.ttf');
 			?></td>
             </tr>
             </table></td>
-            <td width="17%" align="left" valign="top"><?php
-/***
-*Including of Left menu
-*/
-if($action != 'ad_fee_card')
-	include(TEMPLATES_PATH . DS . 'rightmenu.tpl.php');
-
-?></td>
           </tr>
         </table></td>
       </tr>
