@@ -2759,8 +2759,7 @@ border:#333333 1px solid;
 
 					<td align="center" valign="middle" class="narmal"><select name="stustatus[]">
 					<option value="pass" <?php if($eachrecord['status']=='pass') { echo "selected='selected'"; } ?>>P</option>
-					<option value="fail" <?php if($eachrecord['status']=='fail') { echo "selected='selected'"; } ?>>F</option>
-					<option value="resultawaiting" <?php if($eachrecord['status']=='resultawaiting') { echo "selected='selected'"; } ?>>R.A</option>
+					<option value="fail" <?php if($eachrecord['status']=='fail') { echo "selected='selected'"; } ?>>F</option>					
 					<option value="inactive" <?php if($eachrecord['status']=='inactive') { echo "selected='selected'"; } ?>>T</option>
 					</select>  
 					</td>
@@ -2798,8 +2797,7 @@ border:#333333 1px solid;
 						<?php } ?>                           
 				</tr>
 				<tr>
-				  <td colspan="7"><font color="#FF0000">*</font>P = Promoted&nbsp;&nbsp;&nbsp;<font color="#FF0000">*</font>F = Fail &nbsp;&nbsp;&nbsp;<font color="#FF0000">*</font>R.A = Result Awaited
-				&nbsp;&nbsp;&nbsp;<font color="#FF0000">*</font>T = Transferred</td>
+				  <td colspan="7"><font color="#FF0000">*</font>P = Promoted&nbsp;&nbsp;&nbsp;<font color="#FF0000">*</font>F = Fail &nbsp;&nbsp;&nbsp;<font color="#FF0000">*</font>T = Transferred</td>
 				</tr>
 					
 	      <?php }else{

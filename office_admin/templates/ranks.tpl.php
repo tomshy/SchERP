@@ -25,7 +25,7 @@ $from = func_date_conversion("Y-m-d","d/m/Y",substr($academicyear,0,10));
 		 
 		 </td>
 		 <td height="10" align='right'>
-		 <strong>Ate&nbsp;:&nbsp;</strong><?php echo date('d-m-Y');?>
+		 <strong>Date&nbsp;:&nbsp;</strong><?php echo date('d-m-Y');?>
 		 
 		 </td>
 	 </tr>
@@ -265,7 +265,6 @@ if(is_array($exam_mark))
 	echo round($round,2).'%';
 	}
 	?>
-	
 	</td>
 	<td>
 	<?php

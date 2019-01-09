@@ -87,12 +87,19 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 											
 											<tr>
 												<td height="23" align="left" valign="middle" class="narmal">&nbsp;Financial&nbsp;Year</td>
-												<td height="23" colspan="3" align="left" valign="middle" class="narmal">
+												<td height="23" align="left" valign="middle" class="narmal">
 													<select name="pre_year">
 														<?php	foreach($school_details_res as $each_record)
 																	{
 														?>				<option value="<?php echo $each_record['es_finance_masterid']; ?>" <?php if ($each_record['es_finance_masterid']==$pre_year) { echo "selected"; }?>><?php echo displaydate($each_record['fi_startdate'])." To ".displaydate($each_record['fi_enddate']); ?></option>
 														<?php } ?>
+													</select></td>
+												<td width="7%" height="23" align="left" valign="middle" class="narmal">&nbsp;Term</td>
+												<td width="54%" height="23" align="left" valign="middle" class="narmal">
+													<select name="term" style="width:130px">
+														<option value="1">Term 1</option>
+														<option value="2">Term 2</option>
+														<option value="3">Term 3</option>
 													</select></td>
 											</tr>
 											
@@ -218,6 +225,15 @@ if($action == 'viewfees' )
                                                 { ?>
                                                     <option value="<?php echo $each_record['es_finance_masterid']; ?>" <?php  if ($each_record['es_finance_masterid']==$pre_year) { echo "selected"; }?>><?php echo displaydate($each_record['fi_startdate'])." to ".displaydate($each_record['fi_enddate']); ?>						                        </option>
                                         <?php	} ?>
+                                    </select>					
+                    			</td>
+                    			<td align="center" class="adminfont" colspan="2">Term</td>
+                    			<td align="center" class="narmal" colspan="3">
+                                    <select name="term">
+                                    	<option value="0">All</option>
+										<option value="1">Term 1</option>
+										<option value="2">Term 2</option>
+										<option value="3">Term 3</option>
                                     </select>					
                     			</td>
 								<td align="center" class="adminfont" colspan="2">
@@ -369,7 +385,7 @@ if ($action == 'print_fees') {
 		foreach($all_classlist as $eachclass){			
 			$es_classID = $eachclass['es_classesid'] ;
 ?>
-				<fieldset> <legend class="adminfont">Fee etails For Class :<?php echo $eachclass['es_classname']; ?></legend>
+				<fieldset> <legend class="adminfont">Fee Details For Cass :<?php echo $eachclass['es_classname']; ?></legend>
 				<table width="95%" border="0" cellspacing="0" cellpadding="0">
 				  <tr>
 					<td width="0" class="bgcolor_02"></td>

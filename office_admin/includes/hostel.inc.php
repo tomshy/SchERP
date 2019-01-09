@@ -176,12 +176,8 @@ if ($action =='addroom'){
 		}		
 		if  (!$vlc->is_nonNegNumber($room_capacity )) {
 			$errormessage[2] ="invalid capacity"; 
-		}
-		
-		if  (!$vlc->is_nonNegNumber($room_rate ) || $room_rate <1 ) {
-			$errormessage[3] ="invalid Rate"; 
-		}
-		
+		}	
+	
 		if (count($errormessage)==0){	  
 		    if ($error =="" && isset($error)){			
 			  
