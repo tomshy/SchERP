@@ -326,15 +326,14 @@ if (in_array('19_p', $top_level_permissions) ){if (in_array('19_p', $admin_permi
 </table></div>
 <ul class="categoryitems">
 <li><a href="?pid=19&action=addbuilding">Add Building</a></li>
-<li><a href="?pid=19&action=addroom">Add Room</a></li>
-<li><a href="?pid=19&action=buildreport">Room Availability</a></li>
-<li><a href="?pid=19&action=student_roomallotment">Room Allocation</a></li>
-<li><a href="?pid=19&action=view_persons">View Hostel Persons</a></li>
+<li><a href="?pid=19&action=addroom">Add Bed</a></li>
+<li><a href="?pid=19&action=buildreport">Bed Availability</a></li>
+<li><a href="?pid=19&action=student_roomallotment">Bed Allocation</a></li>
+<li><a href="?pid=19&action=view_persons">View Dorm Persons</a></li>
 <!--<li><a href="?pid=19&action=collect_items">Collect Items</a></li>
-<li><a href="?pid=19&action=prepare_bill">Prepare Bill</a></li>
-<li><a href="?pid=19&action=viewdetails">View Details</a></li>-->
+<li><a href="?pid=19&action=prepare_bill">Prepare Bill</a></li>-->
+<li><a href="?pid=19&action=viewdetails">View Details</a></li>
 </ul>
-
 <?php }}if (in_array('21_p', $top_level_permissions) ){if (in_array('21_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
