@@ -250,6 +250,27 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=15&action=staffviewing">View Staff</a></li>
 <li><a href="?pid=64&action=asignincharge">Assign Incharge</a></li>
 </ul>
+
+<?php }}if (in_array('9_p', $top_level_permissions) ){if (in_array('9_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/hrd_32.png" /></td>
+    <td >HRD</td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+<li><a href="?pid=9&action=post_vacancy">Post Vacancy</a></li>
+<li><a href="?pid=23&action=applicant_enquiries">Applicant Enquiry</a></li>
+<li><a href="?pid=23&action=search_applicants">Search Applicants</a></li>
+<li><a href="?pid=23&action=take_interview">Take Interview</a></li>
+<li><a href="?pid=15&action=applicants_list">Applicants List</a></li>
+<li><a href="?pid=23&action=offerlettergenration">Generate Offer Letter</a></li>
+<li><a href="?pid=23&action=letter_formats">Letter Formats</a></li>
+<li><a href="?pid=23&action=issuetcstaff">Resignation/Termination</a></li>
+<li><a href="?pid=23&action=letterslist">Other letter Formats</a></li>
+<li><a href="?pid=23&action=sendlettertostaff">Send Letter</a></li>
+<li><a href="?pid=23&action=otherlettergeneration">Print Letter </a></li>
+</ul>
 <?php } }if (in_array('13_p', $top_level_permissions) ){if (in_array('13_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -351,7 +372,7 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=104&action=staff_wise">Staff&nbsp;Time&nbsp;Table</a></li>-->
 <li><a href="?pid=106&action=timetable">Class wise timetables</a></li>
 <li><a href="?pid=90&action=staff">Staff wise timetables</a></li>
-<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>
+<!--<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>-->
 </ul>
 <?php }}if (in_array('17_p', $top_level_permissions) ){if (in_array('17_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -401,19 +422,19 @@ if (in_array('2_p', $admin_permissions)){?>
   </tr>
 </table></div>
 <ul class="categoryitems">
-<li><a href="?pid=27&action=slip">Attendance Slips</a></li>
+<!--<li><a href="?pid=27&action=slip">Attendance Slips</a></li>-->
 <li><a href="?pid=27&action=stud_attend">Student Attendance</a></li>
 <li><a href="?pid=27&action=edit_stud_attendence">Edit Attendance</a></li>
 <li><a href="?pid=27&action=staff_attend">Staff Attendance</a></li>
 <li><a href="?pid=27&action=edit_staff_attendence">Edit Attendance</a></li>
 <li><a href="?pid=27&action=stud_report">Student Report</a></li>
-<li><a href="?pid=27&action=class_report">Class Report</a></li>
+<!--<li><a href="?pid=27&action=class_report">Class Report</a></li>-->
 
 <li><a href="?pid=134&action=class-report1">Class Report1</a></li>
 
-<li><a href="?pid=27&action=staff_wise_report">Employee Report</a></li>
+<!--<li><a href="?pid=27&action=staff_wise_report">Employee Report</a></li>
 <li><a href="?pid=27&action=staff_report">Staff  Report</a></li>
-<li><a href="?pid=27&action=descriptive_notes">Descriptive Notes</a></li>
+<li><a href="?pid=27&action=descriptive_notes">Descriptive Notes</a></li>-->
 </ul>
 <?php }}
 if (in_array('19_p', $top_level_permissions) ){if (in_array('19_p', $admin_permissions)){?>
@@ -425,12 +446,12 @@ if (in_array('19_p', $top_level_permissions) ){if (in_array('19_p', $admin_permi
 </table></div>
 <ul class="categoryitems">
 <li><a href="?pid=19&action=addbuilding">Add Building</a></li>
-<li><a href="?pid=19&action=addroom">Add Room</a></li>
-<li><a href="?pid=19&action=buildreport">Room Availability</a></li>
-<li><a href="?pid=19&action=student_roomallotment">Room Allocation</a></li>
-<li><a href="?pid=19&action=view_persons">View Hostel Persons</a></li>
-<li><a href="?pid=19&action=collect_items">Collect Items</a></li>
-<li><a href="?pid=19&action=prepare_bill">Prepare Bill</a></li>
+<li><a href="?pid=19&action=addroom">Add Bed</a></li>
+<li><a href="?pid=19&action=buildreport">Bed Availability</a></li>
+<li><a href="?pid=19&action=student_roomallotment">Bed Allocation</a></li>
+<li><a href="?pid=19&action=view_persons">View Dorm Persons</a></li>
+<!--<li><a href="?pid=19&action=collect_items">Collect Items</a></li>
+<li><a href="?pid=19&action=prepare_bill">Prepare Bill</a></li>-->
 <li><a href="?pid=19&action=viewdetails">View Details</a></li>
 </ul>
 
