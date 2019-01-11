@@ -4,7 +4,7 @@
 	exit;
 }
 
-sm_registerglobal('pid', 'action','emsg','groups_id','exportcreateexam','exam_reports_export','classes_id', 'examname', 'subject_ids','at_std_subject', 'maxmarks', 'minmarks', 'cr_examsbmt','action1','start','serchexamresults', 'classid','result_serchnameofexam','search_students','examname','entermarks','studentid','studentmarks','subjectid','examid','radiobutton','markscount','classwiseserch','sm_class','sid','studentid','stid','resultserch','examdtae','esid','clsid','back','upload_std_marks','exam_next','academicyear','exmid','subject_id','exam_duration','total_marks','pass_marks','exam_submit','exam_search','edmark','submit_marks','student_id','stud_marks','exam_reports','class_id','exam_detailsid','student_marksid','student_id','studentr_regno','exam_marks_search','regd_no','search_stdnt','submit_std_mrk','exm_dtl','marksobtnd','upload_exam_paper','subject_sud_total','sub_sud_tot','std_clsid','ed','old_exam_paper');
+sm_registerglobal('pid', 'action','emsg','groups_id','exportcreateexam','exam_reports_export','classes_id', 'examname', 'subject_ids','at_std_subject', 'maxmarks', 'minmarks', 'cr_examsbmt','action1','start','serchexamresults', 'classid','result_serchnameofexam','search_students','examname','entermarks','studentid','studentmarks','subjectid','examid','radiobutton','markscount','classwiseserch','sm_class','sid','studentid','stid','resultserch','examdtae','esid','clsid','back','upload_std_marks','exam_next','academicyear','exmid','subject_id','exam_duration','total_marks','supervisor','pass_marks','exam_submit','exam_search','edmark','submit_marks','student_id','stud_marks','exam_reports','class_id','exam_detailsid','student_marksid','student_id','studentr_regno','exam_marks_search','regd_no','search_stdnt','submit_std_mrk','exm_dtl','marksobtnd','upload_exam_paper','subject_sud_total','sub_sud_tot','std_clsid','ed','old_exam_paper');
 if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_user']=="" ) {
 	header('location: ../?pid=1&unauth=0');
 	exit;
@@ -225,7 +225,7 @@ if ($action=="createxam_next")
 	
 	$subjects_data = gettingSubject($class_id);
 	$exmdetails = $db->getRows("SELECT * FROM es_exam_details WHERE academicexam_id = '$exmid'");
-	
+	$supervisors= $db->getRows("SELECT st_firstname,st_lastname FROM es_staff WHERE teach_nonteach='teaching'");
 	foreach ($exmdetails as $ex)
 	{
 		$tmpid = $ex['subject_id'];
@@ -236,6 +236,7 @@ if ($action=="createxam_next")
 		$arrSubDetails[$tmpid]['exam_duration'] 		= $ex['exam_duration'];
 		$arrSubDetails[$tmpid]['total_marks'] 			= $ex['total_marks'];
 		$arrSubDetails[$tmpid]['pass_marks'] 			= $ex['pass_marks'];
+		$arrSubDetails[$tmpid]['supervisor'] 			= $ex['supervisor'];
 		$arrSubDetails[$tmpid]['upload_exam_paper'] 	= $ex['upload_exam_paper'];
 	}
 //	array_print($arrSubDetails);
@@ -263,11 +264,11 @@ if($exam_submit=="Submit")
 		$value_date = $_POST[$vardate];
 		
 		$vlc   = new FormValidation();
-		if($value_date=="" && $exam_duration[$f]=="" && $total_marks[$f]=="" && $pass_marks[$f]=="")
+		if($value_date=="" && $exam_duration[$f]=="" && $total_marks[$f]=="")
 		{
 			$arrsub[] = $f;
 		}
-		else if(($value_date=="" || $exam_duration[$f]=="" || $total_marks[$f]=="" || !$vlc->is_allnumbers($total_marks[$f]) || $total_marks[$f]<1 || $pass_marks[$f]=="" || !$vlc->is_allnumbers($pass_marks[$f]) || $pass_marks[$f]<1) && ($value_date!="" || $exam_duration[$f]!="" || $total_marks[$f]!="" || $pass_marks[$f]!="")) {
+		else if($value_date=="" ) {
 			$errorfound = "yes";
 			$subsno[] = $f+1;
 		}
@@ -307,8 +308,6 @@ if($exam_submit=="Submit")
 					elseif($old_exam_paper[$exam_detailsid[$f]] !=""){
 					$new_thumbname = $old_exam_paper[$exam_detailsid[$f]];
 					}
-					
-			
 				 
 				$obj_exam_details->academicexam_id = $exmid;
 				$obj_exam_details->subject_id = $subject_id[$f];
@@ -317,7 +316,8 @@ if($exam_submit=="Submit")
 				$obj_exam_details->total_marks = $total_marks[$f];
 				$obj_exam_details->upload_exam_paper = $new_thumbname;
 				$obj_exam_details->pass_marks = $pass_marks[$f];
-								
+				$obj_exam_details->supervisor = $supervisor[$f];
+
 				$obj_exam_details->Save();
 				$obj_exam_details->pog_query; 
 				$log_insert_sql="INSERT INTO es_userlogs (`user_id`,`table_name`,`module`,`submodule`,`record_id`,`action`,`ipaddress`,`posted_on`) VALUES('".$_SESSION['eschools']['admin_id']."','es_exam_details','EXAMINATION','CREATE EXAM','".$exmid."','CREATE NEW ACADEMIC EXAM SCHEDULE','".$_SERVER['REMOTE_ADDR']."',NOW())";

@@ -2,7 +2,7 @@
 
 
 
-sm_registerglobal('pid', 'action','emsg','savegroups','savesubject','sub_class','gid','sid','cid','save', 'editGroup','gr_name', 'cgid' , 'cg','class_name', 'editClass','class_type','scid','sub_edit','superadmin','admin','update_emails','hiddenemails','currency','hiddenid','update_currency','paypal_email','student_prefix','slot_prefix','class_type1','es_groupid','group','es_groupname','es_groupsid');
+sm_registerglobal('pid', 'action','emsg','savegroups','savesubject','sub_class','gid','sid','cid','save', 'editGroup','gr_name', 'cgid' , 'cg','class_name', 'editClass','class_type','scid','sub_edit','code_edit','superadmin','admin','update_emails','hiddenemails','currency','hiddenid','update_currency','paypal_email','student_prefix','slot_prefix','class_type1','es_groupid','group','es_groupname','es_groupsid','code');
 
 
 
@@ -130,6 +130,8 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 			$obj_subject = new es_subject();
 
 			$obj_subject->es_subjectname = strtoupper($subject[$is]);
+
+			$obj_subject->es_subjectcode = $code[$is];
 
 			$obj_subject->es_subjectshortname = $sub_class;
 
@@ -341,17 +343,15 @@ if (!isset($_SESSION['eschools']['admin_user']) || $_SESSION['eschools']['admin_
 
 		
 
-		$db->update("es_subject","es_subjectname ='$sub_edit'","es_subjectid   = '$scid'");
+		$db->update("es_subject","es_subjectname ='$sub_edit',
+								  es_subjectcode ='$code_edit'","es_subjectid   = '$scid'");
 
 		
 
 		$log_insert_sql="INSERT INTO es_userlogs (`user_id`,`table_name`,module,submodule,`record_id`,`action`,ipaddress,`posted_on`) VALUES('".$_SESSION['eschools']['admin_id']."','es_subject','SET UP','Groups/Classes/Subjects','".$scid."','EDIT SUBJECT','".$_SERVER['REMOTE_ADDR']."',NOW())";
 
-	$log_insert_exe=mysql_query($log_insert_sql);	
-
-	
-
-		header("Location:?pid=20&action=manageclasses&emsg=2#subj");
+	$log_insert_exe=mysql_query($log_insert_sql);
+	header("Location:?pid=20&action=manageclasses&emsg=2#subj");
 
 		exit;
 

@@ -2,7 +2,12 @@
 $home_image  = str_replace("css", "", $_SESSION['eschools']['user_theme']);
 
 ?>
-
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
 <?php 
 if($action=='birthday_students')
 {?>
@@ -45,9 +50,7 @@ if($action=='birthday_students')
                 echo substr($each['pre_dateofbirth'],5,2);
                 if(substr($each['pre_dateofbirth'],5,2)==$month)
                 {
-                
-                $i++;
-                
+                $i++;                
                 ?>
                 <tr>
                 <td>&nbsp;<?php echo $i;?></td>
@@ -95,19 +98,16 @@ if($action=='birthday_students')
 					$res=mysql_query($section_det1);
 					$row=mysql_fetch_array($res);
 					echo $row['section_name'];*/
-					
 					/*?>	 
 					if($section_det['section_name']!=""){
 					echo ucwords($section_det['section_name']);}else{echo "---";}?></td>
 					<td>&nbsp;<?php  if($section_det['roll_no']!=""){
 					echo $section_det['roll_no'];}else{echo "---";}?><?php */?></td>
-
 					<td align="center" valign="middle">&nbsp;<?php echo displaydate($each['pre_dateofbirth']);?></td>
-     
 				</tr>
 <?php		}// End of if(substr($each['pre_dateofbirth'],5,2)==$month)
 		}// End of foreach($students_det as $each)
-	}// End of if(count($students_det)>=1)
+	}//End of if(count($students_det)>=1)
 	else
 	{
 ?>
@@ -118,39 +118,104 @@ if($action=='birthday_students')
 	}
 ?>
 </table>
-
-				</td>
-				
+			  </td>
                 <td width="1" class="bgcolor_02"></td>
               </tr>
-              
                 <td height="1" colspan="3" class="bgcolor_02"></td>
                 </tr>
             </table>
 <?php
-}// End of if($action=='birthday_students')
+}//End of if($action=='birthday_students')
 else
 {?>
-    <table width="100%" height="400" border="0" cellspacing="0" cellpadding="0"  background="images/home_<?php echo $home_image;?>jpg">
-        <tr>
-            <td height="30"></td>
+    <table width="100%" height="144" border="0" cellspacing="0" cellpadding="0">
+        <tr height="100">
+            <td valign="top">
+                <table>
+                    <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-user-graduate"></i></td><td align="center"><?php echo count($student_num);?><hr></td></tr>
+                    <tr><td>Students</td></tr>
+                </table>
+            </td>            
+            <td valign="top">
+                <table>
+                    <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-users"></i></td><td align="center"><?php echo count($staff_num);?><hr></td></tr>
+                    
+                    <tr><td>Staff</td></tr>
+                </table>
+            </td>
+            <td valign="top">
+                <table>
+                    <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-school"></i></td><td align="center"><?php echo count($class_num);?><hr></td></tr>
+                    
+                    <tr><td>Classes</td></tr>
+                </table>
+            </td>
+            <td valign="top">
+                <table>
+                    <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-dollar-sign"></i></td><td align="center">Ksh 100,000,000<hr></td></tr>
+                    
+                    <tr><td>Fee Balance</td></tr>
+                </table>
+            </td>
         </tr>
-        <tr>
-            <td align="center" valign="middle" class="admin"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr >
-                <td height="20" align="center" valign="middle" class="adminfont" style="font-size:23px;">Welcome</td>
-              </tr>
-              <tr >
-                <td height="20" valign="middle" class="adminfont" align="center" style="font-size:23px;">to</td>
-              </tr>
-              <tr >
-                <td height="20" align="center" valign="middle" class="adminfont" style="font-size:23px; font-family:Belwec;"> <?php echo strtoupper($db->getOne("SELECT fi_schoolname FROM es_finance_master WHERE es_finance_masterid=(SELECT MAX(es_finance_masterid) FROM es_finance_master)")); ?></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-              </tr>
-            </table></td>
-      </tr>
+        <tr height="5">
+            
+            <td valign="top"><h2>KCSE Performance - last 5 years</h2></td>
+
+        </tr>
     </table>
+    <div>
+
+        <svg style="margin-left=35px"></svg>
+    </div>
 <?php
 }?>
+</body>
+<script type="text/javascript">
+    var height=350;
+    var width=800;
+    var svg=d3.select("svg").attr("height",height).attr("width",width);
+    
+    d3.select("h2").style("color","darkblue");
+    var kcse=[4.2,6.0,5.6,6.4,5.3];
+    var y_scale=d3.scaleLinear()
+            .domain([0,d3.max(kcse)])
+            .range([300,0]);
+    var years=[2013,2014,2015,2016,2017];
+    var x_scale=d3.scaleLinear()
+            .domain(14,17)
+            .range(0,700);
+    var x_axis=d3.axisBottom()
+            .scale(x_scale);
+    var y_axis=d3.axisLeft()
+            .scale(y_scale);
+    var bar_width=100;
+    var bar_height=55;
+    var bar_graph=d3.select("svg")
+            .selectAll("rect")
+            .data(kcse)
+            .enter()
+            .append("rect")
+            .attr("y", function(d){return y_scale(d);})
+            .attr("width",bar_width-1)
+            .attr("height",function(d){return height-y_scale(d);})
+            .attr("transform", function(d, i) {
+            var translate=[35+bar_width*i,0];
+            return "translate("+translate+")";
+          }).style("fill","#27d4a8");
+    svg.selectAll("text")
+        .data(kcse)
+        .enter()
+        .append("text")
+        .text(function(d){return d;})
+        .attr("y",function(d,i){return height-y_scale(d)-1;})
+        .attr("x",function(d,i){return bar_width*i+60;})
+        .style("fill","#999999");
+    svg.append("g")
+        .attr("transform","translate(35,45)")
+        .call(y_axis);
+    svg.append("g")
+        .attr("transform","translate(35,20)")
+        .call(x_axis);
+    </script>
+</html>

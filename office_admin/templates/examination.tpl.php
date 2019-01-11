@@ -108,8 +108,25 @@ if ($action=="createxam"){
 			  <font color="#FF0000">*</font></td>
 		  </tr>
 			<tr>
-				<td align="left" valign="top" class="narmal">&nbsp;</td>
-				<td height="40" align="left" valign="middle" class="narmal"><input name="exam_next" type="submit" class="bgcolor_02" value="Next" style="cursor:pointer; height:20px;" /></td>
+				<td align="left" valign="top" class="narmal">Start Date</td>
+				<td align="left" valign="middle" class="narmal">
+								<input style="width:150px;" class="plain" name="<?php echo $vardt;?>" id="<?php echo $vardt;?>" value="<?php echo ($v_dt!="")?
+								
+								
+								formatDBDateTOCalender($v_dt):""; ?>" size="11" readonly ><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fPopCalendar(document.examination_next.<?php echo $vardt;?>);return false;" ><img name="popcal" align="absmiddle" src="<?php echo JS_PATH ?>/DateTime/calbtn.gif" width="34" height="22" border="0" alt=""></a>
+							</td>
+		  </tr>
+		  <tr>
+				<td align="left" valign="top" class="narmal">End Date</td>
+				<td align="left" valign="middle" class="narmal">
+								<input style="width:150px;" class="plain" name="<?php echo $vardt;?>" id="<?php echo $vardt;?>" value="<?php echo ($v_dt!="")?
+								
+								
+								formatDBDateTOCalender($v_dt):""; ?>" size="11" readonly ><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fPopCalendar(document.examination_next.<?php echo $vardt;?>);return false;" ><img name="popcal" align="absmiddle" src="<?php echo JS_PATH ?>/DateTime/calbtn.gif" width="34" height="22" border="0" alt=""></a>
+							</td>
+			<tr>
+				<td align="left" valign="middle" class="narmal" ><input name="exam_next" type="submit" class="bgcolor_02" value="Next" style="cursor:pointer; height:20px;" /></td>
+			</tr>
 		  </tr>
 			</table>
 	  </td>
@@ -244,12 +261,11 @@ if ($action=="createxam_next"){
 			      <b><?php echo $errmsg;?></b></font></td>
 			  </tr>
 				<tr class="bgcolor_02">
-					<td align="center" valign="middle" width="10%" class="admin">S No</td>
+					<td align="center" valign="middle" width="10%" class="admin">Subject Code</td>
 					<td align="left" valign="middle" width="20%" class="admin">Subjects</td>
 					<td align="center" valign="middle" width="24%" class="admin">Exam Date</td>
-					<td align="center" valign="middle" width="14%" class="admin">Duration (hr)</td>
 					<td align="center" valign="middle" width="10%" class="admin">Total Marks</td>
-					<td align="center" valign="middle" width="11%" class="admin">Pass Marks</td>
+					<td align="center" valign="middle" width="11%" class="admin">Supervisor</td>
 					
 				</tr>
 			<?php
@@ -269,7 +285,7 @@ if ($action=="createxam_next"){
 						}
 			?>
 						<tr>
-							<td align="center" valign="middle" class="narmal"><?php echo $cn;?></td>
+							<td align="center" valign="middle" class="narmal"><?php echo $sub['es_subjectcode']?></td>
 							<td align="left" valign="middle" class="narmal">
 								<?php echo $sub['es_subjectname']; ?>
 								<input type="hidden" name="subject_id[]" value="<?php echo $sub['es_subjectid']; ?>">
@@ -281,34 +297,20 @@ if ($action=="createxam_next"){
 								
 								formatDBDateTOCalender($v_dt):""; ?>" size="11" readonly ><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fPopCalendar(document.examination_next.<?php echo $vardt;?>);return false;" ><img name="popcal" align="absmiddle" src="<?php echo JS_PATH ?>/DateTime/calbtn.gif" width="34" height="22" border="0" alt=""></a>
 							</td>
+							
+							<td align="center" valign="middle" class="narmal"><input type="text" name="total_marks[<?php echo $ar;?>]" value="<?php if ($total_marks[$ar]!="") echo $total_marks[$ar]; else if($arrSubDetails[$subid]['total_marks'] !="") echo $arrSubDetails[$subid]['total_marks']; else echo "";?>" size="3" maxlength="5"></td>
 							<td align="center" valign="middle" class="narmal">
-								<select name="exam_duration[<?php echo $ar;?>]">
-									<option value="">Select</option>
-									<option value="0:15" <?php if ($exam_duration[$ar]=="0:15") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="0:15") echo "selected"; else echo "";?>>0:15</option>
-									<option value="0:30" <?php if ($exam_duration[$ar]=="0:30") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="0:30") echo "selected"; else echo "";?>>0:30</option>
-									<option value="0:45" <?php if ($exam_duration[$ar]=="0:45") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="0:45") echo "selected"; else echo "";?>>0:45</option>
-									<option value="1:00" <?php if ($exam_duration[$ar]=="1:00") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="1:00") echo "selected"; else echo "";?>>1:00</option>
-									<option value="1:15" <?php if ($exam_duration[$ar]=="1:15") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="1:15") echo "selected"; else echo "";?>>1:15</option>
-									<option value="1:30" <?php if ($exam_duration[$ar]=="1:30") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="1:30") echo "selected"; else echo "";?>>1:30</option>
-									<option value="1:45" <?php if ($exam_duration[$ar]=="1:45") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="1:45") echo "selected"; else echo "";?>>1:45</option>
-									<option value="2:00" <?php if ($exam_duration[$ar]=="2:00") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="2:00") echo "selected"; else echo "";?>>2:00</option>
-									<option value="2:15" <?php if ($exam_duration[$ar]=="2:15") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="2:15") echo "selected"; else echo "";?>>2:15</option>
-									<option value="2:30" <?php if ($exam_duration[$ar]=="2:30") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="2:30") echo "selected"; else echo "";?>>2:30</option>
-									<option value="2:45" <?php if ($exam_duration[$ar]=="2:45") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="2:45") echo "selected"; else echo "";?>>2:45</option>
-									<option value="3:00" <?php if ($exam_duration[$ar]=="3:00") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="3:00") echo "selected"; else echo "";?>>3:00</option>
-									<option value="3:15" <?php if ($exam_duration[$ar]=="3:15") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="3:15") echo "selected"; else echo "";?>>3:15</option>
-									<option value="3:30" <?php if ($exam_duration[$ar]=="3:30") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="3:30") echo "selected"; else echo "";?>>3:30</option>
-									<option value="3:45" <?php if ($exam_duration[$ar]=="3:45") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="3:45") echo "selected"; else echo "";?>>3:45</option>
-									<option value="4:00" <?php if ($exam_duration[$ar]=="4:00") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="4:00") echo "selected"; else echo "";?>>4:00</option>
-									<option value="4:15" <?php if ($exam_duration[$ar]=="4:15") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="4:15") echo "selected"; else echo "";?>>4:15</option>
-									<option value="4:30" <?php if ($exam_duration[$ar]=="4:30") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="4:30") echo "selected"; else echo "";?>>4:30</option>
-									<option value="4:45" <?php if ($exam_duration[$ar]=="4:45") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="4:45") echo "selected"; else echo "";?>>4:45</option>
-									<option value="5:00" <?php if ($exam_duration[$ar]=="5:00") echo "selected"; else if($arrSubDetails[$subid]['exam_duration'] =="5:00") echo "selected"; else echo "";?>>5:00</option>
+								<select name="supervisor[]">
+									<?php
+									if (count($supervisors)>0) {
+										foreach ($supervisors as $supervisor) {
+											echo "<option value='".$supervisor['st_firstname'].'&nbsp;'.$supervisor['st_lastname']."'>".$supervisor['st_firstname']."&nbsp;".$supervisor['st_lastname']."</option>";
+										}
+									}
+									
+									?>
 								</select>
 							</td>
-							<td align="center" valign="middle" class="narmal"><input type="text" name="total_marks[<?php echo $ar;?>]" value="<?php if ($total_marks[$ar]!="") echo $total_marks[$ar]; else if($arrSubDetails[$subid]['total_marks'] !="") echo $arrSubDetails[$subid]['total_marks']; else echo "";?>" size="3" maxlength="5"></td>
-							<td align="center" valign="middle" class="narmal"><input type="text" name="pass_marks[<?php echo $ar;?>]" value="<?php if ($pass_marks[$ar]!="") echo $pass_marks[$ar]; else if($arrSubDetails[$subid]['pass_marks'] !="") echo $arrSubDetails[$subid]['pass_marks']; else echo "";?>" size="3" maxlength="5"></td>
-							
 						</tr>
 			<?php
 						$cn++;
@@ -319,7 +321,7 @@ if ($action=="createxam_next"){
 					<tr>
 						<td colspan="7" align="center" valign="top">
 							<input name="exam_submit" type="submit" class="bgcolor_02" value="Submit" style="cursor:pointer; height:20px;"  />
-							<input name="resetexam" type="reset" class="bgcolor_02" value="Reset" style="cursor:pointer; height:20px;"  />
+							<input name="resetexam" type="reset" class="bgcolor_02" value="Reset" style="cursor:pointer; height:20px;"  />							
 						</td>
 					</tr>
 					<tr><td height="10"></td></tr>
@@ -524,7 +526,7 @@ if ($action=="createxam_next"){
 							     <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							       <select name="academicyear" style="width:160px;" onchange="JavaScript:document.stdmarkentry.submit();" onblur="JavaScript:document.stdmarkentry.submit();">
 											 <option value="" >Select Year</option>
-<?php 
+<?php 												
 
 	if(count($school_details_res)>0) {	
 		foreach ($school_details_res as $school){
@@ -2479,7 +2481,7 @@ if($loop >= $loopstrt && $loop < $loopend) {
 					<td colspan="3" height="100" >
 					<table width="100%" cellpadding="0" cellspacing="0">
 					<tr class="bgcolor_02">
-								<td width="9%" align="center" height="20" class="admin">S No</td>
+								<td width="9%" align="center" height="20" class="admin">Suubject Code</td>
 								<td width="20%" align="left" class="admin">Subject</td>
 								<td width="18%" height="25" align="center" class="admin">Total Marks</td>
 								<td width="15%" align="center" class="admin">Pass Marks</td>
