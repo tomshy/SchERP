@@ -251,6 +251,126 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=79&action=view_list">Misc Fine Collection</a></li>
 <li><a href="?pid=79&action=view_oldbalances">View Old Balances</a></li>-->
 </ul>
+<?php }}if (in_array('10_p', $top_level_permissions) ){if (in_array('10_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/staff_32.png" /></td>
+    <td>STAFF</td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+
+<li><a href="?pid=49&action=department">Add Department</a></li>
+<li><a href="?pid=46&action=addnewstaff">Add Staff</a></li>
+<li><a href="?pid=15&action=staffviewing">View Staff</a></li>
+<li><a href="?pid=64&action=asignincharge">Assign Incharge</a></li>
+</ul>
+
+<?php }}if (in_array('9_p', $top_level_permissions) ){if (in_array('9_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/hrd_32.png" /></td>
+    <td >HRD</td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+<li><a href="?pid=9&action=post_vacancy">Post Vacancy</a></li>
+<li><a href="?pid=23&action=applicant_enquiries">Applicant Enquiry</a></li>
+<li><a href="?pid=23&action=search_applicants">Search Applicants</a></li>
+<li><a href="?pid=23&action=take_interview">Take Interview</a></li>
+<li><a href="?pid=15&action=applicants_list">Applicants List</a></li>
+<li><a href="?pid=23&action=offerlettergenration">Generate Offer Letter</a></li>
+<li><a href="?pid=23&action=letter_formats">Letter Formats</a></li>
+<li><a href="?pid=23&action=issuetcstaff">Resignation/Termination</a></li>
+<li><a href="?pid=23&action=letterslist">Other letter Formats</a></li>
+<li><a href="?pid=23&action=sendlettertostaff">Send Letter</a></li>
+<li><a href="?pid=23&action=otherlettergeneration">Print Letter </a></li>
+</ul>
+<?php } }if (in_array('13_p', $top_level_permissions) ){if (in_array('13_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/inventory_32.png" /></td>
+    <td >Inventory </td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+<?php /*?><?php if (in_array("13_1", $admin_permissions)) {?>
+<li><a href="?pid=7&action=addinventory">Create Inventory Type</a></li>
+<?php }?>
+<?php */?>
+
+<?php /*?><?php if (in_array("13_1", $admin_permissions)) {?>
+<li><a href="?pid=7&action=addmaintain">Maintanance</a></li>
+<?php }?>
+<?php */?>
+<?php if (in_array("13_4", $admin_permissions)) {?>
+<li><a href="?pid=7&action=addcategory">Add Product Category</a></li>
+<?php }?>
+
+<?php if (in_array("13_7", $admin_permissions)) {?>
+<li><a href="?pid=7&action=additem">Add  Item</a></li>
+<?php }?>
+
+<?php if (in_array("13_10", $admin_permissions)) {?>
+<li><a href="?pid=7&action=addsupply">Add  Supplier</a></li>
+<?php }?>
+
+<?php if (in_array("13_13", $admin_permissions)) {?>
+<li><a href="?pid=7&action=add_order">Purchase Order</a></li>
+<?php }?>
+
+<?php if (in_array("13_14", $admin_permissions)) {?>
+<li><a href="?pid=7&action=goods_reciept">Goods Receipt Note</a></li>
+<?php }?>
+
+<?php if (in_array("13_15", $admin_permissions)) {?>
+<li><a href="?pid=7&action=goods_issue">Goods Issue Note</a></li>
+<?php }?>
+
+<?php if (in_array("13_16", $admin_permissions)) {?>
+<li><a href="?pid=7&action=return_issue">Issue Return Note</a></li>
+<?php }?>
+<li><a href="?pid=7&action=stock_details">Stock Details</a></li>
+<li><a href="?pid=7&action=inventory_reports">Inventory Reports</a></li>
+
+<?php /*?><li><a href="?pid=99&action=inventory_reports">Stationary Sales</a></li>
+<?php if (in_array("13_108", $admin_permissions)) {?>
+<li><a href="?pid=103&action=saled_stationary">Stationary&nbsp;Sales&nbsp;Invoices</a></li>
+<?php } ?><?php */?>
+</ul>
+
+
+<?php }}if (in_array('14_p', $top_level_permissions) ){if (in_array('14_p', $admin_permissions)){?>
+<div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="37px"><img src="images/transport_32.png"  height="32" width="32" border="0"/></td>
+    <td >Transport </td>
+  </tr>
+</table></div>
+<ul class="categoryitems">
+<?php /*?><li><a href="?pid=11&action=allotdriver">Allot Driver</a></li>
+<li><a href="?pid=11&action=addtransport">Transport</a></li>
+<li><a href="?pid=11&action=maintenance">Maintenance Details</a></li>
+<li><a href="?pid=11&action=viewreport">Report</a></li><?php */?>
+<!--<li><a href="?pid=78&action=vehiclefees" >Vehicle Fees</a></li>-->
+<li><a href="?pid=77&action=vehiclelist">Vehicle List</a></li>
+<li><a href="?pid=81&action=driverlist">Drivers List</a></li>
+<li><a href="?pid=82&action=allotteddriverlist">Allot Driver to Vehicle</a></li>
+
+<?php if (in_array("14_13", $admin_permissions)) {?>
+<li><a href="?pid=83&action=preparetransportbill">Prepare Transport Fee </a></li>
+<?php }?>
+<li><a href="?pid=84&action=viewtransportbill">View Transport Bills</a></li>
+<!--<li><a href="?pid=85&action=addmaintenance">Add Maintenance</a></li>-->
+
+
+<li><a href="?pid=85&action=maintenancedetails">Maintenance Details</a></li>
+
+
+<li><b>Reports</b></li>
+<li><a href="?pid=86&action=driverreport">Driver Report</a></li>
+<li><a href="?pid=87&action=vehiclereport">Vehicle Report</a></li>
+</ul>
 <?php }} if (in_array('15_p', $top_level_permissions) ){if(in_array('15_p', $admin_permissions)){?>
 <div class="menuheader expandable">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -267,7 +387,8 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=104&action=staff_wise">Staff&nbsp;Time&nbsp;Table</a></li>-->
 <li><a href="?pid=106&action=timetable">Class wise timetables</a></li>
 <li><a href="?pid=90&action=staff">Staff wise timetables</a></li>
-<--<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>-->
+
+<!--<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>-->
 </ul>
 <?php }}if (in_array('17_p', $top_level_permissions) ){if (in_array('17_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -323,13 +444,13 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=27&action=staff_attend">Staff Attendance</a></li>
 <li><a href="?pid=27&action=edit_staff_attendence">Edit Attendance</a></li>
 <li><a href="?pid=27&action=stud_report">Student Report</a></li>
-<li><a href="?pid=27&action=class_report">Class Report</a></li>
+<!--<li><a href="?pid=27&action=class_report">Class Report</a></li>-->
 
 <li><a href="?pid=134&action=class-report1">Class Report1</a></li>
 
-<li><a href="?pid=27&action=staff_wise_report">Employee Report</a></li>
+<!--<li><a href="?pid=27&action=staff_wise_report">Employee Report</a></li>
 <li><a href="?pid=27&action=staff_report">Staff  Report</a></li>
-<li><a href="?pid=27&action=descriptive_notes">Descriptive Notes</a></li>
+<li><a href="?pid=27&action=descriptive_notes">Descriptive Notes</a></li>-->
 </ul>
 <?php }}
 if (in_array('19_p', $top_level_permissions) ){if (in_array('19_p', $admin_permissions)){?>
