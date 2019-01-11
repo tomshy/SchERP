@@ -267,7 +267,7 @@ if (in_array('2_p', $admin_permissions)){?>
 <li><a href="?pid=104&action=staff_wise">Staff&nbsp;Time&nbsp;Table</a></li>-->
 <li><a href="?pid=106&action=timetable">Class wise timetables</a></li>
 <li><a href="?pid=90&action=staff">Staff wise timetables</a></li>
-<--<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>-->
+<!--<li><a href="#" onclick="window.open('?pid=90&action=free_staff')">View Free Staff</a></li>-->
 </ul>
 <?php }}if (in_array('17_p', $top_level_permissions) ){if (in_array('17_p', $admin_permissions)){?>
 <div class="menuheader expandable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
