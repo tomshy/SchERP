@@ -165,26 +165,34 @@ else
         </tr>
     </table>
     <div>
+        <style type="text/css">
+            svg{
+                margin-left: 30px;
+            }
+            .bar:hover{
+                background-color: brown;
 
-        <svg style="margin-left=35px"></svg>
+            }
+        </style>
+        <svg></svg>
     </div>
 <?php
 }?>
 </body>
 <script type="text/javascript">
     var height=350;
-    var width=800;
-    var svg=d3.select("svg").attr("height",height).attr("width",width);
+    var width=630;
+    var svg=d3.select("svg").attr("height",height+50).attr("width",width);
     
     d3.select("h2").style("color","darkblue");
-    var kcse=[4.2,6.0,5.6,6.4,5.3];
+    var kcse=[4.2,6.0,5.6,3.8,5.3];
     var y_scale=d3.scaleLinear()
-            .domain([0,d3.max(kcse)])
-            .range([300,0]);
+            .domain([0,7])
+            .range([350,0]);
     var years=[2013,2014,2015,2016,2017];
     var x_scale=d3.scaleLinear()
-            .domain(14,17)
-            .range(0,700);
+            .domain([13,17])
+            .range([0,498]);
     var x_axis=d3.axisBottom()
             .scale(x_scale);
     var y_axis=d3.axisLeft()
@@ -200,7 +208,7 @@ else
             .attr("width",bar_width-1)
             .attr("height",function(d){return height-y_scale(d);})
             .attr("transform", function(d, i) {
-            var translate=[35+bar_width*i,0];
+            var translate=[30+bar_width*i,0];
             return "translate("+translate+")";
           }).style("fill","#27d4a8");
     svg.selectAll("text")
@@ -208,14 +216,14 @@ else
         .enter()
         .append("text")
         .text(function(d){return d;})
-        .attr("y",function(d,i){return height-y_scale(d)-1;})
-        .attr("x",function(d,i){return bar_width*i+60;})
+        .attr("y",function(d,i){return y_scale(d)-1;})//y position of bar labels
+        .attr("x",function(d,i){return bar_width*i+70;})//x position of bar labels
         .style("fill","#999999");
     svg.append("g")
-        .attr("transform","translate(35,45)")
+        .attr("transform","translate(30,0)")
         .call(y_axis);
     svg.append("g")
-        .attr("transform","translate(35,20)")
+        .attr("transform","translate(30,350)")
         .call(x_axis);
     </script>
 </html>
