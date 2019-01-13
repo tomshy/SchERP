@@ -107,23 +107,9 @@ if ($action=="createxam"){
 ?>				</select>
 			  <font color="#FF0000">*</font></td>
 		  </tr>
-			<tr>
-				<td align="left" valign="top" class="narmal">Start Date</td>
-				<td align="left" valign="middle" class="narmal">
-								<input style="width:150px;" class="plain" name="<?php echo $vardt;?>" id="<?php echo $vardt;?>" value="<?php echo ($v_dt!="")?
-								
-								
-								formatDBDateTOCalender($v_dt):""; ?>" size="11" readonly ><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fPopCalendar(document.examination_next.<?php echo $vardt;?>);return false;" ><img name="popcal" align="absmiddle" src="<?php echo JS_PATH ?>/DateTime/calbtn.gif" width="34" height="22" border="0" alt=""></a>
-							</td>
-		  </tr>
+			
 		  <tr>
-				<td align="left" valign="top" class="narmal">End Date</td>
-				<td align="left" valign="middle" class="narmal">
-								<input style="width:150px;" class="plain" name="<?php echo $vardt;?>" id="<?php echo $vardt;?>" value="<?php echo ($v_dt!="")?
-								
-								
-								formatDBDateTOCalender($v_dt):""; ?>" size="11" readonly ><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fPopCalendar(document.examination_next.<?php echo $vardt;?>);return false;" ><img name="popcal" align="absmiddle" src="<?php echo JS_PATH ?>/DateTime/calbtn.gif" width="34" height="22" border="0" alt=""></a>
-							</td>
+				
 			<tr>
 				<td align="left" valign="middle" class="narmal" ><input name="exam_next" type="submit" class="bgcolor_02" value="Next" style="cursor:pointer; height:20px;" /></td>
 			</tr>
