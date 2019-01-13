@@ -13,17 +13,17 @@ if($action=='birthday_students')
 {?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-    	<td height="3" colspan="3"></td>
+        <td height="3" colspan="3"></td>
     </tr>
     
     <tr>
-    	<td height="25" colspan="3" class="bgcolor_02"><strong>&nbsp;&nbsp;<span id="internal-source-marker_0.052443267584382114">This Month Student's Birthday List</span></strong></td>
+        <td height="25" colspan="3" class="bgcolor_02"><strong>&nbsp;&nbsp;<span id="internal-source-marker_0.052443267584382114">This Month Student's Birthday List</span></strong></td>
     </tr>
     
-	<tr>
+    <tr>
         <td width="1" class="bgcolor_02"></td>
         <td align="left" valign="top"><br />
-			<table width="100%" border="0">
+            <table width="100%" border="0">
                 <tr height="30" class="bgcolor_02">
                     <td width="7%" align="center" valign="middle">&nbsp;S No</td>
                     <td width="26%" align="left" valign="middle">&nbsp;Student Name</td>
@@ -32,7 +32,7 @@ if($action=='birthday_students')
                     <td width="9%" align="center" valign="middle">&nbsp;Reg ID </td>
                     <td width="15%" align="center" valign="middle">&nbsp;DOB</td>
                 </tr>
-				<?php 
+                <?php 
                 
                 //$students_det = $db->getrows($sql_todaybirth);
                 
@@ -41,7 +41,7 @@ if($action=='birthday_students')
                 $i=0; 
                 foreach($students_det as $each)
                 {
-                //	echo $each['es_preadmissionid'];
+                //  echo $each['es_preadmissionid'];
                 
                 list($year, $month) = explode('-', date('Y-n'));
                 $date = getdate();
@@ -72,19 +72,19 @@ if($action=='birthday_students')
 
    if(count($students_det)>=1)
    {
-		$i=0;
-		foreach($students_det as $each)
-		{
-    		list($year, $month) = explode('-', date('Y-n'));
-			$date = getdate();
-			$year = $date['year'];
-			$month = $date['mon'];
+        $i=0;
+        foreach($students_det as $each)
+        {
+            list($year, $month) = explode('-', date('Y-n'));
+            $date = getdate();
+            $year = $date['year'];
+            $month = $date['mon'];
  
-			//echo substr($each['pre_dateofbirth'],5,2);
+            //echo substr($each['pre_dateofbirth'],5,2);
 
-			if(substr($each['pre_dateofbirth'],5,2)==$month)
-			{
-				$i++;
+            if(substr($each['pre_dateofbirth'],5,2)==$month)
+            {
+                $i++;
 ?>
                 <tr>
                     <td align="center" valign="middle">&nbsp;<?php echo $i;?></td>
@@ -92,33 +92,33 @@ if($action=='birthday_students')
                     <td align="left" valign="middle">&nbsp;<?php echo classname($each['pre_class']);?></td>
                     <td align="left" valign="middle">&nbsp;<?php echo ucwords($each['pre_fathername']);?></td>
                     <td align="center" valign="middle">&nbsp;
-	 				<?php echo ucwords($each['es_preadmissionid']);
-					/*  $section_det1 = "SELECT * FROM es_sections_student SS , es_sections S WHERE SS.student_id='".$each['es_preadmissionid']."' AND SS.course_id='".$each['pre_class']."' AND SS.section_id=S.section_id ";
-					//   $section_det=$db->getrows(section_det1);
-					$res=mysql_query($section_det1);
-					$row=mysql_fetch_array($res);
-					echo $row['section_name'];*/
-					/*?>	 
-					if($section_det['section_name']!=""){
-					echo ucwords($section_det['section_name']);}else{echo "---";}?></td>
-					<td>&nbsp;<?php  if($section_det['roll_no']!=""){
-					echo $section_det['roll_no'];}else{echo "---";}?><?php */?></td>
-					<td align="center" valign="middle">&nbsp;<?php echo displaydate($each['pre_dateofbirth']);?></td>
-				</tr>
-<?php		}// End of if(substr($each['pre_dateofbirth'],5,2)==$month)
-		}// End of foreach($students_det as $each)
-	}//End of if(count($students_det)>=1)
-	else
-	{
+                    <?php echo ucwords($each['es_preadmissionid']);
+                    /*  $section_det1 = "SELECT * FROM es_sections_student SS , es_sections S WHERE SS.student_id='".$each['es_preadmissionid']."' AND SS.course_id='".$each['pre_class']."' AND SS.section_id=S.section_id ";
+                    //   $section_det=$db->getrows(section_det1);
+                    $res=mysql_query($section_det1);
+                    $row=mysql_fetch_array($res);
+                    echo $row['section_name'];*/
+                    /*?>     
+                    if($section_det['section_name']!=""){
+                    echo ucwords($section_det['section_name']);}else{echo "---";}?></td>
+                    <td>&nbsp;<?php  if($section_det['roll_no']!=""){
+                    echo $section_det['roll_no'];}else{echo "---";}?><?php */?></td>
+                    <td align="center" valign="middle">&nbsp;<?php echo displaydate($each['pre_dateofbirth']);?></td>
+                </tr>
+<?php       }// End of if(substr($each['pre_dateofbirth'],5,2)==$month)
+        }// End of foreach($students_det as $each)
+    }//End of if(count($students_det)>=1)
+    else
+    {
 ?>
         <tr>
-        	<td colspan="6" align="center">No Students Found</td>
+            <td colspan="6" align="center">No Students Found</td>
         </tr>
 <?php
-	}
+    }
 ?>
 </table>
-			  </td>
+              </td>
                 <td width="1" class="bgcolor_02"></td>
               </tr>
                 <td height="1" colspan="3" class="bgcolor_02"></td>

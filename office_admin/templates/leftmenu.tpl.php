@@ -397,7 +397,6 @@ if (in_array('2_p', $admin_permissions)){?>
   </tr>
 </table></div>
 <ul class="categoryitems">
-<li><b>Examination</b></li>
 <li><a href="?pid=47&action=manageexams" >Add Exams</a></li>
 <?php if (in_array("17_1", $admin_permissions)) {?>
 <li><a href="?pid=36&action=createxam">Create Exam</a></li>
