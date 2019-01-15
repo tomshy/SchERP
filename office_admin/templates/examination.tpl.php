@@ -435,10 +435,8 @@ if ($action=="createxam_next"){
 						<tr class="bgcolor_02">
 							<td width="6%" align="center" height="20" class="admin">S No</td>
 						  <td width="24%" align="center" class="admin">Subject</td>
-							<td width="16%" align="center" class="admin">Total Marks </td>
-							<td width="15%" align="center" class="admin">Pass Marks</td>
-							<td width="12%" align="center" class="admin">Exam Date</td>
-							<td width="13%" align="center" class="admin">Duration</td>
+							<td width="16%" align="center" class="admin">Total Marks </td>							
+							<td width="12%" align="center" class="admin">Exam Date</td>							
 							<td width="14%" align="center" class="admin">Action</td>
 						</tr>
 					<?php
@@ -449,10 +447,8 @@ if ($action=="createxam_next"){
 							<tr>
 								<td height="20" align="center" class="narmal"><?php echo $i; ?></td>
 								<td align="left" class="narmal"><?php echo $eachexam['es_subjectname'];?></td>
-								<td align="center" class="narmal"><?php echo $eachexam['total_marks'];?></td>
-								<td align="center" class="narmal"><?php echo $eachexam['pass_marks'];?></td>
-								<td align="center" class="narmal"><?php echo formatDBDateTOCalender($eachexam['exam_date'],'d/m/Y');?></td>
-								<td align="center" class="narmal"><?php echo $eachexam['exam_duration'];?></td>
+								<td align="center" class="narmal"><?php echo $eachexam['total_marks'];?></td>							
+								<td align="center" class="narmal"><?php echo formatDBDateTOCalender($eachexam['exam_date'],'d/m/Y');?></td>								
 								<td align="center" class="narmal"><a href="?pid=36&action=entermarks&edmark=<?php echo $eachexam['es_exam_detailsid'];?>&classes_id=<?php echo $classes_id;?>&groups_id=<?php echo $groups_id; ?>&examname=<?php echo $examname; ?>&academicyear=<?php echo $academicyear; ?>&subject_sud_total=<?php echo $eachexam['total_marks'];?>&ed=<?php echo $eachexam['exam_date'];?>" class="video_link"><b>Enter Marks</b></a></td>
 					
 				  			</tr>
@@ -750,8 +746,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 															<td height="20" width="6%" align="center">S&nbsp;No</td>
 															<td height="20" width="19%" align="center">Registration #</td>
 														  <td height="20" width="55%" align="center">Student Name</td>
-															<td height="20" width="20%" align="center">Marks Obtained</td>
-															<td>Grading</td>
+															<td height="20" width="20%" align="center">Marks Obtained</td>															
 														</tr>
 												<?php
 														$in=0;
@@ -777,8 +772,7 @@ if ($action=="entermarks" || $action=="entermarksprint"){
 																<td align="center">
 																<?php if($action=="entermarks"){ ?>
 																<input type="text" name="stud_marks[]" value="<?php if($std_mrks_det['es_marksobtined']!="" && !$_POST) {echo $std_mrks_det['es_marksobtined']; }else{ echo $stud_marks[$in];} ?>" size="8">
-																<?php } else{ if($std_mrks_det['es_marksobtined']!="") echo $std_mrks_det['es_marksobtined']; }?></td>
-																<td id="gradng">45</td></td>
+																<?php } else{ if($std_mrks_det['es_marksobtined']!="") echo $std_mrks_det['es_marksobtined']; }?></td>																
 															</tr>
 												<?php
 														$n++;
