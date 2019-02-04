@@ -2,7 +2,19 @@
 	$sel_year = "SELECT *FROM `es_finance_master`  ORDER BY `es_finance_masterid` DESC LIMIT 0 , 1";
 	$res_year = getarrayassoc($sel_year);
 ?>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <script type="text/javascript" src="../includes/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../includes/js/bootstrap.js"></script>
+  </head>
+  <style type="text/css">
+    #term_modal{
+      visibility: hidden;
+    }
+  </style>
+  <body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="55%" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
@@ -25,7 +37,7 @@
                               <td width="96%" align="center" valign="middle" class="btn_mid" ><a href="?pid=44" class="header_link">Home</a><a href="?pid=54&action=albumlist" class="header_link"></a></td>
                               <td width="2%" class="btn_rt">&nbsp;</td>
                             </tr>
-                        </table></td>                        
+                        </table></td>
                         <td width="35%" align="left" valign="top"><table width="100%" height="23" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                               <td width="2%" class="btn1">&nbsp;</td>
@@ -43,4 +55,11 @@
                       </tr>
                   </table></td>
                 </tr>
-            </table>
+    </table>
+  </body>
+  <script type="text/javascript">
+    $('#term_btn').click(function () {
+      $('#term_modal').css("visibility","visible");
+    });
+  </script>
+</html>
