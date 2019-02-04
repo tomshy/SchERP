@@ -164,6 +164,7 @@ else
 
         </tr>
     </table>
+    
     <div>
         <style type="text/css">
             svg{
@@ -190,8 +191,8 @@ else
             .domain([0,7])
             .range([350,0]);
     var years=[2013,2014,2015,2016,2017];
-    var x_scale=d3.scaleLinear()
-            .domain([13,17])
+    var x_scale=d3.scaleBand()
+            .domain([2013,2014,2015,2016,2017])
             .range([0,498]);
     var x_axis=d3.axisBottom()
             .scale(x_scale);
@@ -215,7 +216,7 @@ else
         .data(kcse)
         .enter()
         .append("text")
-        .text(function(d){return d;})
+        .text(function(d,i){return d;})
         .attr("y",function(d,i){return y_scale(d)-1;})//y position of bar labels
         .attr("x",function(d,i){return bar_width*i+70;})//x position of bar labels
         .style("fill","#999999");
@@ -223,7 +224,13 @@ else
         .attr("transform","translate(30,0)")
         .call(y_axis);
     svg.append("g")
-        .attr("transform","translate(30,350)")
+        .attr("transform","translate(30,"+height+")")
         .call(x_axis);
+    svg.append('text')
+      .attr('class', 'label')
+      .attr('x', width / 2)
+      .attr('y', height+45)
+      .attr('text-anchor', 'middle')
+      .text('Years');    
     </script>
 </html>
