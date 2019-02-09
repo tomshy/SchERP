@@ -2412,7 +2412,7 @@ if($loop >= $loopstrt && $loop < $loopend) {
 	 
 				
 				<tr>
-					<td colspan="3" align="center" height="50"><strong>CERTIFICATE</strong></td></tr><tr>
+					<td colspan="3" align="center" height="50"><strong>STUDENT REPORT</strong></td></tr><tr>
 				</tr>
 				<tr>
 					<td colspan="3" align="center" height="10"></td></tr><tr>
@@ -2429,16 +2429,21 @@ if($loop >= $loopstrt && $loop < $loopend) {
 										<td class="narmal" width="27%" align="left"><b> Name  </b></td>
 										<td><b>:</b></td>
 							    <td width="73%" align="left" class="narmal">&nbsp;<?php echo ucwords($std_name);?></td>
-									</tr>
-									 <tr>
-										<td class="narmal" width="27%" align="left"><b>Father Name  </b></td>
-										<td><b>:</b></td>
-							            <td width="73%" align="left" class="narmal">&nbsp;<?php echo ucwords($reportdetails[0]['pre_fathername']);?></td>
-									</tr>
+									</tr>									 
 									<tr>
 										<td class="narmal" align="left"><b>Class </b></td>
 										<td><b>:</b></td>
 									    <td align="left" class="narmal">&nbsp;<?php echo $class_name;?></td>
+									</tr>
+									<tr>
+										<td class="narmal" width="27%" align="left"><b>Class Position</b></td>
+										<td><b>:</b>2</td>
+										<td>out of: 20</td>
+									</tr>
+									<tr>
+										<td class="narmal" width="27%" align="left"><b>Form Position</b></td>
+										<td><b>:</b>4</td>
+										<td>out of: 40</td>
 									</tr>
 									<tr>
 										<td class="narmal" align="left"><b>Academic&nbsp;Year </b></td>
@@ -2457,16 +2462,18 @@ if($loop >= $loopstrt && $loop < $loopend) {
 					<td colspan="3" align="center" height="10"></td></tr><tr>
 				</tr>
 				
+
 				<tr>
 					<td colspan="3" height="100" >
 					<table width="100%" cellpadding="0" cellspacing="0">
 					<tr class="bgcolor_02">
-								<td width="9%" align="center" height="20" class="admin">Suubject Code</td>
-								<td width="20%" align="left" class="admin">Subject</td>
-								<td width="18%" height="25" align="center" class="admin">Total Marks</td>
-								<td width="15%" align="center" class="admin">Pass Marks</td>
-								<td width="23%" align="center" class="admin">Marks Obtained</td>
-								<td width="15%" align="center" class="admin">Status</td>
+								<td align="center" height="20" class="admin">Subject Code</td>
+								<td align="left" class="admin">Subject</td>								
+								<td align="center" class="admin">Marks Obtained</td>
+								<td align="left" height="20" class="admin">Grade</td>
+								<td align="center" class="admin">Position</td>
+								<td height="25" align="center" class="admin">Remarks</td>								
+								<td align="center" class="admin">Subject Teacher</td>
 					  </tr>
 					<?php 
 						if (count($sub_data) > 0 && count($reportdetails) > 0){
@@ -2486,11 +2493,12 @@ if($loop >= $loopstrt && $loop < $loopend) {
 	                        	
 								<tr>
 	                                <td align="center"><?php echo $slno;?></td>
-									<td align="left" class="narmal"><?php echo $subArray[$sbid]['subject_name'];?></td>
-									<td align="center" class="narmal"><?php echo $subArray[$sbid]['total_marks'];?></td>
-									<td align="center" class="narmal"><?php echo $subArray[$sbid]['pass_marks'];?></td>
+									<td align="left" class="narmal"><?php echo $subArray[$sbid]['subject_name'];?></td>									
 									<td align="center" class="narmal"><?php echo strtoupper($subArray[$sbid]['marks_obtined']);?></td>
-									<td align="center" class="narmal"><?php if((int)$subArray[$sbid]['marks_obtined']>=(int)$subArray[$sbid]['pass_marks']){echo "Pass";}else{echo "Fail";}?></td>
+									<td align="center" class="narmal">A</td>
+									<td align="center" class="narmal">3</td>
+									<td align="center" class="narmal">Good</td>
+									<td align="center" class="narmal">T.N</td>
 						       </tr>
 				  <?php 
 								}
@@ -2500,21 +2508,30 @@ if($loop >= $loopstrt && $loop < $loopend) {
 				  		?>
 				  				<tr>
 	                                <td height="25" colspan="2" align="right"><b>Total Marks : </b></td>
-									<td align="center" class="narmal"><?php echo $tot_total;?></td>
-									<td align="center" class="narmal"><?php echo $tot_pass;?></td>
+									<td align="center" class="narmal"><?php echo $tot_total;?></td>									
 									<td align="center" class="narmal"><?php echo $tot_secured;?></td>
 									<td align="center" class="narmal"></td>
 						       </tr>
 						       <tr>
 									<td colspan="6" height="40" align="right">
-										<table width="100%" border="0" cellspacing="0" cellpadding="1">
+										<br><br>
+										<table width="100%" border="1px solid black" cellspacing="0" cellpadding="1">
 											<tr>
-				                                <td align="left" width="50%"><b>Status : <?php echo $pass_status;?></b></td>
-				                                <td align="right" width="50%"><b>Percentage : <?php echo number_format($percentagemark,2,'.','');?>%</b></td>
+				                                <td align="center" ><b>KCPE Marks</b></td>
+				                                <td align="center" ><b>KCPE Mean Grade</b></td>
+				                                <td align="center" ><b>Total Points</b></td>
+				                                <td align="center" ><b>Mean Grade</b></td>
+									       </tr>
+									       	<tr>
+				                                <td align="center" ><?php echo "350"?></td>
+				                                <td align="center" ><?php echo "8"?></td>
+				                                <td align="center" >8</td>
+				                                <td align="center" >B+</td>
 									       </tr>
 										</table>
 									</td>
 			 		  </tr>
+
 								 <?php }?>
 					
 					</table>
@@ -2525,10 +2542,20 @@ if($loop >= $loopstrt && $loop < $loopend) {
 					</td>
   </tr>
 				<tr>
-					<td colspan="3"  align="right" height="100" >Principal</td>
+					<td  align="left" >Fee Balance:&nbsp;Nil</td>
+					<td  align="left" >Next Term's fee:&nbsp;Nil</td>					
+				</tr>
+				<tr>
+				<td  align="left" height="100" >Class Teacher's Remarks</td>
+					
+					
+				</tr>
+				<tr>
+				<td  align="left" height="100" >Principal's Remarks</td>
+					
+					
 				</tr>
 				
-				<tr><td colspan="3"></td></tr>
 		   </table>
 <?php } 
 	if($action=='allstudentsexport'){
