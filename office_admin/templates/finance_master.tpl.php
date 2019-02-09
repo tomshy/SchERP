@@ -152,6 +152,63 @@ if($action == 'school_details') { ?>
   </tr>
 </table></td>
 				  </tr>
+				  <tr>
+					<td align="left"  width="21%" class="narmal">Term 1</td>
+					<td align="left" ><strong>:</strong></td>
+					<td align="left"  colspan="2" class="narmal"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left"  width="61%" class="narmal">Start&nbsp;Date:</td>
+
+						<td align="left" width="34%"><input class="plain" name="fi_ac_startdate" value="<?php if(isset($fid) && $fid!="") { echo formatDBDateTOCalender($compdetails_school['fi_ac_startdate']); }  else { echo  $fi_ac_startdate; }?>" size="12" onfocus="this.blur()" readonly /></td>
+						<td align="left" width="25%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fStartPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td>
+						<font color="#FF0000"><b>*</b></font></td>
+				 </tr></table></td>
+					<td align="left" colspan="2" class="narmal"><table width="94%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" width="61%" class="narmal">End&nbsp;Date:</td>
+    <td align="left" width="33%"><input class="plain" name="fi_ac_enddate" value="<?php if(isset($fid) && $fid!="") {  echo formatDBDateTOCalender($compdetails_school['fi_ac_enddate']); }   else { echo  $fi_ac_enddate; }?>" size="12" onFocus="this.blur()" readonly></td>
+    <td align="left" width="20%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fEndPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td><font color="#FF0000"><b>*</b></font></td>
+  </tr>
+</table></td>
+				  </tr>
+				  <tr>
+					<td align="left"  width="21%" class="narmal">Term 2</td>
+					<td align="left" ><strong>:</strong></td>
+					<td align="left"  colspan="2" class="narmal"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left"  width="61%" class="narmal">Start&nbsp;Date:</td>
+
+						<td align="left" width="34%"><input class="plain" name="fi_ac_startdate" value="<?php if(isset($fid) && $fid!="") { echo formatDBDateTOCalender($compdetails_school['fi_ac_startdate']); }  else { echo  $fi_ac_startdate; }?>" size="12" onfocus="this.blur()" readonly /></td>
+						<td align="left" width="25%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fStartPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td>
+						<font color="#FF0000"><b>*</b></font></td>
+				 </tr></table></td>
+					<td align="left" colspan="2" class="narmal"><table width="94%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" width="61%" class="narmal">End&nbsp;Date:</td>
+    <td align="left" width="33%"><input class="plain" name="fi_ac_enddate" value="<?php if(isset($fid) && $fid!="") {  echo formatDBDateTOCalender($compdetails_school['fi_ac_enddate']); }   else { echo  $fi_ac_enddate; }?>" size="12" onFocus="this.blur()" readonly></td>
+    <td align="left" width="20%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fEndPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td><font color="#FF0000"><b>*</b></font></td>
+  </tr>
+</table></td>
+				  </tr>
+				  <tr>
+					<td align="left"  width="21%" class="narmal">Term 3</td>
+					<td align="left" ><strong>:</strong></td>
+					<td align="left"  colspan="2" class="narmal"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left"  width="61%" class="narmal">Start&nbsp;Date:</td>
+
+						<td align="left" width="34%"><input class="plain" name="fi_ac_startdate" value="<?php if(isset($fid) && $fid!="") { echo formatDBDateTOCalender($compdetails_school['fi_ac_startdate']); }  else { echo  $fi_ac_startdate; }?>" size="12" onfocus="this.blur()" readonly /></td>
+						<td align="left" width="25%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fStartPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td>
+						<font color="#FF0000"><b>*</b></font></td>
+				 </tr></table></td>
+					<td align="left" colspan="2" class="narmal"><table width="94%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" width="61%" class="narmal">End&nbsp;Date:</td>
+    <td align="left" width="33%"><input class="plain" name="fi_ac_enddate" value="<?php if(isset($fid) && $fid!="") {  echo formatDBDateTOCalender($compdetails_school['fi_ac_enddate']); }   else { echo  $fi_ac_enddate; }?>" size="12" onFocus="this.blur()" readonly></td>
+    <td align="left" width="20%"><a href="javascript:void(0)" onClick="if(self.gfPop)gfPop.fEndPop(document.schooldetailsform.fi_ac_startdate,document.schooldetailsform.fi_ac_enddate);return false;" ><img class="PopcalTrigger" align="absmiddle" src="<?php echo JS_PATH ?>/DateRange/calbtn.gif" width="34" height="22" border="0" alt=""></a></td><td><font color="#FF0000"><b>*</b></font></td>
+  </tr>
+</table></td>
+				  </tr>
                   <?php } ?>
 				  <tr>
 					<td align="left" class="narmal">School / College Name</td>

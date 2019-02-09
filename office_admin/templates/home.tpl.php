@@ -130,27 +130,27 @@ else
 {?>
     <table width="100%" height="144" border="0" cellspacing="0" cellpadding="0">
         <tr height="100">
-            <td valign="top">
+            <td>
                 <table>
                     <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-user-graduate"></i></td><td align="center"><?php echo count($student_num);?><hr></td></tr>
                     <tr><td>Students</td></tr>
                 </table>
             </td>            
-            <td valign="top">
+            <td>
                 <table>
                     <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-users"></i></td><td align="center"><?php echo count($staff_num);?><hr></td></tr>
                     
                     <tr><td>Staff</td></tr>
                 </table>
             </td>
-            <td valign="top">
+            <td>
                 <table>
                     <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-school"></i></td><td align="center"><?php echo count($class_num);?><hr></td></tr>
                     
                     <tr><td>Classes</td></tr>
                 </table>
             </td>
-            <td valign="top">
+            <td>
                 <table>
                     <tr><td rowspan="2"><i style="font-size:60px" class="fas fa-dollar-sign"></i></td><td align="center">Ksh 100,000,000<hr></td></tr>
                     
@@ -158,9 +158,9 @@ else
                 </table>
             </td>
         </tr>
-        <tr height="5">
+        <tr height="100%">
             
-            <td valign="top"><h2>KCSE Performance - last 5 years</h2></td>
+            <td><h2>KCSE Performance - last 5 years</h2></td>
 
         </tr>
     </table>
