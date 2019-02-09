@@ -2278,10 +2278,9 @@ if($loop >= $loopstrt && $loop < $loopend) {
 								<td width="10%" align="center" height="20" class="admin">S&nbsp;No</td>
 								<td width="24%" align="left" class="admin">Subject</td>
 								<td width="16%" align="center" class="admin">Total Marks</td>
-								<td width="10%" align="center" class="admin">Pass Marks</td>
 								<td width="10%" align="center" class="admin">Marks Obtained</td>
+								<td width="10%" align="center" class="admin">Points</td>
 								<td width="10%" align="center" class="admin">Grading</td>
-								<td width="10%" align="center" class="admin">Status</td>
 						  </tr>
 					<?php 
 						if (count($sub_data) > 0 && count($reportdetails) > 0){
@@ -2303,10 +2302,93 @@ if($loop >= $loopstrt && $loop < $loopend) {
 	                                <td align="center"><?php echo $slno;?></td>
 									<td align="left" class="narmal"><?php echo $subArray[$sbid]['subject_name'];?></td>
 									<td align="center" class="narmal"><?php echo $subArray[$sbid]['total_marks'];?></td>
-									<td align="center" class="narmal"><?php echo $subArray[$sbid]['pass_marks'];?></td>
 									<td align="center" class="narmal"><?php echo strtoupper($subArray[$sbid]['marks_obtined']);?></td>
-									<td align="center" class="narmal" id="grading">A</td>
-									<td align="center" class="narmal"><?php if((int)$subArray[$sbid]['marks_obtined']>=(int)$subArray[$sbid]['pass_marks']){echo "Pass";}else{echo "Fail";}?></td>
+									<td align="center" class="narmal">
+										<?php
+											switch (true) {
+											case ($subArray[$sbid]['marks_obtined']>79):
+												echo "12";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>74):
+												echo "11";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>69):
+												echo "10";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>64):
+												echo "9";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>59):
+												echo "8";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>54):
+												echo "7";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>49):
+												echo "6";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>44):
+												echo "5";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>39):
+												echo "4";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>34):
+												echo "3";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>29):
+												echo "2";
+												break;
+											
+											default:
+												echo "1";
+												break;
+										}
+										?>
+									</td>
+									<td align="center" class="narmal">
+									<?php 
+										switch (true) {
+											case ($subArray[$sbid]['marks_obtined']>79):
+												echo "A";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>74):
+												echo "A-";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>69):
+												echo "B+";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>64):
+												echo "B";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>59):
+												echo "B-";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>54):
+												echo "C+";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>49):
+												echo "C";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>44):
+												echo "C-";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>39):
+												echo "D+";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>34):
+												echo "D";
+												break;
+											case ($subArray[$sbid]['marks_obtined']>29):
+												echo "D-";
+												break;
+											
+											default:
+												echo "E";
+												break;
+										}
+									?></td>
+									
 						       </tr>
 				  <?php 
 								}
@@ -2316,17 +2398,17 @@ if($loop >= $loopstrt && $loop < $loopend) {
 				  		?>
 				  				<tr>
 	                                <td height="25px" colspan="2" align="right"><b>Total Marks :</b> </td>
-									<td align="center" class="narmal"><?php echo $tot_total;?></td>
-									<td align="center" class="narmal"><?php echo $tot_pass;?></td>
+									<td align="center" class="narmal"><?php echo $tot_total;?></td>									
 									<td align="center" class="narmal"><?php echo $tot_secured;?></td>
-									<td align="center" class="narmal"></td>
+									<td align="center" class="narmal"><b><?php echo "Mean: ".$mean_grade;?></b></td>
+									<td align="center" class="narmal"><b><?php echo "Mean: ".$mean_points;?></b></td>
 						       </tr>
 						       <tr>
 									<td colspan="6" height="40" align="right">
 										<table width="100%" border="0" cellspacing="0" cellpadding="1">
 											<tr>
 				                                <td align="left" width="50%"><b>Status : <?php echo $pass_status;?></b></td>
-				                                <td align="right" width="50%"><b>Percentage : <?php echo number_format($percentagemark,2,'.','');?>%</b></td>
+				                                
 									       </tr>
 										</table>
 									</td>
@@ -2352,42 +2434,6 @@ if($loop >= $loopstrt && $loop < $loopend) {
 							}
 						?>
 			  			</form>
-			  			<script type="text/javascript">
-			  			function grade () {
-														var grade;
-														var marks=document.getElementsByName('stud_marks[]').value;
-														if (marks>79) {
-																grade="A";
-													}else if(marks>75){
-														grade="A-";
-													}else if(marks>70){
-														grade="B+";
-													}else if(marks>65){
-														grade="B";
-													}else if(marks==60){
-														grade="B";
-													}else if(marks>55){
-														grade="B-";
-													}else if(marks>50){
-														grade="C+";
-													}else if(marks>45){
-														grade="C";
-													}else if(marks>40){
-														grade="C-";
-													}else if(marks>35){
-														grade="D+";
-													}else if(marks>30){
-														grade="D";
-													}else if(marks>25){
-														grade="D-";
-													}else{
-														grade="E";
-													}
-													document.getElementById('grading').innerHTML=grade;
-													
-													}	
-													grade()	;
-												</script>
            			</table></td>
 	 		 </tr>
 
