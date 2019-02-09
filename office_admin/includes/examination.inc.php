@@ -988,6 +988,58 @@ if ($action=='allstudents' || $action=='print_list_allstudents'){
 				}
 				$sub_data = gettingSubject($clasid);
 				$percentagemark = ($tot_secured/$tot_total)*100;
+				$mean_grade=0;
+				$mean_points="";
+				switch (true) {
+					case ($percentagemark>79):
+						$mean_grade=12;
+						$mean_points="A";
+						break;
+					case ($percentagemark>74):
+						$mean_grade=11;
+						$mean_points="A-";
+						break;
+					case ($percentagemark>69):
+						$mean_grade=10;
+						$mean_points="B+";
+						break;
+					case ($percentagemark>64):
+						$mean_grade=9;
+						$mean_points="B";
+						break;
+					case ($percentagemark>59):
+						$mean_grade=8;
+						$mean_points="B-";
+						break;
+					case ($percentagemark>54):
+						$mean_grade=7;
+						$mean_points="C+";
+						break;
+					case ($percentagemark>49):
+						$mean_grade=6;
+						$mean_points="C";
+						break;
+					case ($percentagemark>44):
+						$mean_grade=5;
+						$mean_points="C-";
+						break;
+					case ($percentagemark>39):
+						$mean_grade=4;
+						$mean_points="D+";
+						break;
+					case ($percentagemark>34):
+						$mean_grade=3;
+						$mean_points="D";
+						break;
+					case ($percentagemark>29):
+						$mean_grade=2;
+						$mean_points="D-";
+						break;
+					default:
+						$mean_grade=1;
+						$mean_points="E";
+						break;
+				}
 			}
 		}
 	}
